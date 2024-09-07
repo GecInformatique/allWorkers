@@ -26,6 +26,8 @@ export class DomainsComponent implements OnInit {
   currentPage = 1;
   pageSize= 10; // Nombre d'éléments par page
   totalData = 0;
+  public selectedFile: File | null = null;
+
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -51,6 +53,14 @@ export class DomainsComponent implements OnInit {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+    }
   }
 
   private getAllDomains(): void {
@@ -80,7 +90,9 @@ export class DomainsComponent implements OnInit {
   }
 
   private updateDomain(domain: any): void {
-    if (domain.id !== undefined) {
+
+    console.log(domain)
+   if (domain.id !== undefined) {
       this.domainActivityService.updateDomainActivity(domain, domain.id)
         .pipe(takeUntil(this.destroy$))
         .subscribe({

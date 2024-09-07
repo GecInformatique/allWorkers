@@ -275,8 +275,8 @@ export class HomeComponent implements OnInit {
   navigation() {
     this.router.navigate([routes.freelancer_project]);
   }
-  navigateTo(){
-    this.router.navigate([routes.candidatView]);
+  navigateTo(domain : any){
+    this.router.navigate([routes.candidatView],{ state: { domain }});
 
   }
   navigateToFormationDetail(formation: any): void {

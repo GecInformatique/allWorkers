@@ -125,7 +125,7 @@
     <div class="browse-categories-content">
       <div class="row row-gap aos" data-aos="fade-up">
         <div class="col-lg-3 col-md-6 col-12 aos"  *ngFor="let domain of domainActivity | slice:0:8" data-aos="zoom-in" data-aos-duration="1000">
-          <div class="popular-catergories" (click)="navigateTo()">
+          <div class="popular-catergories" (click)="navigateTo(domain)">
             <div class="popular-catergories-img" style="height: 50px; width:50px">
               <span><img src="{{domain?.icon}}" alt="img" style="height: 100%; width:100%"></span>
             </div>

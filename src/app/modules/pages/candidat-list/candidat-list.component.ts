@@ -28,6 +28,7 @@ export class CandidatListComponent {
   candidates : any[] =[];
   candidatesWithSpecialism: any[] = [];
   specialismName: any;
+  domains: any;
   public selectedValue1 = '';
   public like : boolean[] = [false];
   isCollapsesDAOpen: boolean = true;
@@ -72,6 +73,12 @@ export class CandidatListComponent {
   ngOnInit(): void {
     this.getDomainActivityList();
     this.getSpecialismList()
+    this.domains = history.state.domain;
+
+
+
+    console.log(this.domains,"domaine recupere ")
+
   }
 
   getDomainName(name: string | undefined): string {
