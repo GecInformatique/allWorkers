@@ -1,0 +1,46 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+  <div class="container">
+    <div class="row align-items-center inner-banner">
+      <div class="col-md-12 col-12 text-center">
+        <div class="breadcrumb-list">
+          <h3>{{'DISCOVER_BUSINESS_DOMAINS'|translate}}</h3>
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink] = "routes.home">Home</a></li>
+              <li class="breadcrumb-item" aria-current="page">{{'DOMAIN'|translate}}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Browse Categories -->
+<section class="section browse-categories">
+  <div class="container">
+
+    <div class="browse-categories-content">
+      <div class="row row-gap " >
+        <div class="col-lg-3 col-md-6 col-12"  *ngFor="let domain of domainActivity" >
+          <div class="popular-catergories" (click)="navigateTo()">
+            <div class="popular-catergories-img" style="height: 50px; width:50px">
+              <span><img src="{{domain?.icon}}" alt="img" style="height: 100%; width:100%"></span>
+            </div>
+            <div class="popular-catergories-content text-center">
+
+              <h5>{{ getDomainName(domain?.name) | translate }}</h5>
+
+              <a href="javascript:void(0);">958 Skills</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- /Browse Categories -->

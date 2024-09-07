@@ -1,0 +1,17 @@
+<ul class="paginations list-pagination">
+  <li class="page-item" *ngIf="paginationInfo.next_page_url" [class.disabled]="!paginationInfo.prev_page_url" (click)="goToPage(paginationInfo.current_page - 1)">
+    <a href="javascript:void(0);">
+      <i class="feather icon-chevron-left"></i>
+    </a>
+  </li>
+
+  <li class="page-item" *ngFor="let page of pages" [class.active]="page === paginationInfo.current_page" (click)="goToPage(page)">
+    <a href="javascript:void(0);">{{ page }}</a>
+  </li>
+
+  <li class="page-item" *ngIf="paginationInfo.next_page_url" [class.disabled]="!paginationInfo.next_page_url" (click)="goToPage(paginationInfo.current_page + 1)">
+    <a href="javascript:void(0);">
+      <i class="feather icon-chevron-right"></i>
+    </a>
+  </li>
+</ul>

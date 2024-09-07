@@ -1,0 +1,744 @@
+
+<!-- Home Banner -->
+<section class="section home-banner home-four row-middle">
+  <div class="banner-float-img">
+    <img src="assets/img/great-job.png" alt="banner-image">
+  </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="banner-blk-four aos" data-aos="fade-up">
+          <div class="banner-content">
+            <div class="banner-note">
+              <h5 class="mb-0">{{'A_TASK_A_JOB'|translate}} </h5>
+            </div>
+            <h1>{{ 'FIND_YOUR_NEXT' | translate }}<br>{{ 'FREELANCER' | translate }}</h1>
+            <p>{{'FIND_PEOPLE_FOR_JOBS'|translate}}</p>
+            <form class="form" name="store" id="store" method="post">
+              <div class="form-inner">
+                <div class="input-group">
+                  <span class="drop-detail">
+                   <!-- <mat-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}"
+                                class="select" placeholder="Domaine">
+                      @for (data of selectedList; track data) {
+                      <mat-option [value]="data.value">
+                          {{data.value}}
+                        </mat-option>
+                      }
+                    </mat-select>-->
+                  </span>
+                  <input type="email" class="form-control" placeholder="Keywords">
+                  <button class="btn btn-primary sub-btn" type="button" (click)="navigation()" (keydown.enter)="navigation()" tabindex="0">{{'SEARCH'|translate}}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="coplete-job aos" data-aos="fade-right">
+      <div class="complete-icon me-2">
+        <i class="feather icon-briefcase"></i>
+      </div>
+      <div class="complete-content course-count">
+        <h3>+ <span class="counter-up" [countUp]="21" [options]="{ enableScrollSpy: true }">21</span> K</h3>
+        <p>{{'COMPLETED_JOBS'|translate}}</p>
+      </div>
+    </div>
+    <div class="fullstack-blk aos" data-aos="fade-up">
+      <div class="fullstacker-img">
+        <img src="assets/img/new/black_developper.png" class="img-fluid" alt="Img">
+        <span class="stacker-active"><i class="fas fa-check-circle"></i></span>
+      </div>
+      <div class="fullstacker-name">
+        <h4>Chambers</h4>
+        <p>Full stack developer</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star filled"></i>
+        <i class="fas fa-star filled"></i>
+        <i class="fas fa-star filled"></i>
+        <i class="fas fa-star filled"></i>
+        <i class="fas fa-star"></i>
+        <span class="average-rating">5.0 (50 Review)</span>
+      </div>
+    </div>
+    <div class="register-profesion aos" data-aos="fade-right">
+
+      <div class="avatar-group">
+        <div class="avatar avatar-xs group_img group_header">
+          <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/new/avatars/avatar-1.jpeg">
+        </div>
+        <div class="avatar avatar-xs group_img group_header">
+          <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/new/avatars/avatar-2.jpg">
+        </div>
+        <div class="avatar avatar-xs group_img group_header">
+          <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/new/avatars/avatar-3.jpeg">
+        </div>
+
+      </div>
+      <div class="profesion-content course-count">
+        <p>{{'JOIN_200_FREELANCERS'|translate}}</p>
+        <span>{{'SIGN_UP_FOR_ONLINE_COURSES'|translate}}</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Home Banner -->
+
+<div class="trusted-by-section">
+  <span>Trusted By :</span>
+  <ul>
+    <li>
+      <img src="assets/img/icon/trusted1.svg" alt="Img">
+    </li>
+    <li>
+      <img src="assets/img/icon/trusted2.svg" alt="Img">
+    </li>
+    <li>
+      <img src="assets/img/icon/trusted3.svg" alt="Img">
+    </li>
+    <li>
+      <img src="assets/img/icon/trusted4.svg" alt="Img">
+    </li>
+    <li>
+      <img src="assets/img/icon/trusted5.svg" alt="Img">
+    </li>
+  </ul>
+</div>
+
+
+
+<!-- Browse Categories -->
+<section class="section browse-categories">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto">
+        <div class="section-header section-header-four section-locate aos" data-aos="fade-up">
+          <div class="text-center">
+            <h2 class="header-title">{{'DISCOVER_BUSINESS_DOMAINS'|translate}}</h2>
+            <p>{{'FIND_PEOPLE_FOR_JOBS'|translate}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="browse-categories-content">
+      <div class="row row-gap aos" data-aos="fade-up">
+        <div class="col-lg-3 col-md-6 col-12 aos"  *ngFor="let domain of domainActivity | slice:0:8" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="popular-catergories" (click)="navigateTo()">
+            <div class="popular-catergories-img" style="height: 50px; width:50px">
+              <span><img src="{{domain?.icon}}" alt="img" style="height: 100%; width:100%"></span>
+            </div>
+            <div class="popular-catergories-content text-center">
+
+              <h5>{{ getDomainName(domain?.name) | translate }}</h5>
+
+              <a href="javascript:void(0);">{{domain.professions_count}}</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="home-four-viewall" *ngIf="domainActivity && domainActivity.length > 0">
+
+      <a [routerLink]="routes.domainView" class="home-four-viewall-btn">{{'SEE_ALL_BUSINESS_DOMAINS'|translate}}</a>
+
+    </div>
+  </div>
+</section>
+<!-- /Browse Categories -->
+
+
+<section class="section projects">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto text-center">
+        <div class="section-header aos " data-aos="fade-up">
+          <h2 class="header-title">{{'WHAT_IS_GREAT_ABOUT_IT'|translate}}</h2>
+          <p>{{'ALL_FEATURES_BELOW'|translate}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row row-gap">
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="feature-items">
+          <div class="feature-icon">
+            <img src="assets/img/icon/great1.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count">
+            <h3>{{'BROWSE_PORTFOLIOS'|translate}}</h3>
+            <p>{{'FIND_TRUSTED_PROFESSIONALS'|translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="1500">
+        <div class="feature-items ">
+          <div class="feature-icon">
+            <img src="assets/img/icon/great2.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count">
+            <h3>{{'QUICK_BIDS'|translate}}</h3>
+            <p>{{'GET_QUICK_QUOTES'|translate}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="2000">
+        <div class="feature-items ">
+          <div class="feature-icon">
+            <img src="assets/img/icon/great3.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count">
+            <h3>{{'FAST_BIDDING'|translate}}</h3>
+            <p>{{'WORLDWIDE_TALENT_POOL'|translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="2500">
+        <div class="feature-items ">
+          <div class="feature-icon">
+            <img src="assets/img/icon/great4.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count">
+            <h3>{{'TRACK_PROGRESS'|translate}}</h3>
+            <p>{{'STAY_INFORMED'|translate}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+    </div>
+  </div>
+</section>
+
+<!--- Developed Project  -->
+<section class="section news pt-0 review-set">
+  <div class="container">
+    <div class="row">
+      <!-- Feature Item -->
+      <div class="col-lg-6 col-md-12">
+        <div class="work-box bg1"  data-aos="zoom-in"  data-aos-duration="1000">
+          <div class="work-content">
+            <h2>{{'HOW_CAN'|translate}}<span>{{'WE_HELP'|translate}}</span></h2>
+            <p>{{'EXPRESS_YOUR_NEED'|translate}}</p>
+            <a [routerLink]="routes.freelancer_project" class="btn btn-primary">{{'I_will_speak'|translate}}</a>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+      <div class="col-lg-6 col-md-12">
+        <div class="work-box aos bg2"  data-aos="zoom-in"  data-aos-duration="2000">
+          <div class="work-content ">
+            <h2>{{'EASILY_FIND'|translate}}<span>{{'EXPLORE_OPPORTUNITIES'|translate}}</span></h2>
+            <p>{{'TAKE_CAREER_TO_NEXT_LEVEL'|translate}}</p>
+            <a [routerLink]="routes.freelancer_project" class="btn btn-primary">{{'SIGN_UP'|translate}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--- /Developed Project  -->
+
+
+
+<!-- Update -->
+<section class="home-four-wrapper section feature-counts">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 aos " data-aos="fade-up">
+        <div class="register-job-blk">
+          <div class="job-content-blk text-center aos  " data-aos="fade-up">
+            <h2>{{'RECEIVE_SPECIAL_OFFERS'|translate}}</h2>
+            <p>{{'BEST_JOB_AWAITS'|translate}}</p>
+
+          </div>
+          <div class="home-four-viewall">
+            <a [routerLink] = "routes.register" class="home-four-viewall-btn">{{'BECOME_MEMBER'|translate}} <i
+              class="feather icon-arrow-right ms-2"></i></a>
+            <a [routerLink] = "routes.employee_post_project" class="home-four-viewall-btn">{{'EXPRESS_YOUR_NEED_AGAIN'|translate}}<i
+              class="feather icon-arrow-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Update -->
+
+<!-- Feature Developers -->
+<section class="section feaure-for-developer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto">
+        <div class="section-header section-header-four section-locate aos" data-aos="fade-up">
+          <div>
+            <h2 class="header-title mb-0">Freelancers disponible chez All-Workers</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="feature-project-slider" class="feature-dev-three  owl-theme trend-slider aos" data-aos="fade-up">
+      <owl-carousel-o [options]="featureCandidateSlider">
+        <ng-template *ngFor="let candidate of candidates | slice:0:8;index as i" carouselSlide>
+          <div class="project-item project-item-feature">
+            <div class="project-img heart-blk">
+              <a routerLink = "freelancer_developer_profile">
+                <img src="{{candidate.picture}}" alt="Img" class="img-fluid">
+              </a>
+              <h5 class="hour-dollr">{{candidate.tasks_count}} <span> Tâches</span></h5>
+            </div>
+            <div class="feature-project-content">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <h4 class="d-flex"><a routerLink = "freelancer_developer_profile">{{candidate.full_name}}</a>
+                  <img *ngIf="candidate.profile_certificate" src="assets/img/icon/verify-badge.svg" class="ms-1" alt="Img">
+                </h4>
+                <a *ngIf="userConnected" href="javascript:void()" class="select-favourite"><i class="fa-regular fa-bookmark"></i></a>
+              </div>
+
+              <p><!--{{candidate.specialism?.name}}--></p>
+              <div class="d-flex justify-content-between align-items-center">
+
+                <app-rating [rating]="candidate.rating"></app-rating>
+
+                <div class="feature-developer-foot d-flex justify-content-center">
+                  <a routerLink="/candidate-details"><i class="feather icon-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <div class="home-four-viewall">
+      <a routerLink="/candidate-list" class="home-four-viewall-btn" >Voir plus de freelancers <i class="feather-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+<!-- Feature Developers -->
+
+<!-- Marketplace -->
+<section class="section join-marketplace">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="markrt-place-img aos" data-aos="fade-up">
+          <img src="assets/img/happy-young-man.jpg" class="img-fluid" alt="Img">
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 d-flex align-items-center">
+        <div class="market-place-group join-place-blk aos" data-aos="fade-up">
+          <h2>{{'JOIN_BEST_PROFESSIONAL_MARKETPLACE'|translate}}</h2>
+          <p>{{'WHY_HIRE_PEOPLE'|translate}}</p>
+          <ul class="market-list-out">
+            <li><i class="fa-solid fa-circle-check"></i> {{'EASY_TO_POST_PROJECT'|translate}}</li>
+            <li><i class="fa-solid fa-circle-check"></i> {{'FREELANCERS_FOR_ALL_SIZES_AND_BUDGETS'|translate}}</li>
+            <li><i class="fa-solid fa-circle-check"></i>{{'PAY_ONLY_WHEN_SATISFIED'|translate}}</li>
+            <li><i class="fa-solid fa-circle-check"></i> {{'OUR_TALENTED_TEAM_CAN_HELP'|translate}}</li>
+          </ul>
+          <div class="market-place-btn">
+            <a [routerLink] = "routes.freelancerProject" class="btn btn-primary market-project me-2">{{'POST_A_PROJECT'|translate}}</a>
+            <a [routerLink] = "routes.freelancer_developer_profile" class="btn btn-primary market-developer">{{'FIND_FREELANCER'|translate}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Marketplace -->
+
+<!-- Our Feature -->
+<section class="section projects">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-12 mx-auto">
+        <div class="section-header text-center aos" data-aos="fade-up">
+          <h2 class="header-title">{{'WHATS_GREAT_ABOUT_IT'|translate}}</h2>
+          <p>{{'ALL_FEATURES_OF_ALLWORKERS_BELOW'|translate}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row row-gap">
+
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6">
+        <div class="great-card aos" data-aos="fade-up">
+          <div class="feature-icon mb-0 me-3">
+            <img src="assets/img/icon/great5.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count text-start">
+            <h4 class="counter-up" [countUp]="9207" [options]="{ enableScrollSpy: true }">9,207</h4>
+            <p>{{'FREELANCER'|translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6">
+        <div class="great-card  aos" data-aos="fade-up">
+          <div class="feature-icon mb-0 me-3">
+            <img src="assets/img/icon/great6.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count text-start">
+            <h4><span class="counter-up" [countUp]="6000" [options]="{ enableScrollSpy: true }">6000 </span>
+              +</h4>
+            <p>{{'PROJECTS_ADDED'|translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6">
+        <div class="great-card  aos" data-aos="fade-up">
+          <div class="feature-icon mb-0 me-3">
+            <img src="assets/img/icon/great7.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count text-start">
+            <h4 class="counter-up" [countUp]="919207" [options]="{ enableScrollSpy: true }">919,207</h4>
+            <p>{{'COMPLETED_PROJECTS'|translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+      <!-- Feature Item -->
+      <div class="col-xl-3 col-md-6">
+        <div class="great-card  aos" data-aos="fade-up">
+          <div class="feature-icon mb-0 me-3">
+            <img src="assets/img/icon/great8.svg" class="img-fluid" alt="Img">
+          </div>
+          <div class="feature-content course-count text-start">
+            <h4 class="counter-up" [countUp]="998" [options]="{ enableScrollSpy: true }">998</h4>
+            <p>{{'COMPANIES_REGISTERED'|translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+
+    </div>
+  </div>
+</section>
+<!-- /Our Feature -->
+
+
+<!-- Platform Location -->
+<!--<section class="section platform-location">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="row">
+          <div class="col-md-6 flex-fill">
+            <div class="markrt-place-img aos" data-aos="fade-up">
+              <img src="assets/img/markrt-place-img1.jpg" class="img-fluid" alt="Img">
+            </div>
+          </div>
+          <div class="col-md-6 flex-fill">
+            <div class="d-flex flex-column row-gap">
+              <div class="markrt-place-img aos" data-aos="fade-up">
+                <img src="assets/img/markrt-place-img2.jpg" class="img-fluid" alt="Img">
+              </div>
+              <div class="markrt-place-img aos" data-aos="fade-up">
+                <img src="assets/img/markrt-place-img3.jpg" class="img-fluid" alt="Img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-6 col-md-12 d-flex align-items-center">
+        <div class="market-place-group aos" data-aos="fade-up">
+          <h2>Discover Project Around<span class="platform-head">your Location in Our Platform</span></h2>
+          <p>Get Inspired by Development Projects</p>
+          <p class="platform-pasage">We Provide Stable Service With Experts Freelancers around the globe, are
+            looking for work and provide the best they have .Experience state-of-the-art marketplace
+            platform with the Kofejob. We combine the experience of our global community around the globe
+          for a best marketplace theme.</p>
+          <div class="market-place-btn platform-btn">
+            <a [routerLink] = "routes.freelancerProject" class="btn btn-primary market-project me-2">View Projects</a>
+            <a [routerLink] = "routes.freelancerProject" class="btn btn-primary project-post">Post a Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+<!-- /Platform Location -->
+
+<!-- Company Hire -->
+<!--<section class="section top-company-four">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto">
+        <div class="section-header section-header-four section-locate aos" data-aos="fade-up">
+          <div class="text-center">
+            <h2 class="header-title">Trusted by the world’s best </h2>
+            <p>Top companies </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div id="trust-company-slider" class="owl-theme trust-slider developers-slider aos"
+      data-aos="fade-up">
+      <owl-carousel-o [options]="companyOptions">
+        @for (slide of companyslides; track slide) {
+          <ng-template carouselSlide>
+            <div class="company-logos">
+              <img src="{{ slide.img }}" alt="" />
+            </div>
+          </ng-template>
+        }
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>-->
+<!-- / Company Hire -->
+<!-- Feature -->
+<!-- Platform Location -->
+<section class="section platform-location">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="row">
+          <div class="col-md-6 flex-fill">
+            <div class="markrt-place-img aos" data-aos="fade-up">
+              <img  src="assets/img/new/cuisinier.jpg" class="img-fluid" alt="Img">
+            </div>
+          </div>
+          <div class="col-md-6 flex-fill">
+            <div class="d-flex flex-column row-gap">
+              <div class="markrt-place-img aos" data-aos="fade-up">
+                <img  src="assets/img/new/mecanicien.jpg" class="img-fluid" alt="Img">
+              </div>
+              <div class="markrt-place-img aos" data-aos="fade-up">
+                <img  src="assets/img/new/chauffeur.jpg" class="img-fluid" alt="Img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-6 col-md-12 d-flex align-items-center">
+        <div class="market-place-group aos" data-aos="fade-up">
+          <h2>Découvrez des formations prés<span class="platform-head">de chez vous dans notre plateforme</span></h2>
+          <p>Recycler vos divers compétences </p>
+          <p class="platform-pasage">Nous proposons des formations avec des experts pour vous aider à devenir des
+            freelances toujours plus compétitifs sur le marché de l'emploi. Nous tirons parti de l'expérience de notre
+            large communauté pour offrir un thème de place de marché optimisé</p>
+          <div class="market-place-btn platform-btn">
+            <a routerLink="/formation-list" class="btn btn-primary market-project me-2">Voir les formations</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Platform Location -->
+<section class="section feature-project home-two-projects">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto">
+        <div class="section-header section-header-two text-center aos" data-aos="fade-up">
+          <h2 class="header-title">Nos mellieurs Formations</h2>
+          <p>Choisir la formation qui vous convient le mieux</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <!--- Project Item  -->
+      <div class="col-lg-3 col-md-6 d-flex" *ngFor="let formation of formations | slice:0:8">
+        <div class="project-item feature-project-item aos" data-aos="fade-up">
+          <div class="project-img">
+            <a (click)="navigateToFormationDetail(formation)"><img src="{{formation.picture}}" alt="Img" class="img-fluid"></a>
+          </div>
+          <div class="feature-content">
+            <div class="feature-time-blk">
+              <a href="javascript:void(0);" class="btn btn-primary green-active">{{formation.type}}</a>
+              <span><i class="far fa-clock me-1"></i> {{formation.created_at}}</span>
+            </div>
+            <h4 (click)="navigateToFormationDetail(formation)">{{formation.title}}</h4>
+            <ul class="feature-project-list nav">
+              <li><i class="feather-user me-1"></i>UI/UX Designer</li>
+              <li><i class="feather-map-pin me-1"></i>{{formation.location}}</li>
+            </ul>
+            <p class="truncate-multiline">{{formation.description}}</p>
+            <div class="blog-read">
+              <a (click)="navigateToFormationDetail(formation)" >{{'Read_More'|translate}} <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-12">
+        <div class="more-project text-center aos" data-aos="fade-up">
+          <a href="pages/formation" class="btn btn-primary">{{'Read_More'|translate}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--- /Feature  -->
+
+<!-- Review -->
+<section class="section testimonial-section review review-four">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-header aos text-center" data-aos="fade-up">
+          <h2 class="header-title">{{'CLIENT_TESTIMONIALS'|translate}}</h2>
+          <p>{{'LEARNING_IS_COMMUNICATING'|translate}} {{'DEVELOP_SKILLS_WITH_ALLWORKERS'|translate}}</p>
+        </div>
+      </div>
+    </div>
+    <div id="testimonial-slider" class="owl-theme testimonial-slider aos" data-aos="fade-up">
+      <owl-carousel-o [options]="testimonialSlider">
+        <ng-template carouselSlide *ngFor="let testimonial of testimonials">
+          <!-- Review Widget -->
+          <div class="review-blog">
+            <div class="review-top d-flex align-items-center">
+              <div class="review-img">
+                <a [routerLink] = "routes.employee_review"><img class="img-fluid" [src]="testimonial.picture"
+                                                                alt="Post Image"></a>
+              </div>
+              <div class="review-info">
+                <h3><a [routerLink] = "routes.employee_review">{{testimonial.username}}</a></h3>
+                <h5>{{testimonial.workplace}}</h5>
+
+              </div>
+
+            </div>
+            <div class="review-content">
+              <p class="truncate-multiline">{{testimonial.description}}</p>
+
+               <app-rating [rating]="testimonial?.rating"></app-rating>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <!-- / Review Widget -->
+        </ng-template>
+
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+<!-- / Review -->
+
+
+<section class="faq-section-three bg-white" id="faq">
+  <div class="container">
+    <div class="section-header section-header-three text-center aos  " data-aos="fade-up">
+      <!--<span class="badge title-badge">FAQ’S</span>-->
+      <h2 class="header-title">{{'Frequently_Question_Answer'|translate}} </h2>
+    </div>
+    <div class="row" id="accordionExample">
+      <div class="col-lg-6">
+
+        <div class="faq-card aos" data-aos="fade-up" *ngFor="let question of questions | slice:0:5; let i = index">
+          <h4 class="faq-title">
+            <a class="collapsed" data-bs-toggle="collapse" href="#faq{{i+2}}" aria-expanded="false">{{question.title}}</a>
+          </h4>
+          <div id="faq{{i+2}}" class="card-collapse collapse" data-bs-parent="#accordionExample">
+            <p>{{question.answers}}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-5">
+        <div class="faq-imgs">
+          <img src="assets/img/new/worker.jpg" alt="img">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Blog -->
+<!--<section class="section blog-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto">
+        <div class="section-header section-header-four section-locate aos" data-aos="fade-up">
+          <div class="text-center">
+            <h2 class="header-title">Our Blog </h2>
+            <p>Read Our Article To Get Tricks </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row aos row-gap" data-aos="fade-up">
+      <div class="col-lg-4 col-md-6">
+        <div class="blog-article-group">
+          <div class="blog-image">
+            <a [routerLink] = "routes.blog_details"><img class="img-fluid" src="assets/img/blog/blog-15.jpg"
+            alt="Post Image"></a>
+            <div class="article-Production">
+              <span>Production</span>
+            </div>
+            <div class="article-blog-content">
+              <span> <i class="feather icon-calendar"></i> 13, Dec2022</span>
+              <h4><a [routerLink] = "routes.blog_details">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Amet.</a></h4>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="blog-article-group">
+          <div class="blog-image">
+            <a [routerLink] = "routes.blog_details"><img class="img-fluid" src="assets/img/blog/blog1.jpg"
+            alt="Post Image"></a>
+            <div class="article-Production">
+              <span>Jobs</span>
+            </div>
+            <div class="article-blog-content">
+              <span><i class="feather icon-calendar"></i>12, Dec2022</span>
+              <h4><a [routerLink] = "routes.blog_details">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Amet.</a></h4>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="blog-article-group">
+          <div class="blog-image">
+            <a [routerLink] = "routes.blog_details"><img class="img-fluid" src="assets/img/blog/blog2.jpg"
+            alt="Post Image"></a>
+            <div class="article-Production">
+              <span>Production</span>
+            </div>
+            <div class="article-blog-content">
+              <span><i class="feather icon-calendar"></i>10, Dec2022</span>
+              <h4><a [routerLink] = "routes.blog_details">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Amet.</a></h4>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+<!-- /Popular Projects -->

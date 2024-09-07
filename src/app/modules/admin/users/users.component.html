@@ -1,0 +1,187 @@
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h3 class="page-title">Utilisateurs</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="'/home'">Dashboard</a></li>
+            <li class="breadcrumb-item active">utilisateur</li>
+          </ul>
+        </div>
+        <div class="col-auto">
+          <a href="javascript:void(0);" class="btn add-button me-2" (click)="openModal()">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <div class="table_header">
+                <div class="dataTables_length">
+                  <label>
+                    Show
+                  </label>
+                  <select [(ngModel)]="pageSize" (ngModelChange)="updatePaginated()" class="form-control form-control-sm">
+                    class="form-control form-control-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                  <label>Entries</label>
+                </div>
+                <div class="dataTables_filter">
+                  <label for="search">
+                    Search:
+                  </label>
+                  <input id="search" name="searchDataValue" [(ngModel)]="searchDataValue" (ngModelChange)="updatePaginated()" class="form-control form-control-sm" />
+
+                </div>
+              </div>
+              <div class="table-scroll">
+                <table
+                  class="table table-center table-hover mb-0 datatable">
+                  <thead>
+                  <tr>
+                    <th>Date de création</th>
+                    <th>Nom et prenom</th>
+                    <th>email</th>
+                    <th>Statut</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let user of filteredData">
+                    <td>{{ user.created_at| date:'dd/MM/yyyy' }}</td>
+                    <td>{{ user.full_name }} {{ user.pseudo }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.enable ? 'active' : 'désactivé' }}</td>
+                    <td class="text-end">
+                      <a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" (click)="openModal(user)">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category">
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table_footer">
+                <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info">
+                    Showing {{ (currentPage - 1) * pageSize + 1 }} to
+                    {{ (currentPage * pageSize) < totalData ? (currentPage * pageSize) : totalData }} of
+                    {{ totalData }} entries
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                  <div class="pagination_section">
+                    <ul class="pagination">
+                      <li class="page-item" [ngClass]="{ disabled: currentPage === 1 }">
+                        <a class="page-link" href="javascript:void(0);" (click)="goToPreviousPage()">Previous</a>
+                      </li>
+                      <li class="page-item" [ngClass]="{ disabled: currentPage * pageSize >= totalData }">
+                        <a class="page-link" href="javascript:void(0);" (click)="goToNextPage()">Next</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /Page Wrapper -->
+  </div>
+  <!-- The Modal for Adding and Editing Domain -->
+  <div class="modal fade custom-modal" id="domain-modal" [ngClass]="{'show d-block': isModalOpen}" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEditMode ? 'Modifier utilisateur' : 'Ajouter un utilisateur'}}</h4>
+          <button type="button" class="close" (click)="closeModal()"><span>&times;</span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input type="text" id="name" [(ngModel)]="currentUser.fullName" name="name" class="form-control" placeholder="Nom ">
+            </div>
+            <div class="form-group">
+              <label for="name">Prenom</label>
+              <input type="text" id="pseudo" [(ngModel)]="currentUser.pseudo" name="name" class="form-control" placeholder="Prenom">
+            </div>
+            <div class="form-group">
+              <label for="name">Email</label>
+              <input type="text" id="email" [(ngModel)]="currentUser.email" name="name" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="name">Mot de passe</label>
+              <input type="text" id="password" [(ngModel)]="currentUser.password" name="name" class="form-control" placeholder="Mot de passe">
+            </div>
+
+            <div class="form-group">
+              <label for="name">Role</label>
+              <select class="form-select" id="gender" name="gender" [(ngModel)]="currentUser.role_id">
+                <option>Select role</option>
+                <option *ngFor="let role of roles" value="{{role.id}}">{{role.name}}</option>
+              </select>
+            </div>
+
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary btn-block">{{isEditMode ? 'Modifier' : 'Enregistrer'}}</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /The Modal -->
+
+
+  <!-- Delete Modal -->
+  <div class="modal custom-modal fade" id="delete_category" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="form-header">
+            <h3>Supprimer</h3>
+            <p>Êtes-vous sûr de vouloir supprimer</p>
+          </div>
+          <div class="modal-btn delete-action">
+            <div class="row">
+              <div class="col-6">
+                <a href="javascript:void(0);" class="btn btn-primary continue-btn">Supprimer</a>
+              </div>
+              <div class="col-6">
+                <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Delete Modal -->

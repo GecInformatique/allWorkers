@@ -1,0 +1,158 @@
+<header class="header home-four-wrapper" [ngClass]="{'sticky' : sticky === true}">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg header-nav p-0">
+      <div class="navbar-header">
+        <a id="mobile_btn" (click)="toggleSidebar()" href="javascript:void(0);">
+          <span class="bar-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </a>
+        <a [routerLink]="routes.home" class="navbar-brand logo">
+          <img src="assets/img/logo/logo.png" class="img-fluid" alt="Logo">
+        </a>
+      </div>
+      <div class="main-menu-wrapper">
+        <div class="menu-header">
+          <a [routerLink]="routes.home" class="menu-logo">
+            <img src="assets/img/logo/logo.png" class="img-fluid" alt="Logo">
+          </a>
+          <a id="menu_close" (click)="hideSidebar()" class="menu-close" href="javascript:void(0);">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+        <ul class="main-nav">
+          <li *ngFor="let mainMenu of navbar; trackBy: trackByFn" routerLinkActive="active"
+              [class.active]="base === mainMenu.base" [ngClass]="{'has-submenu': !mainMenu.separateRoute}">
+            <a *ngIf="mainMenu.separateRoute; else submenu" [routerLink]="mainMenu.route">{{mainMenu.title}}</a>
+            <ng-template #submenu>
+              <a href="javascript:void(0);" (click)="mainMenu.showAsTab = !mainMenu.showAsTab">
+                {{mainMenu.title}} <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="submenu" [ngClass]="{'d-block': mainMenu.showAsTab}">
+                <li *ngFor="let menu of mainMenu.menu" routerLinkActive="active"
+                    [class.active]="base === menu.base && page === menu.page"
+                    [ngClass]="{'has-submenu': menu.hasSubRoute}">
+                  <a *ngIf="!menu.hasSubRoute; else subRoute" [routerLink]="menu.route">{{menu.menuValue}}</a>
+                  <ng-template #subRoute>
+                    <a (click)="menu.showSubRoute = !menu.showSubRoute" [routerLink]="menu.route">
+                      {{menu.menuValue}}
+                    </a>
+                    <ul class="submenu" [ngClass]="{'d-block': menu.showSubRoute}">
+                      <li *ngFor="let subMenu of menu.subMenus" routerLinkActive="active"
+                          [class.active]="base === subMenu.base && page === subMenu.page">
+                        <a [routerLink]="subMenu.route">{{subMenu.menuValue}}</a>
+                      </li>
+                    </ul>
+                  </ng-template>
+                </li>
+              </ul>
+            </ng-template>
+          </li>
+        </ul>
+        <ul class="nav header-navbar-rht">
+
+        </ul>
+      </div>
+      <ul class="nav header-navbar-rht reg-head">
+        <ng-container *ngIf="!authService.isAuhenticated(); else loggedInTemplate">
+          <li><a [routerLink]="routes.register" class="reg-btn">
+            <img src="assets/img/icon/users.svg" class="me-1" alt="img">{{ 'BECOME_MEMBER' | translate }}</a>
+          </li>
+          <li><a [routerLink]="routes.login" class="log-btn">
+            <img src="assets/img/icon/lock.svg" class="me-1" alt="img"> {{ 'LOGIN' | translate }}</a>
+          </li>
+
+        </ng-container>
+        <li >
+          <a href="javascript:void(0);" class=" login-btn" data-bs-toggle="dropdown" (click)="openModal()">
+            <i class="feather icon-plus me-1"></i> {{ 'I_will_speak' | translate }}
+          </a>
+
+        </li>
+
+        <ng-template #loggedInTemplate>
+          <li><a [routerLink]="routes.freelancer_dashboard" class="reg-btn">
+            {{ 'Dashboard' | translate }}</a>
+          </li>
+          <li class="nav-item dropdown account-item">
+            <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+        <span class="user-img">
+          <img [src]="currentUser?.data?.picture" alt="Img">
+        </span>
+              <span>{{ currentUser?.data?.full_name }}</span>
+            </a>
+            <div class="dropdown-menu emp">
+              <div class="drop-head">
+                <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+            <span class="user-img">
+              <img src="assets/img/user/avatar-1.jpg" alt="Img">
+            </span>
+                  <div>
+                    <span>{{ currentUser?.name }}</span>
+                    <p>{{ currentUser?.email }}</p>
+                  </div>
+                </a>
+              </div>
+              <a class="dropdown-item" [routerLink]="routes.freelancer_developer_profile"><img
+                src="assets/img/icon/user-dropdown-icon--01.svg" alt="Img"> My Profile</a>
+              <a class="dropdown-item" [routerLink]="routes.freelancer_projects_proposals"><img
+                src="assets/img/icon/user-dropdown-icon--02.svg" alt="Img"> My Projects</a>
+              <a class="dropdown-item" [routerLink]="routes.freelancer_favourite"><img
+                src="assets/img/icon/user-dropdown-icon--03.svg" alt="Img">My Subscription</a>
+
+              <a class="dropdown-item" (click)="logout()"><img src="assets/img/icon/user-dropdown-icon--07.svg"
+                                                               alt="Img"> Logout</a>
+            </div>
+          </li>
+        </ng-template>
+
+        <li>
+          <div class="language-selector">
+            <img style="width:20px; height: 20px" [src]="flagImage" alt="Flag">
+            <select (change)="changeLanguage($event)" style="border: none;">
+              <option value="fr">Fr</option>
+              <option value="en">En</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
+
+  <!-- The Modal for Adding and Editing Domain -->
+  <div class="modal fade custom-modal" id="domain-modal" [ngClass]="{'show d-block': isModalOpen}" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Exprimer vous</h4>
+          <button type="button" class="close" (click)="closeModal()"><span>&times;</span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form >
+            <div class="form-group">
+              <label for="name">Titre</label>
+              <input type="text" id="name"  name="name" class="form-control" placeholder="Nom du domaine">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea rows="5" cols="5" id="description"  name="description" class="form-control" placeholder="Entrer la description"></textarea>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /The Modal -->
+
+</header>

@@ -1,0 +1,243 @@
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h3 class="page-title">Domaines</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="'/home'">Dashboard</a></li>
+            <li class="breadcrumb-item active">Domaine</li>
+          </ul>
+        </div>
+        <div class="col-auto">
+          <a href="javascript:void(0);" class="btn add-button me-2" (click)="openModal()">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+
+   <!-- <div class="card filter-card" id="filter_inputs" [ngClass]="filter === true? 'filter-show' : ''">
+      <div class="card-body pb-0">
+        <form action="#" method="post">
+          <div class="row filter-row">
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label for="skill">Domaines</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <div class="cal-icon">
+                  <label for="from-date">From Date</label>
+                  <input class="form-control datetimepicker" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <div class="cal-icon">
+                  <label for="to-date">To Date</label>
+                  <input class="form-control datetimepicker" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    -->
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <div class="table_header">
+                <div class="dataTables_length">
+                  <label for="show">
+                    Show
+                  </label>
+                  <select [(ngModel)]="pageSize"
+                    class="form-control form-control-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                  <label for="entries">Entries</label>
+                </div>
+               <div class="dataTables_filter">
+                  <label for="search">
+                    Search:
+                  </label>
+                   <input id="search" [(ngModel)]="searchDataValue"  class="form-control form-control-sm" />
+
+                  </div>
+                </div>
+                <div class="table-scroll">
+                  <table
+                    class="table table-center table-hover mb-0 datatable">
+                    <thead>
+                      <tr>
+                        <th>Date de création</th>
+                        <th>Domaine</th>
+                        <th>{{'Description'|translate}}</th>
+                        <th>{{'Statut'|translate}}</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                         <tr *ngFor="let domain of domains">
+                      <td>{{ domain.created_at| date:'dd/MM/yyyy' }}</td>
+                      <td>{{ domain.name }}</td>
+                      <td>{{ domain.description }}</td>
+                      <td>{{ domain.enable ? 'active' : 'désactivé' }}</td>
+                           <td class="text-end">
+                             <a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" (click)="openModal(domain)">
+                               <i class="far fa-edit"></i>
+                             </a>
+                             <a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category">
+                               <i class="far fa-trash-alt"></i>
+                             </a>
+                           </td>
+                    </tr>
+
+                     </tbody>
+                   </table>
+                 </div>
+
+              <div class="table_footer">
+                <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info">
+                    Showing {{ (currentPage - 1) * pageSize + 1 }} to
+                    {{ (currentPage * pageSize) < totalData ? (currentPage * pageSize) : totalData }} of
+                    {{ totalData }} entries
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                  <div class="pagination_section">
+                    <ul class="pagination">
+                      <li class="page-item" [ngClass]="{ disabled: currentPage === 1 }">
+                        <a  class="page-link" href="javascript:void(0);">Previous</a>
+                      </li>
+                      <li class="page-item" [ngClass]="{ disabled: currentPage * pageSize >= totalData }">
+                        <a  class="page-link" href="javascript:void(0);">Next</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+             </div>
+           </div>
+         </div>
+
+       </div>
+     </div>
+     <!-- /Page Wrapper -->
+  </div>
+  <!-- The Modal for Adding and Editing Domain -->
+  <div class="modal fade custom-modal" id="domain-modal" [ngClass]="{'show d-block': isModalOpen}" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEditMode ? 'Modifier domaine' : 'Ajouter nouveau domaine'}}</h4>
+          <button type="button" class="close" (click)="closeModal()"><span>&times;</span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nom du domaine</label>
+              <input type="text" id="name" [(ngModel)]="currentDomain.name" name="name" class="form-control" placeholder="Nom du domaine">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea rows="5" cols="5" id="description" [(ngModel)]="currentDomain.description" name="description" class="form-control" placeholder="Entrer la description"></textarea>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary btn-block">{{isEditMode ? 'Modifier' : 'Enregistrer'}}</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /The Modal -->
+
+
+  <!-- The Modal -->
+  <div class="modal fade custom-modal" id="edit-category">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header flex-wrap">
+          <h4 class="modal-title">Modifier domaine</h4>
+          <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="edit-name">Nom du domaine</label>
+              <input type="text" id="edit-name" class="form-control" value="Nom du domaine">
+            </div>
+            <div class="form-group">
+              <label for="edit-description">Description</label>
+              <textarea rows="5" cols="5" id="edit-description" class="form-control" placeholder="Entrer la description"></textarea>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary btn-block">Modifier</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /The Modal -->
+
+
+  <!-- Delete Modal -->
+  <div class="modal custom-modal fade" id="delete_category" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="form-header">
+            <h3>Supprimer</h3>
+            <p>Êtes-vous sûr de vouloir supprimer</p>
+          </div>
+          <div class="modal-btn delete-action">
+            <div class="row">
+              <div class="col-6">
+                <a href="javascript:void(0);" class="btn btn-primary continue-btn">Supprimer</a>
+              </div>
+              <div class="col-6">
+                <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Delete Modal -->

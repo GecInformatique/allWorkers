@@ -1,0 +1,164 @@
+{
+  "HELLO": "Hello",
+  "WELCOME": "Welcome to our application!",
+  "BECOME_PARTNER": "Become a partner",
+  "BECOME_MEMBER": "Become a member",
+  "LOGIN": "Login",
+  "POST_PROJECT": "Post a project",
+  "A_TASK_A_JOB": "A Task a Job",
+  "FIND_YOUR_NEXT": "Find your next",
+  "FREELANCER": "Freelancer",
+  "I_will_speak": "I_will_speak",
+  "FIND_PEOPLE_FOR_JOBS": "Find people in our vast network for a job, a task, or any other needs...",
+  "COMPLETED_JOBS": "Completed jobs",
+  "JOIN_200_FREELANCERS": "Join more than 200+ freelancers",
+  "SIGN_UP_FOR_ONLINE_COURSES": "Sign up for online courses",
+  "DISCOVER_BUSINESS_DOMAINS": "Discover business domains",
+  "FIND_FREELANCER_IN_SPECIFIC_FIELD": "Find a freelancer in our vast network in a specific field",
+  "WHAT_IS_GREAT_ABOUT_IT": "What's great about it?",
+  "ALL_FEATURES_BELOW": "All features of All-Workers below",
+  "SEE_ALL_BUSINESS_DOMAINS": "See all business domains",
+  "BROWSE_PORTFOLIOS": "Browse portfolios",
+  "FIND_TRUSTED_PROFESSIONALS": "Find trusted professionals by browsing their past work samples.",
+  "QUICK_BIDS": "Quick bids",
+  "GET_QUICK_QUOTES": "Get quick, commitment-free quotes from our talented freelancers. 80% of projects are bid on.",
+  "FAST_BIDDING": "Fast bidding",
+  "WORLDWIDE_TALENT_POOL": "All-Workers has by far the largest pool of quality freelancers in the world - over 200 to choose from.",
+  "TRACK_PROGRESS": "Track progress",
+  "STAY_INFORMED": "Stay informed and on-the-go with our time tracking tool. Always know what freelancers are working on.",
+  "HOW_CAN_WE_HELP": "How can we help you?",
+  "EXPRESS_YOUR_NEED": "Express your need to us freely and let us assist you according to your budget.",
+  "EXPLORE_OPPORTUNITIES": "Explore opportunities!",
+  "EASILY_FIND": "Easily find",
+  "TAKE_CAREER_TO_NEXT_LEVEL": "Take your career to the next level. Sign up to unlock opportunities.",
+  "SIGN_UP": "Sign up",
+  "RECEIVE_SPECIAL_OFFERS": "Want to receive special offers and updates?",
+  "BEST_JOB_AWAITS": "The best job of your life awaits you. Don't miss out, sign up now.",
+  "EXPRESS_YOUR_NEED_AGAIN": "Express your need",
+  "JOIN_BEST_PROFESSIONAL_MARKETPLACE": "Join the best professional marketplace in the world",
+  "WHY_HIRE_PEOPLE": "Why hire people when you can simply integrate our talented cloud workforce instead?",
+  "FREELANCERS_FOR_ALL_SIZES_AND_BUDGETS": "We have freelancers for tasks of all sizes and budgets, in over 180 fields of expertise.",
+  "PAY_ONLY_WHEN_SATISFIED": "Pay only when the work is completed and you are 100% satisfied.",
+  "OUR_TALENTED_TEAM_CAN_HELP": "Our talented team can help you find the best freelancer.",
+  "EASY_TO_POST_PROJECT": "It is easy to post a project.",
+  "FIND_FREELANCER": "Find Freelancer",
+  "POST_A_PROJECT": "Post a Project",
+  "SEARCH": "Search",
+  "CLIENT_TESTIMONIALS": "Client Testimonials",
+  "LEARNING_IS_COMMUNICATING": "Learning is communicating with the global world, building a bright future, and developing your career.",
+  "DEVELOP_SKILLS_WITH_ALLWORKERS": "Develop your skills with Allworkers.",
+  "PROJECTS_ADDED": "Projects Added",
+  "COMPLETED_PROJECTS": "Completed projects",
+  "COMPANIES_REGISTERED": "Companies Registered",
+  "ALL_FEATURES_OF_ALLWORKERS_BELOW": "All the features of Allworkers below",
+  "WHATS_GREAT_ABOUT_IT": "What’s great about it?",
+  "Frequently_Question_Answer": "Frequently Question Answer",
+  "DOMAIN": "Domain",
+  "DOMAINS": "Domain",
+  "DOMAIN_LIST": "Domain List",
+  "Agronomie et alimentation": "Agronomy and food",
+  "Artisanat": "Crafts",
+  "Audiovisuel et spectacle": "Audiovisual and entertainment",
+  "Bâtiment":"Building",
+  "Culture": "Culture",
+  "Commerce":"Commerce",
+  "Droit": "Law",
+  "Education":"Education",
+  "Finances et gestion": "Finance and management",
+  "Politique":"Politics",
+  "Scientifique": "Scientific",
+  "Santé":"Health",
+  "Sécurité": "Safety",
+  "Sport":"Sports",
+  "Technologies": "Technologies",
+  "Transports et logistique":"Transportation & Logistics",
+  "Autres": "Other",
+  "EMAIL": "Email address",
+  "Signup": "Signup",
+  "PASSWORD": "Password",
+  "SEARCH_FILTER": "Search Filter",
+  "FORGOT_PASSWORD": "Forgot Password",
+  "PLEASE_ENTER_YOUR_EMAIL_ADDRESS": "Please enter your email address",
+  "REMEMBER_PASSWORD": "Remember Password",
+  "NEW_TO_ALLWORKERS": "New to allWorkers",
+  "SEND_NOW": "Send Now",
+  "OTHER_LINKS": "Other Links",
+  "CONNECT_WITH_US": "Connect With Us",
+  "HELP_SUPPORT": "Help & Support",
+  "USEFUL_LINKS": "Useful Links",
+  "PRIVACY_POLICY": "Privacy Policy",
+  "TERMS_OF_USE": "Terms of Use",
+  "ABOUT_US": "About Us",
+  "CONTACT_WITH_US": "Contact with us",
+  "BLOG": "Blog",
+  "SAVE_PASSWORD": "Save Password",
+  "PASSWORD_CHANGE": "Password Change",
+  "CHANGE_NEW_PASSWORD": "Change New Password",
+  "OLD_PASSWORD": "Old Password",
+  "NEW_PASSWORD": "New Password",
+  "CONFIRM_NEW_PASSWORD": "Confirm New Password",
+  "SET_NEW_PASSWORD": "Set New Password",
+  "NEW_PASSWORD_MUST_BE_DIFFERENT": "Your new password must be different from previous passwords.",
+  "ADD_NEW_DOMAIN": "Add New Domain",
+  "FOUND_RESULTS": "Found Results",
+  "LEARN_MORE": "Learn More",
+  "ABOUT_YOURSELF": "Tell us a bit about yourself. This information will appear on your public profile so potential employers can get to know you better.",
+  "PERSONAL_INFO": "Personal Info",
+  "LAST_NAME": "Last Name",
+  "FIRST_NAME": "First Name",
+  "DATE_OF_BIRTH": "Date of Birth",
+  "GENDER": "Gender",
+  "EMAIL_ADDRESS": "Email Address",
+  "PHONE_NUMBER": "Phone Number",
+  "CHOOSE_CITY": "Choose a City",
+  "FULL_ADDRESS": "Full Address",
+  "NEXT": "Next",
+  "PROFESSIONAL_INFO": "Professional Information",
+  "JOB_CATEGORY": "Job Category",
+  "BUSINESS_DOMAIN": "Business Domain",
+  "OCCUPATION": "Occupation",
+  "SPECIALTY": "Specialty",
+  "CITY": "City",
+  "COMPLETE_ADDRESS": "Complete address",
+  "Account_Type": "Type de compte",
+  "Select_Account_Type": "Select account type",
+  "SPECIALITY": "Speciality",
+  "PROFESSION": "Profession",
+  "Read_More": "Read more",
+  "ALL_COURSES": "See all training courses",
+  "SKILLS": "Skill"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

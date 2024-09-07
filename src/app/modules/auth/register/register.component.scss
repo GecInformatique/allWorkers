@@ -1,0 +1,66 @@
+.content-left {
+  background-color: #1dbe72;
+  padding: 0;
+}
+.row-height {
+  height: 91vh;
+}
+.content-left-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 100%;
+  padding: 0px 60px 90px 60px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+.content-left-wrapper h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin: 15px 0 15px 0;
+  font-weight: 600;
+}
+.content-left-wrapper p {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+a.btn_1.yellow, .btn_1.yellow {
+  background: #f8bd2c;
+  color: #111;
+}
+.content-left-wrapper .btn_1 {
+  margin: 5px 0 25px 0;
+}
+.copy {
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  width: 100%;
+  opacity: 0.5;
+}
+a.btn_1, .btn_1 {
+  border: none;
+  color: #fff;
+  background: #1dbe72;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 25px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1;
+}
+/* Add your styles here */
+.checks-set {
+  display: none;
+}
+
+.accounts_type.selected .checks-set {
+  display: block;
+}
+.selected {
+  background: #0a903612 !important;
+}

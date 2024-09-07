@@ -1,0 +1,773 @@
+<!--
+ Breadcrumb
+<div class="bread-crumb-bar">
+  <div class="container">
+    <div class="row align-items-center inner-banner">
+      <div class="col-md-12 col-12 text-center">
+        <div class="breadcrumb-list">
+          <h2>Candidat Details</h2>
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink] = "routes.home">Home</a></li>
+              <li class="breadcrumb-item" aria-current="page">Candidat Details</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ /Breadcrumb
+
+ Page Content
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="company-detail-block pt-0">
+          <div class="company-detail">
+            <div class="company-detail-image">
+              <img src="{{candidate.picture}}" class="img-fluid" alt="logo">
+            </div>
+            <div class="company-title">
+              <h4>{{candidate.full_name}}</h4>
+
+            </div>
+          </div>
+          <div class="company-address">
+            <ul>
+              <li>
+                <i class="feather icon-map-pin"></i>{{candidate.city}}
+              </li>
+              <li>
+                <i class="feather "></i>{{candidate.gender}}
+              </li>
+
+            </ul>
+          </div>
+          <div class="project-proposal-detail">
+            <ul>
+              <li>
+                <div class="proposal-detail-img">
+                  <img src="assets/img/icon/computer-line.svg" alt="icons">
+                </div>
+                <div class="proposal-detail text-capitalize">
+                  <span class=" d-block">Disponibilite</span>
+                  <p class="mb-0">{{candidate.status_user}}</p>
+                </div>
+              </li>
+              <li>
+                <div class="proposal-detail-img">
+                  <img src="assets/img/icon/time-line.svg" alt="icons">
+                </div>
+                <div class="proposal-detail text-capitalize">
+                  <span class=" d-block">Completed Projects</span>
+                  <p class="mb-0">220</p>
+                </div>
+              </li>
+              <li>
+                <div class="proposal-detail-img">
+                  <img src="assets/img/icon/time-line.svg" alt="icons">
+                </div>
+                <div class="proposal-detail text-capitalize">
+                  <span class=" d-block">Ongoing Projects</span>
+                  <p class="mb-0">10</p>
+                </div>
+              </li>
+              <li>
+                <div class="proposal-detail-img">
+                  <img src="assets/img/icon/user-heart-line.svg" alt="icons">
+                </div>
+                <div class="proposal-detail text-capitalize">
+                  <span class=" d-block">Feedbacks</span>
+                  <p class="mb-0">78</p>
+                </div>
+              </li>
+              <li>
+                <div class="proposal-detail-img">
+                  <img src="assets/img/icon/translate-2.svg" alt="icons">
+                </div>
+                <div class="proposal-detail text-capitalize">
+                  <span class=" d-block">Rehired</span>
+                  <p class="mb-0">Rehired</p>
+                </div>
+              </li>
+              <li>
+                <div class="proposal-detail-img">
+                  <img src="assets/img/icon/translate.svg" alt="icons">
+                </div>
+                <div class="proposal-detail text-capitalize">
+                  <span class=" d-block">Response Times</span>
+                  <p class="mb-0">1 Hour</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="company-detail-block company-description">
+          <h4 class="company-detail-title">Description</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        </div>
+        <div class="company-detail-block company-description">
+          <h4 class="company-detail-title">Experience</h4>
+          <div class="experience-set">
+            <div class="experience-set-img">
+              <img src="assets/img/icon/expereience.png" alt="img">
+            </div>
+            <div class="experience-set-content">
+              <h5>Team Leader<span>2017 - 2023</span></h5>
+              <span>UI UX Designer</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. s</p>
+            </div>
+          </div>
+          <div class="experience-set">
+            <div class="experience-set-img">
+              <img src="assets/img/icon/expereience.png" alt="img">
+            </div>
+            <div class="experience-set-content">
+              <h5>Senior UI UX Designer<span>2019 - 2021</span></h5>
+              <span>UI UX Designer</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. </p>
+            </div>
+
+          </div>
+          <div class="experience-set">
+            <div class="experience-set-img">
+              <img src="assets/img/icon/expereience.png" alt="img">
+            </div>
+            <div class="experience-set-content">
+              <h5>junior UI UX Designer<span>2016 - 2019</span></h5>
+              <span>UI UX Designer</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. </p>
+            </div>
+          </div>
+        </div>
+        <div class="company-detail-block company-description">
+          <h4 class="company-detail-title">Education</h4>
+          <div class="experience-set">
+            <div class="experience-set-img">
+              <img src="assets/img/icon/report.png" alt="img">
+            </div>
+            <div class="experience-set-content">
+              <h5>Master Degree<span>2013 - 2016</span></h5>
+              <span>Arizona State University</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. </p>
+            </div>
+          </div>
+          <div class="experience-set">
+            <div class="experience-set-img">
+              <img src="assets/img/icon/report.png" alt="img">
+            </div>
+            <div class="experience-set-content">
+              <h5>Bachelor Degree<span>2010 - 2013</span></h5>
+              <span>Arizona State University</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. </p>
+            </div>
+          </div>
+        </div>
+        <div class="company-detail-block pb-0">
+          <h4 class="company-detail-title">Review (2)</h4>
+          <div class="project-proposals-block ">
+            <div class="project-proposals-img">
+              <img src="assets/img/user/avatar-1.jpg" class="img-fluid" alt="user">
+            </div>
+            <div class="project-proposals-description">
+              <div class="proposals-user-detail">
+                <div>
+                  <h5>Theresa Phillips</h5>
+                  <ul class="d-flex">
+                    <li>
+                      <div class="proposals-user-review">
+                        <span><i class="fa fa-star"></i>5.0 (346 Reviews)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="proposals-user-review">
+                        <span><i class="feather icon-calendar"></i>1 min ago</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="proposals-pricing">
+                    <h4>$40-$500</h4>
+                    <span>Price : Fixed </span>
+                  </div>
+                </div>
+              </div>
+              <p class="mb-0">I've been buying and selling on kofejob Marketplace for the past two years,
+                and it's been a game-changer for me. </p>
+            </div>
+          </div>
+          <div class="project-proposals-block ">
+            <div class="project-proposals-img">
+              <img src="assets/img/user/avatar-2.jpg" class="img-fluid" alt="user">
+            </div>
+            <div class="project-proposals-description">
+              <div class="proposals-user-detail">
+                <div>
+                  <h5>Aaron Storey</h5>
+                  <ul class="d-flex">
+                    <li>
+                      <div class="proposals-user-review">
+                        <span><i class="fa fa-star"></i>5.0 (346 Reviews)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="proposals-user-review">
+                        <span><i class="feather icon-calendar"></i>1 min ago</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="proposals-pricing">
+                    <h4>$20-$350</h4>
+                    <span>Price : Fixed </span>
+                  </div>
+                </div>
+              </div>
+              <p class="mb-0">I've been buying and selling on kofejob Marketplace for the past two years,
+                and it's been a game-changer for me..</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+       Blog Sidebar
+      <div class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar project-client-view">
+        <div class="stickybar">
+          <div class="card budget-widget">
+            <div class="budget-widget-details">
+
+              <p class="mb-0">Hourly Rate</p>
+              <ul class="buget-profiles">
+                <li>
+                  <h6><i class="feather icon-map-pin me-2"></i>Location</h6>
+                  <h5>{{candidate.city}}</h5>
+                </li>
+                <li>
+                  <h6><i class="feather icon-airplay me-2"></i>Years of Experience</h6>
+                  <h5>5 Years</h5>
+                </li>
+                <li>
+                  <h6><i class="feather icon-calendar me-2"></i>Jours de travail</h6>
+                  <h5>3-5 Days</h5>
+                </li>
+                <li>
+                  <h6><i class="feather icon-globe me-2"></i>Langue </h6>
+                  <h5>Francais</h5>
+                </li>
+                <li>
+                  <h6><i class="feather icon-phone me-2"></i>Phone</h6>
+                  <h5>+91 9988776655</h5>
+                </li>
+
+                <li>
+                  <h6><i class="feather icon-mail me-2"></i>Email</h6>
+                  <h5>{{candidate.email}}</h5>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <a data-bs-toggle="modal" href="#file" class="btn proposal-btn btn-primary">Send Invite</a>
+            </div>
+          </div>
+          <div class="card budget-widget">
+            <h6>Spécialite</h6>
+            <div class="tags">
+              <a href="javascript:void(0);" class="badge badge-pill badge-design">{{candidate.specialismName}}</a>
+            </div>
+          </div>
+          <div class="card budget-widget">
+            <h6>Location</h6>
+            <div class="map-location p-0">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+       /Blog Sidebar
+
+    </div>
+  </div>
+</div>
+ /Page Content
+
+
+ The Modal
+<div class="modal fade" id="file">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Send Your Proposal</h4>
+        <span class="modal-close"><a href="javascript:void(0);" data-bs-dismiss="modal" aria-label="Close"><i
+          class="fa fa-times orange-text"></i></a></span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-info proposal-modal-info">
+          <form>
+            <div class="feedback-form proposal-form ">
+              <div class="row">
+                <div class="col-md-6 input-block">
+                  <label for="Your" class="form-label">Your Price</label>
+                  <input type="text" class="form-control" placeholder="Your Price">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="delivery-estimate" class="form-label">Estimated Delivery</label>
+                  <div class="input-group ">
+                    <input type="text" class="form-control" placeholder="Estimated Hours"
+                           aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2">Days</span>
+                  </div>
+                </div>
+
+                <div class="col-md-12 input-block">
+                  <label for="cover-letter" class="form-label">Cover Letter</label>
+                  <ngx-editor >
+                    <ngx-editor-menu >
+                    </ngx-editor-menu>
+                  </ngx-editor>
+                </div>
+              </div>
+            </div>
+            <div class="suggested-milestones-form">
+              <div class="row">
+                <div class="col-md-4 input-block">
+                  <label for="Milestone " class="form-label">Milestone name</label>
+                  <input type="text" class="form-control" placeholder="Milestone name">
+                </div>
+                <div class="col-md-2 input-block floating-icon">
+                  <label for="Amount" class="form-label">Amount</label>
+                  <input type="text" class="form-control" placeholder="Amount">
+                  <span><i class="feather icon-dollar-sign"></i></span>
+                </div>
+                <div class="col-md-3 input-block floating-icon">
+                  <label for="start" class="form-label">Start Date</label>
+                  <input type="text" class="form-control datetimepicker" placeholder="Choose"
+                         bsDatepicker>
+                  <span><i class="feather icon-calendar"></i></span>
+                </div>
+                <div class="col-md-3 input-block floating-icon">
+                  <label for="end-date" class="form-label">End Date</label>
+                  <input type="text" class="form-control datetimepicker" placeholder="Choose"
+                         bsDatepicker>
+                  <span><i class="feather icon-calendar"></i></span>
+                </div>
+                <div class="col-md-12">
+                  <div class="new-addd">
+                    <a   tabindex="0" id="new_add1" class="add-new"><i
+                      class="feather icon-plus-circle "></i> Add New</a>
+                  </div>
+                </div>
+              </div>
+              @for (details of details; track details; let i = $index) {
+              <div class="row">
+                <div class="col-md-4 input-block">
+                  <label for="Milestone " class="form-label">Milestone name</label>
+                  <input type="text" class="form-control" placeholder="Milestone name">
+                </div>
+                <div class="col-md-2 input-block floating-icon">
+                  <label for="Amount" class="form-label">Amount</label>
+                  <input type="text" class="form-control" placeholder="Amount">
+                  <span><i class="feather icon-dollar-sign"></i></span>
+                </div>
+                <div class="col-md-3 input-block floating-icon">
+                  <label for="start" class="form-label">Start Date</label>
+                  <input type="text" class="form-control datetimepicker" placeholder="Choose"
+                    bsDatepicker>
+                    <span><i class="feather icon-calendar"></i></span>
+                  </div>
+                  <div class="col-md-3 input-block floating-icon">
+                    <label for="end-date" class="form-label">End Date</label>
+                    <input type="text" class="form-control datetimepicker" placeholder="Choose"
+                      bsDatepicker>
+                      <span><i class="feather icon-calendar"></i></span>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="new-addd">
+                        <a  tabindex="0" id="new_add1" class="add-new"><i
+                        class="feather icon-plus-circle "></i> Remove</a>
+                      </div>
+                    </div>
+                  </div>
+              }
+              <div id="add_row1"></div>
+            </div>
+            <div class="proposal-features">
+              <div class="proposal-widget proposal-warning">
+                <label class="custom_check">
+                  <input type="checkbox" name="select_time" checked><span class="checkmark"></span>
+                  <span class="proposal-text">Stick this Proposal to the Top</span>
+                  <span class="proposal-text float-end">$12.00</span>
+                </label>
+                <p>The sticky proposal will always be displayed on top of all the proposals.</p>
+              </div>
+              <div class="proposal-widget proposal-blue">
+                <label class="custom_check">
+                  <input type="checkbox" name="select_time"><span class="checkmark"></span>
+                  <span class="proposal-text">Stick this Proposal to the Top</span>
+                  <span class="proposal-text float-end">$12.00</span>
+                </label>
+                <p>The sticky proposal will always be displayed on top of all the proposals.</p>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-12 submit-section">
+                <label class="custom_check">
+                  <input type="checkbox" name="select_time">
+                  <span class="checkmark"></span> I agree to the Terms And Conditions
+                </label>
+              </div>
+              <div class="col-md-12 submit-section text-end">
+                <a data-bs-dismiss="modal" href="javascript:void(0);"
+                   class="btn btn-cancel submit-btn">Cancel</a>
+                <a data-bs-toggle="modal" data-bs-dismiss="modal" href="#success"
+                   class="btn btn-primary submit-btn" (click)="navigation2()">Send Proposal</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ /The Modal
+
+ The Modal
+<div class="modal fade custom-modal" id="success">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content proposal-modal-info">
+      <div class="modal-header">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center modal-body-content pt-0">
+          <h5 class="modal-title">Submitted Successfully</h5>
+          <p>You will be Notified once, your Proposal approves.</p>
+        </div>
+        <div class="col-md-12 submit-section text-center">
+          <a data-bs-dismiss="modal" [routerLink] = "routes.freelancer_dashboard" class="btn btn-primary submit-btn">Go to
+            Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ /The Modal
+-->
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+  <div class="container">
+    <div class="row align-items-center inner-banner">
+      <div class="col-md-12 col-12 text-center">
+        <div class="breadcrumb-list">
+          <h2>Freelancer Profile</h2>
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink] = "routes.home">Accueil</a></li>
+              <li class="breadcrumb-item" aria-current="page">Freelancer Profile</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="profile profile-freelance">
+          <div class="profile-box">
+            <div class="provider-widget">
+              <div class="pro-info-left">
+                <div class="provider-img "><img [src]="candidate.picture" class="img-fluid" alt="User"></div>
+                <div class="profile-info">
+                  <h2 class="profile-title">{{candidate.full_name}}</h2>
+                  <p class="profile-position">{{candidate.specialismName}}</p>
+                  <div><a href="javascript:void(0);" class="btn full-btn">{{candidate.type_disponibility}}</a></div>
+                  <ul class="profile-preword">
+                   <!-- <li><img src="assets/img/flags/pl.png" alt="Img" height="16"> Poland</li>-->
+                    <li>
+                      <div class="rating">
+                        <span class="average-rating">4.6</span>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!--<div class="pro-info-right profile-inf">
+                <a class="btn profile-edit-btn" [routerLink] = "routes.freelancer_profiles_settings">Edit Profile</a>
+              </div>-->
+            </div>
+          </div>
+          <div class="profile-list">
+            <ul>
+              <li>
+                <span class="cont bg-blue">22</span>
+                <strong class="proj-title"> Completed Projects</strong>
+              </li>
+              <li>
+                <span class="cont bg-red">5</span>
+                <strong class="proj-title"> Ongoing Projects</strong>
+              </li>
+              <li>
+                <span class="cont bg-violet">89%</span>
+                <strong class="proj-title"> Recommended</strong>
+              </li>
+              <li>
+                <span class="cont bg-yellow">12</span>
+                <strong class="proj-title"> Rehired</strong>
+              </li>
+              <li>
+                <span class="cont bg-pink">48</span>
+                <strong class="proj-title"> Clients</strong>
+              </li>
+              <li>
+                <span class="cont bg-navy">5</span>
+                <strong class="proj-title"> Feedbacks</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="pro-view">
+
+          <!-- Tab Detail -->
+          <nav class="provider-tabs mb-4">
+            <ul class="nav nav-tabs nav-tabs-solid nav-justified">
+              <li class="nav-item">
+                <a class="nav-link" href="#overview">
+                  <img src="assets/img/icon/tab-icon-01.png" height="25" alt="User Image">
+                  <p class="bg-red">Overview</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#project">
+                  <img src="assets/img/icon/tab-icon-02.png" height="25" alt="User Image">
+                  <p class="bg-blue">Projects</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#experience">
+                  <img src="assets/img/icon/tab-icon-03.png" height="25" alt="User Image">
+                  <p class="bg-violet">Experience</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#education">
+                  <img src="assets/img/icon/tab-icon-04.png" height="25" alt="User Image">
+                  <p class="bg-yellow">Education</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#skill">
+                  <img src="assets/img/icon/tab-icon-05.png" height="25" alt="User Image">
+                  <p class="bg-pink">Skills</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#feedback">
+                  <img src="assets/img/icon/tab-icon-06.png" height="25" alt="User Image">
+                  <p class="bg-green">Feedbacks</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- /Tab Detail -->
+
+          <!-- Overview Tab Content -->
+          <div class="pro-post widget-box" id="overview">
+            <h3 class="pro-title">Overview</h3>
+            <div class="pro-content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget vestibulum lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. Nunc eu augue nec arcu efficitur faucibus.</p>
+              <div class="mt-4">
+                <h4 class="widget-title">My services include:</h4>
+                <ul class="pro-list">
+                  <li>Cross-platform games</li>
+                  <li>Game concept and level designing</li>
+                  <li>Multiplayer integration</li>
+                  <li>Re-skin</li>
+                  <li>Ads and in-app purchase (Maximize your Revenue)</li>
+                  <li>Game Optimisations</li>
+                  <li>2D/3D Animation</li>
+                </ul>
+              </div>
+              <p>Graphic DesigningSocial Network IntegrationVirtual Reality (VR)Augmented Reality (AR)Game con promotional graphics and video app store and Playstore publishing </p>
+            </div>
+          </div>
+          <!-- /Overview Tab Content -->
+
+          <!-- Experience Tab Content -->
+          <div class="pro-post project-widget widget-box" id="experience">
+            <h3 class="pro-title">Experience</h3>
+            <div class="pro-content">
+              <div class="widget-list mb-0">
+                <ul class="clearfix">
+                  <li>
+                    <h4>Logo Designer</h4>
+                    <h5>Techline  July 9, 2018 - March 18, 2021</h5>
+                    <p>I am a professional graphic designer. I have more than 10-years of experience in graphics design. If you are looking for any graphic related work, contact me, I'll glad to help you.</p>
+                  </li>
+                  <li>
+                    <h4>Logo Designer</h4>
+                    <h5>Techline  July 9, 2018 - March 18, 2021</h5>
+                    <p>I am a professional graphic designer. I have more than 10-years of experience in graphics design. If you are looking for any graphic related work, contact me, I'll glad to help you.</p>
+                  </li>
+                  <li>
+                    <h4>Logo Designer</h4>
+                    <h5>Techline  July 9, 2018 - March 18, 2021</h5>
+                    <p>I am a professional graphic designer. I have more than 10-years of experience in graphics design. If you are looking for any graphic related work, contact me, I'll glad to help you.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /Experience Tab Content -->
+
+          <!-- Educational Tab Content -->
+          <div class="pro-post project-widget widget-box" id="education">
+            <h3 class="pro-title">Educational Details</h3>
+            <div class="pro-content">
+              <div class="widget-list mb-0">
+                <ul class="clearfix">
+                  <li>
+                    <h4>Bachelor of Science in Game Programming & Development</h4>
+                    <h5>Hampshire University  January 12, 2015 - January 19, 2019</h5>
+                    <p>Graphic Designing artworks through making plans and utilizing the helpful analysis of companions, educators, and bosses to improve those plans. Careful discipline brings about promising results, and the capacity to acknowledge and gain from analysis from peers and even the purchaser everywhere is pivotal for accomplishment in this field.</p>
+                  </li>
+                  <li>
+                    <h4>Master in Gaming STudi Design</h4>
+                    <h5>Techline  July 9, 2018 - March 18, 2021</h5>
+                    <p>I am a professional graphic designer. I have more than 10-years of experience in graphics design. If you are looking for any graphic related work, contact me, I'll glad to help you.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /Educational Tab Content -->
+
+          <!-- Technical Tab Content -->
+          <div class="pro-post project-widget widget-box" id="skill">
+            <h3 class="pro-title">Specialié </h3>
+            <div class="pro-content">
+              <div class="tags">
+                <span class="badge badge-pill badge-skills">{{candidate.specialismName}}</span>
+              </div>
+            </div>
+          </div>
+          <!-- /Technical Tab Content -->
+
+        </div>
+      </div>
+
+      <!-- Blog Sidebar -->
+      <div class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar">
+        <div class="stickybar">
+          <div class="pro-post widget-box follow-widget">
+            <a href="javascript:void(0);" class="btn follow-btn">+ Follow</a>
+            <ul class="follow-posts pro-post">
+              <li><p>Following</p><h6>49</h6></li>
+              <li><p>Followers</p><h6>422</h6></li>
+            </ul>
+          </div>
+
+          <div class="pro-post widget-box language-widget">
+            <h4 class="pro-title">LANGUAGE SKILLS</h4>
+            <ul class="latest-posts pro-content pt-0">
+              <li><p>{{candidate.language}}</p>
+                <div class="progress progress-md mb-0">
+                  <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </li>
+              <li><p>Russian</p>
+                <div class="progress progress-md mb-0">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div></li>
+              <li><p>German</p>
+                <div class="progress progress-md mb-0">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pro-post widget-box about-widget">
+            <h4 class="pro-title mb-0">ABOUT ME</h4>
+            <ul class="latest-posts pro-content">
+              <li><p>Gender</p><h6>{{candidate.gender}}</h6></li>
+              <li><p>Experience</p><h6>5 Years</h6></li>
+              <li><p>Location</p><h6>{{candidate.city}}</h6></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="pro-post category-widget">
+            <div class="widget-title-box">
+              <h4 class="pro-title">SOCIAL LINKS</h4>
+            </div>
+            <ul class="latest-posts pro-content">
+              <li><a href="javascript:void(0);">http://www.facebook.com/john...</a></li>
+              <li><a href="javascript:void(0);">http://www.Twitter.com/john...</a></li>
+              <li><a href="javascript:void(0);">Http://www.googleplus.com/john... </a></li>
+              <li><a href="javascript:void(0);"> Http://www.behance.com/john...</a></li>
+              <li><a href="javascript:void(0);"> Http://www.pinterest.com/john...</a></li>
+            </ul>
+          </div>
+          <!-- /Categories -->
+
+          <!-- Link Widget -->
+          <div class="pro-post widget-box post-widget">
+            <h3 class="pro-title">Profile Link</h3>
+            <div class="pro-content">
+              <div class="input-block profile-group mb-0">
+                <div class="input-group">
+                  <input type="text" class="form-control" value="https://www.kofejob.com/developer/daren/12454687">
+                  <div class="input-group-append">
+                    <button class="btn btn-success sub-btn" type="submit"><i class="fa fa-clone"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /Link Widget -->
+        </div>
+
+
+
+      </div>
+      <!-- /Blog Sidebar -->
+
+    </div>
+  </div>
+</div>
+<!-- /Page Content -->

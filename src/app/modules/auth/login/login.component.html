@@ -1,0 +1,65 @@
+
+<div class="main-wrapper account-page">
+  <!-- Page Content -->
+  <div class="login-wrapper">
+    <div class="content">
+      <!-- Login Content -->
+      <div class="account-content">
+        <div class="align-items-center justify-content-center">
+          <div class="login-right">
+            <div class="login-header text-center">
+              <a [routerLink] = "routes.home"><img src="assets/img/logo/logo.png" alt="logo" class="img-fluid"></a>
+              <h3>Bienvenue! Content de vous voir a nouveau</h3>
+
+            </div>
+            <form (ngSubmit)="login()">
+              <div class="input-block">
+                <label for="email" class="focus-label">{{'EMAIL'|translate}}<span class="label-star"> *</span></label>
+                <input type="text" id="email" class="form-control floating" [(ngModel)]="email" name="email" >
+              </div>
+              <div class="input-block">
+                <label for="password" class="focus-label">{{'PASSWORD'|translate}} <span class="label-star"> *</span></label>
+                <div class="position-relative">
+                  <input id="password"  [type]="password ? 'text' : 'password'" [(ngModel)]="password"  name="password" class="form-control floating pass-input">
+                  <div class="password-icon" (click)="togglePassword(1)" (keydown.enter)="togglePassword(1)" tabindex="0">
+                    <span class="fas toggle-password" [ngClass]="password ? 'fa-eye' : 'fa-eye-slash'"></span>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary w-100 btn-lg login-btn d-flex align-items-center justify-content-center" type="submit">
+
+                <span *ngIf="showProgressBar" class="spinner-border spinner-border-sm me-2" role="status"></span> Se connecter
+              </button>
+              <div class="login-or">
+                <p><span>OR</span></p>
+              </div>
+              <div class="row social-login">
+                <div class="col-sm-4">
+                  <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/google-icon.svg" alt="Google">Google</a>
+                </div>
+                <div class="col-sm-4">
+                  <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/fb-icon.svg" alt="Fb">Facebook</a>
+                </div>
+                <div class="col-sm-4">
+                  <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/ios-icon.svg" alt="Apple">Apple</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8 dont-have d-flex  align-items-center">Candidate <a [routerLink] = "routes.register" class="ms-2">{{'Signup'|translate}}</a></div>
+                <div class="col-sm-4 text-sm-end">
+
+                  <a class="forgot-link" [routerLink] = "routes.forgot_password">{{'Lost_Password'|translate}}?</a>
+
+                  <i class="feather icon-arrow-right ms-2"></i>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- /Login Content -->
+    </div>
+  </div>
+
+  <!-- /Page Content -->
+</div>

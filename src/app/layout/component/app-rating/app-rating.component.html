@@ -1,0 +1,6 @@
+<div class="rating mb-0">
+  <ng-container *ngFor="let star of stars; let i = index">
+    <i class="fas" [ngClass]="i < rating ? 'fa-star filled' : 'fa-star'"></i>
+  </ng-container>
+  <span class="average-rating">{{ rating.toFixed(1) }}</span>
+</div>

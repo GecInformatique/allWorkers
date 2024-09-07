@@ -1,0 +1,248 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+  <div class="container">
+    <div class="row align-items-center inner-banner">
+      <div class="col-md-12 col-12 text-center">
+        <div class="breadcrumb-list">
+          <h2>Candidat List</h2>
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink] = "routes.home">Home</a></li>
+              <li class="breadcrumb-item" aria-current="page">Candidat</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+
+        <!-- Search Filter -->
+        <div class="card search-filter">
+          <div class="card-header d-flex justify-content-between">
+            <h4 class="card-title mb-0">Filtre de recherche</h4>
+          </div>
+          <div class="card-body">
+            <div class="filter-widget">
+              <h4 class="filter-title">
+                <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse" data-bs-target="#collapselocation" aria-expanded="true" aria-controls="collapseOne">
+                  Categorie
+                  <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                </a>
+              </h4>
+              <div id="collapselocation" class="collapse show" data-bs-parent="#accordionExample1" >
+                <div *ngFor="let group of listGroups;index as i">
+                  <label class="custom_radio">
+                    <input type="radio" value="{{group.id}}" formControlName="group" >
+                    <span class="checkmark"></span>{{group.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="filter-widget">
+              <h4 class="filter-title">
+                <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  {{'DOMAINS'|translate}}
+                  <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                </a>
+              </h4>
+              <div id="collapseOne" class="collapse show"  data-bs-parent="#accordionExample1" >
+                <div *ngFor="let domain of domainActivity">
+                  <label class="custom_check">
+                    <input type="checkbox" name="select_time" >
+                    <span class="checkmark"></span> {{ getDomainName(domain?.name) | translate }}
+                  </label>
+                </div>
+
+                <div id="collapseOnes" class="collapse"  data-bs-parent="#accordionExample1" >
+                </div>
+                <div class="showmore mt-2">
+                  <a href="javascript:void(0);"  data-bs-toggle="collapse" data-bs-target="#collapseOnes" aria-expanded="true" aria-controls="collapseOne"><i class="feather icon-plus me-1"></i>Show More</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-widget">
+              <h4 class="filter-title">
+                <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse" data-bs-target="#collapselanguage" aria-expanded="true" aria-controls="collapseOne">
+                  Langues
+                  <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                </a>
+              </h4>
+              <div id="collapselanguage" class="collapse show"  data-bs-parent="#accordionExample1" >
+                <div>
+                  <label class="custom_check">
+                    <input type="checkbox" value="Anglais" formControlName="language" >
+                    <span class="checkmark"></span> Anglais
+                  </label>
+                </div>
+                <div>
+                  <label class="custom_check">
+                    <input type="checkbox" value="Français" formControlName="language">
+                    <span class="checkmark"></span> Français
+                  </label>
+                </div>
+                <div>
+                  <label class="custom_check">
+                    <input type="checkbox" value="Allemand" formControlName="language">
+                    <span class="checkmark"></span>Allemand
+                  </label>
+                </div>
+                <div>
+                  <label class="custom_check">
+                    <input type="checkbox" value="Arabe" formControlName="language">
+                    <span class="checkmark"></span>Arabe
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="filter-widget">
+              <h4 class="filter-title">
+                <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse" data-bs-target="#collapselanguagea" aria-expanded="true" aria-controls="collapseOne">
+                  Type Disponibilité
+                  <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                </a>
+              </h4>
+              <div id="collapselanguagea" class="collapse show"  data-bs-parent="#accordionExample1" >
+                <div>
+                  <label class="custom_check">
+                    <input type="checkbox" value="Full Time" formControlName="typeDisponibility" >
+                    <span class="checkmark"></span>Temps plein
+                  </label>
+                </div>
+                <div>
+                  <label class="custom_check">
+                    <input type="checkbox" value="Temps partiel" formControlName="typeDisponibility">
+                    <span class="checkmark"></span> Part Time
+                  </label>
+                </div>
+                <div>
+                  <label class="custom_check">
+                    <input type="checkbox" value="Project Based" formControlName="typeDisponibility">
+                    <span class="checkmark"></span>Basé sur un projet
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Search Filter -->
+      </div>
+      <div class="col-md-12 col-lg-8 col-xl-9">
+        <div class="sort-tab develop-list-select">
+          <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              <div class="d-flex align-items-center">
+                <div class="freelance-view">
+                  <h4>{{'FOUND_RESULTS'|translate}}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-flex justify-content-sm-end">
+              <div class="sort-by">
+               <!-- <mat-select [(ngModel)]="selectedValue1" [ngModelOptions]="{standalone: true}" class="select mat-select arrow"  placeholder="Sort by (Default)">
+                  @for (data of selectedList1; track data) {
+                    <mat-option [value]="data.value">
+                      {{data.value}}
+                    </mat-option>
+                  }
+                </mat-select>-->
+              </div>
+             <!-- <ul class="list-grid d-flex align-items-center">
+               &lt;!&ndash; <li><a [routerLink] = "routes.freelancerProject"><i class="fas fa-th-large"></i></a></li>&ndash;&gt;
+                <li><a [routerLink] = "routes.projectList" class="favour-active"><i class="fas fa-list"></i></a></li>
+              </ul>-->
+
+            </div>
+          </div>
+        </div>
+
+
+              <div class="sort-tab develop-list-select">
+                <div class="sort-tab develop-list-select">
+                  <div class="row align-items-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <input style="border: solid 1px #0a9036;"
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="searchKey"
+                        (ngModelChange)="applyFilter()"
+                        placeholder="Rechercher par nom et specialite"
+                      >
+                    </div>
+                   <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 d-flex justify-content-sm-end">
+                      <button class="btn btn-primary sub-btn" type="button" (click)="searchCandidate()" >Rechercher </button>
+                    </div>-->
+                  </div>
+                </div>
+              </div>
+
+          <div class="list-book-mark book-mark favour-book">
+            <div class="row justify-content-center">
+              <div class="col-lg-12">
+                <div *ngFor="let candidate of filteredCandidates; index as i" class="card list-develop-group">
+                  <div class="about-author d-flex align-items-center">
+                    <div class="about-list-author d-flex align-items-center">
+                      <div class="about-author-img">
+                        <div class="author-img-wrap">
+                          <a href="#" (click)="navigateToCandidateDetail(candidate)">
+                            <img class="img-fluid" style="height: 80px !important;" alt="Image {{candidate.full_name}}" src="{{candidate.picture}}">
+                            <span *ngIf="candidate.profile_certificate" class="verified"><i class="fas fa-check-circle"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="author-details d-flex">
+                        <div class="freelance-info">
+                          <h3><a href="javascript:void(0);" (click)="navigateToCandidateDetail(candidate)">{{candidate.full_name}}</a></h3>
+                          <div class="freelance-specific">{{candidate.specialismName}}</div>
+                          <div class="freelance-location"><i class="feather icon-map-pin me-1"></i>{{candidate.city}}, {{candidate.complete_address}}</div>
+                        </div>
+                        <div class="freelance-rating">
+                          <app-rating [rating]="candidate.rating"></app-rating>
+                          <div class="freelance-tags border-0">
+                            <a *ngFor="let competence of candidate.competences;index as i" href="javascript:void(0);">
+                              <span class="badge badge-pill badge-design">{{competence.name}}</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="develop-list-pro">
+                      <div class="cart-hover">
+                        <a href="javascript:void(0);" class="btn-invite d-block w-100 mb-2" tabindex="-1">Inviter</a>
+                        <a href="javascript:void(0);" (click)="navigateToCandidateDetail(candidate)" class="btn-cart" tabindex="-1">Voir le Profil</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="paginations list-pagination">
+                <li class="page-item" [class.disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">
+                  <a href="javascript:void(0);"><i class="feather icon-chevron-left"></i></a>
+                </li>
+                <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" (click)="onPageChange(i + 1)">
+                  <a href="javascript:void(0);" [class.active]="currentPage === i + 1">{{ i + 1 }}</a>
+                </li>
+                <li class="page-item" [class.disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">
+                  <a href="javascript:void(0);"><i class="feather icon-chevron-right"></i></a>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /Page Content -->
