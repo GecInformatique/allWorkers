@@ -23,7 +23,8 @@ import {
   TestimonialService
 } from "./core/libs/scripts/libs/all-workers-api";
 import {SharedModule} from "./layout/shared/shared.module";
-
+import {RatingComponent} from "./layout/component/app-rating/app-rating.component";
+import {PaginationComponent} from "./layout/component/app-pagination/app-pagination.component";
 import {MessageService} from "primeng/api";
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -59,8 +60,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ProfessionService,
     TestimonialService,
     AuthService,
-    MessageService,
     DatePipe,
+    MessageService,
+
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

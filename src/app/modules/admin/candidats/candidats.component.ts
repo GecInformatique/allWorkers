@@ -64,6 +64,7 @@ export class CandidatsComponent implements OnInit {
     private professionService: ProfessionService,
     private competenceService: CompetenceService,
     private messageService: MessageService,
+
     private fb: FormBuilder,
     ) {this.maxDate = this.getMaxDateFor18YearsOld(); }
 
@@ -77,12 +78,12 @@ export class CandidatsComponent implements OnInit {
       'accountsType': new FormControl<number|null>(null, [Validators.required]),
       'last_name': new FormControl<string>("", [Validators.required]),
       'first_name': new FormControl<string>("", [Validators.required]),
-      'day_birth': new FormControl<string>("", [Validators.required]),
+      'day_birth': new FormControl<string>("", ),
       'email': new FormControl<string>(""),
       'phone_number': new FormControl<string>(""),
       'gender': new FormControl<string>("", [Validators.required]),
       'city': new FormControl<string>("", [Validators.required]),
-      'complete_address': new FormControl<string>("", [Validators.required]),
+      'complete_address': new FormControl<string>(""),
       'domain_activity': new FormControl<number|null>(null, [Validators.required]),
       'profession': new FormControl<number[]|null>([], [Validators.required]),
       'specialisms': new FormControl<number|null>(null, [Validators.required]),
@@ -127,8 +128,7 @@ export class CandidatsComponent implements OnInit {
           this.messageService.add({ severity: 'danger', summary: 'danger', detail: 'Erreur l\'ors de la creation du candidat' });
 
           console.error('POST error:', error)
-        }
-      });
+        }      });
   }
 
   private updateCandidat(candidate: any): void {

@@ -168,7 +168,7 @@
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
-                  <label for="last-name" class="form-label">{{ 'FIRST_NAME' | translate }}<span class="required text-danger">*</span></label>
+                  <label for="last-name" class="form-label">{{ 'FIRST_NAME' | translate }}</label>
                   <input type="text" id="last-name" class="form-control" formControlName="first_name" />
                   <div *ngIf="registerForm.controls['first_name']?.invalid && (registerForm.controls['first_name']?.dirty || registerForm.controls['first_name']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['first_name']?.errors?.['required']" class="p-error">Prénom obligatoire.</small>
@@ -187,7 +187,7 @@
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
-                  <label for="email-address" class="form-label">{{ 'EMAIL_ADDRESS' | translate }}<span class="required text-danger">*</span></label>
+                  <label for="email-address" class="form-label">{{ 'EMAIL_ADDRESS' | translate }}</label>
                   <input type="email" id="email-address" formControlName="email" class="form-control" />
                   <div *ngIf="registerForm.controls['email']?.invalid && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['email']?.errors?.['required']" class="p-error"> Email obligatoire.</small>
@@ -196,7 +196,7 @@
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
-                  <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}<span class="required text-danger">*</span></label>
+                  <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
                   <span class="p-fluid">
                        <p-inputMask mask="(999) 699999999" formControlName="phone_number" id="phone_number" placeholder="(999) 999-9999"></p-inputMask>
                     </span>
@@ -212,7 +212,7 @@
                   <label>{{ 'GENDER' | translate }}<span class="required text-danger">*</span></label>
                   <div class="form-group radio_input">
                     <label class="container_radio me-3">{{ 'MALE' | translate }}
-                      <input type="radio" formControlName="gender" value="Maxulin" class="required">
+                      <input type="radio" formControlName="gender" value="Masculin" class="required">
                       <span class="checkmark"></span>
                     </label>
                     <label class="container_radio">{{ 'FEMALE' | translate }}

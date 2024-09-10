@@ -28,7 +28,6 @@ export class CandidatListComponent {
   candidates : any[] =[];
   candidatesWithSpecialism: any[] = [];
   specialismName: any;
-  domains: any;
   public selectedValue1 = '';
   public like : boolean[] = [false];
   isCollapsesDAOpen: boolean = true;
@@ -73,12 +72,6 @@ export class CandidatListComponent {
   ngOnInit(): void {
     this.getDomainActivityList();
     this.getSpecialismList()
-    this.domains = history.state.domain;
-
-
-
-    console.log(this.domains,"domaine recupere ")
-
   }
 
   getDomainName(name: string | undefined): string {
@@ -103,7 +96,6 @@ export class CandidatListComponent {
         this.specialism = response.data;
         this.getCandidateList()
 
-        console.log(this.specialism)
       },
       error => console.error('GET error:', error)
     )
@@ -113,8 +105,6 @@ export class CandidatListComponent {
     this.candidateService.getCandidateList().subscribe(
       (response: any) => {
         this.candidates = response.data;
-        console.log('Candidates:', this.candidates);
-
         // Associer les spécialismes aux candidats
         this.candidates.forEach(candidate => {
           const specialism = this.specialism.find(spec => spec.id === candidate.specialisms_id);

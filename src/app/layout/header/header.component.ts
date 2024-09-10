@@ -70,7 +70,6 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
   public toggleSidebar(): void {
     this.navservices.openSidebar();
   }
-
   public hideSidebar(): void {
     this.navservices.closeSidebar();
   }
@@ -86,25 +85,29 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
   }
 
   ngOnInit(): void {
+
     const storedLanguage = localStorage.getItem('user-language');
     const initialLanguage = storedLanguage ? storedLanguage : 'fr';
     this.langCode = initialLanguage;
+
     this.changeSiteLanguage(initialLanguage);
     this.currentUser = this.authService.getCurrentUser();
-    console.log(this.currentUser,'this.currentUser')
-  }
+    this.flagImage = storedLanguage === 'fr' ? 'assets/img/flags/fr.png' : 'assets/img/flags/en.png';
+    console.log(this.currentUser,'this.currentUser');
+     }
 
   changeLanguage(event: any): void {
     const selectedValue = event.target.value;
+
     const selectedLanguage = this.languageList.find(language => language.code === selectedValue);
 
     if (selectedLanguage) {
       this.siteLanguage = selectedLanguage.label.toString();
       this.translate.use(selectedValue);
     }
-
     localStorage.setItem('user-language', selectedValue);
-
+    console.log(localStorage, 'valeur en memoire ')
+    console.log(selectedValue, 'valeur')
     this.flagImage = selectedValue === 'fr' ? 'assets/img/flags/fr.png' : 'assets/img/flags/en.png';
     this.changeSiteLanguage(selectedValue);
   }
@@ -114,8 +117,8 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
 
     if (selectedLanguage) {
       this.siteLanguage = selectedLanguage.label.toString();
-      this.translate.use(localeCode);
-    }
+      this.translate.use(localeCode)
+      }
   }
 
   trackByFn(index: number, item: any): number {
@@ -133,6 +136,9 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
   }
 
   public openModal(): void {
+    if(this.currentUser == null){
+      this.router.navigate(['/auth/login']);
+    }
     this.isModalOpen = true;
   }
 

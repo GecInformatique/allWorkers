@@ -14,24 +14,7 @@
             </div>
             <h1>{{ 'FIND_YOUR_NEXT' | translate }}<br>{{ 'FREELANCER' | translate }}</h1>
             <p>{{'FIND_PEOPLE_FOR_JOBS'|translate}}</p>
-            <form class="form" name="store" id="store" method="post">
-              <div class="form-inner">
-                <div class="input-group">
-                  <span class="drop-detail">
-                   <!-- <mat-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}"
-                                class="select" placeholder="Domaine">
-                      @for (data of selectedList; track data) {
-                      <mat-option [value]="data.value">
-                          {{data.value}}
-                        </mat-option>
-                      }
-                    </mat-select>-->
-                  </span>
-                  <input type="email" class="form-control" placeholder="Keywords">
-                  <button class="btn btn-primary sub-btn" type="button" (click)="navigation()" (keydown.enter)="navigation()" tabindex="0">{{'SEARCH'|translate}}</button>
-                </div>
-              </div>
-            </form>
+            <button type="button" [routerLink]="routes.candidatView" class="btn btn-primary btn-lg btn-block">{{'SEARCH'|translate}}</button>
           </div>
         </div>
       </div>
@@ -125,7 +108,7 @@
     <div class="browse-categories-content">
       <div class="row row-gap aos" data-aos="fade-up">
         <div class="col-lg-3 col-md-6 col-12 aos"  *ngFor="let domain of domainActivity | slice:0:8" data-aos="zoom-in" data-aos-duration="1000">
-          <div class="popular-catergories" (click)="navigateTo(domain)">
+          <div class="popular-catergories" (click)="navigateTo()">
             <div class="popular-catergories-img" style="height: 50px; width:50px">
               <span><img src="{{domain?.icon}}" alt="img" style="height: 100%; width:100%"></span>
             </div>
@@ -243,7 +226,7 @@
           <div class="work-content ">
             <h2>{{'EASILY_FIND'|translate}}<span>{{'EXPLORE_OPPORTUNITIES'|translate}}</span></h2>
             <p>{{'TAKE_CAREER_TO_NEXT_LEVEL'|translate}}</p>
-            <a [routerLink]="routes.freelancer_project" class="btn btn-primary">{{'SIGN_UP'|translate}}</a>
+            <a [routerLink]="routes.register" class="btn btn-primary">{{'SIGN_UP'|translate}}</a>
           </div>
         </div>
       </div>
@@ -285,7 +268,7 @@
       <div class="col-md-12 col-sm-12 col-12 mx-auto">
         <div class="section-header section-header-four section-locate aos" data-aos="fade-up">
           <div>
-            <h2 class="header-title mb-0">Freelancers disponible chez All-Workers</h2>
+            <h2 class="header-title mb-0">{{'FREELANCE_DISPONIBLE'| translate}}</h2>
           </div>
         </div>
       </div>
@@ -325,7 +308,7 @@
       </owl-carousel-o>
     </div>
     <div class="home-four-viewall">
-      <a routerLink="/candidate-list" class="home-four-viewall-btn" >Voir plus de freelancers <i class="feather-arrow-right ms-2"></i></a>
+       <a routerLink="/candidate-list" class="home-four-viewall-btn" >{{'VIEW_MORE_FREELANCE'| translate }}<i class="feather-arrow-right ms-2"></i></a>
     </div>
   </div>
 </section>
@@ -367,7 +350,7 @@
     <div class="row">
       <div class="col-12 col-md-12 mx-auto">
         <div class="section-header text-center aos" data-aos="fade-up">
-          <h2 class="header-title">{{'WHATS_GREAT_ABOUT_IT'|translate}}</h2>
+          <h2 class="header-title">{{'OUR_STATISTICS'|translate}}</h2>
           <p>{{'ALL_FEATURES_OF_ALLWORKERS_BELOW'|translate}}</p>
         </div>
       </div>
@@ -536,13 +519,11 @@
       </div>
       <div class="col-lg-6 col-md-12 d-flex align-items-center">
         <div class="market-place-group aos" data-aos="fade-up">
-          <h2>Découvrez des formations prés<span class="platform-head">de chez vous dans notre plateforme</span></h2>
-          <p>Recycler vos divers compétences </p>
-          <p class="platform-pasage">Nous proposons des formations avec des experts pour vous aider à devenir des
-            freelances toujours plus compétitifs sur le marché de l'emploi. Nous tirons parti de l'expérience de notre
-            large communauté pour offrir un thème de place de marché optimisé</p>
+          <h2>{{'DISCOVER_COURSE_1'|translate}}<span class="platform-head">{{'DISCOVER_COURSE_2'|translate}}</span></h2>
+          <p>{{'DISCOVER_COURSE_3'|translate}} </p>
+          <p class="platform-pasage">{{'DISCOVER_COURSE_4'|translate}}</p>
           <div class="market-place-btn platform-btn">
-            <a routerLink="/formation-list" class="btn btn-primary market-project me-2">Voir les formations</a>
+            <a routerLink="/formation-list" class="btn btn-primary market-project me-2">{{'SEE_FORMATIONS'|translate}}</a>
           </div>
         </div>
       </div>
@@ -555,8 +536,8 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 col-12 mx-auto">
         <div class="section-header section-header-two text-center aos" data-aos="fade-up">
-          <h2 class="header-title">Nos mellieurs Formations</h2>
-          <p>Choisir la formation qui vous convient le mieux</p>
+          <h2 class="header-title">{{'BEST_FORMATION'|translate}}</h2>
+          <p>{{'CHOICE_FORMATION'|translate}}</p>
         </div>
       </div>
     </div>

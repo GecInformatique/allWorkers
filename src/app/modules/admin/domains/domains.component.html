@@ -92,7 +92,6 @@
                     <thead>
                       <tr>
                         <th>Date de création</th>
-                        <th>Icon</th>
                         <th>Domaine</th>
                         <th>{{'Description'|translate}}</th>
                         <th>{{'Statut'|translate}}</th>
@@ -102,8 +101,6 @@
                     <tbody>
                          <tr *ngFor="let domain of domains">
                       <td>{{ domain.created_at| date:'dd/MM/yyyy' }}</td>
-                      <td> <img [src]="domain?.icon" alt="Img" style="  width: 30px; height: 30px;"> </td>
-
                       <td>{{ domain.name }}</td>
                       <td>{{ domain.description }}</td>
                       <td>{{ domain.enable ? 'active' : 'désactivé' }}</td>
@@ -164,21 +161,52 @@
         </div>
 
         <!-- Modal body -->
-        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="name">Nom du domaine</label>
-            <input type="text" id="name" [(ngModel)]="currentDomain.name" name="name" class="form-control" placeholder="Nom du domaine" required>
-          </div>
-          <div class="form-group">
-            <label for="icon">Icon</label>
-            <input type="file" id="icon" (change)="onFileSelected($event)" name="icon" class="form-control">
-          </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nom du domaine</label>
+              <input type="text" id="name" [(ngModel)]="currentDomain.name" name="name" class="form-control" placeholder="Nom du domaine">
+            </div>
             <div class="form-group">
               <label for="description">Description</label>
               <textarea rows="5" cols="5" id="description" [(ngModel)]="currentDomain.description" name="description" class="form-control" placeholder="Entrer la description"></textarea>
             </div>
             <div class="mt-4">
               <button type="submit" class="btn btn-primary btn-block">{{isEditMode ? 'Modifier' : 'Enregistrer'}}</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /The Modal -->
+
+
+  <!-- The Modal -->
+  <div class="modal fade custom-modal" id="edit-category">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header flex-wrap">
+          <h4 class="modal-title">Modifier domaine</h4>
+          <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="edit-name">Nom du domaine</label>
+              <input type="text" id="edit-name" class="form-control" value="Nom du domaine">
+            </div>
+            <div class="form-group">
+              <label for="edit-description">Description</label>
+              <textarea rows="5" cols="5" id="edit-description" class="form-control" placeholder="Entrer la description"></textarea>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary btn-block">Modifier</button>
             </div>
           </form>
         </div>
