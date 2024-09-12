@@ -413,7 +413,7 @@ export class routes {
     return this.pages + '/privacy-policy';
   }
   public static get faq(): string {
-    return this.pages + '/faq';
+    return '/pages/faq';
   }
   public static get milestonefiles(): string {
     return this.employer + '/milestones/files';

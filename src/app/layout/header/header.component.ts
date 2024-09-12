@@ -29,10 +29,10 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
   public page = '';
   public last = '';
   public langCode!: string;
-  public siteLanguage = 'English';
+  public siteLanguage = 'En';
   public languageList = [
-    { code: 'en', label: 'English' },
-    { code: 'fr', label: 'French' },
+    { code: 'en', label: 'En' },
+    { code: 'fr', label: 'Fr' },
   ];
   public isModalOpen: boolean = false;
   public currentUser: any;
