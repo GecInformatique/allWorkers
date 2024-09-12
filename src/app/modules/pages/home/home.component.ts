@@ -10,7 +10,9 @@ import {
   QuestionService, Testimonial, TestimonialService
 } from "../../../core/libs/scripts/libs/all-workers-api";
 import { routes } from 'src/app/core/helpers/routes/routes';
-
+import cities from "../../../../assets/json/cities.json";
+import testimonial from 'src/assets/json/testimonial.json';
+ import faq from 'src/assets/json/faq.json';
 
 @Component({
   selector: 'app-home',
@@ -182,12 +184,12 @@ export class HomeComponent implements OnInit {
       once: true,
     });
     this.getAllDomainActivity();
-    this.getQuestionList()
+    //this.getQuestionList()
     this.getFormationList()
     this.getAllCandidate()
-    this.getAllTestimonial()
-
-
+    //this.getAllTestimonial()
+    this.testimonials=(testimonial.temoignages);
+    this.questions = faq.Questions;
   }
   search() {
     if (this.selected === 'projects') {

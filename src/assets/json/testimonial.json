@@ -1,0 +1,37 @@
+{
+    "temoignages": [
+
+      {
+        "id": 1,
+        "username": "Aka Donatien",
+        "description": "Je cherchais un moyen de trouver des projets rapidement sans passer par des processus de recrutement interminables. All-workers a vraiment été la solution idéale pour moi. Grâce à la plateforme, j'ai pu décrocher plusieurs missions en peu de temps, tout en choisissant des projets qui correspondent à mes compétences. La flexibilité et la facilité d'utilisation de la plateforme sont un grand plus. Je recommande vivement à tout freelanceur de rejoindre cette communauté.",
+        "picture": "../assets/img/avatar/img_1.png",
+        "workplace": "Développeur Web",
+        "rating" : 3
+      },
+      {
+        "id": 2,
+        "username": "Donfack Jean Marie",
+        "description": "En tant que designer graphique, il est souvent difficile de trouver des clients sérieux. Depuis que j'ai rejoint all-workers, j'ai non seulement pu étoffer mon portfolio avec des projets intéressants, mais j'ai aussi développé des relations de confiance avec des employeurs qui reviennent régulièrement vers moi. Le système de paiement sécurisé me rassure beaucoup, et la communication avec les clients est fluide grâce aux outils intégrés sur la plateforme",
+        "picture": "../assets/img/avatar/img.png",
+        "workplace": "Designer Graphique",
+        "rating" : 4.2
+      },
+      {
+        "id": 3,
+        "username": "Dongo Charles",
+        "description": "En tant qu'employeur, j'avais souvent du mal à trouver des freelanceurs fiables et qualifiés pour mes projets. Depuis que j'utilise all-workers, ce problème est résolu. J'ai accès à une vaste base de données de talents diversifiés et spécialisés, ce qui m'a permis de mener à bien plusieurs projets avec succès. La plateforme est très intuitive et me permet de gérer mes projets en toute simplicité. C'est un vrai gain de temps et d'efficacité",
+        "picture": "../assets/img/avatar/img_1.png",
+        "workplace": "Employeur en Recherche de Talents",
+        "rating" : 3.5
+      },
+      {
+        "id": 4,
+        "username": "Martin Alexandre ",
+        "description": "Nous avons décidé d'élargir notre équipe pour répondre à une demande croissante, mais sans vouloir embaucher à temps plein. All-workers nous a permis de trouver rapidement des freelanceurs compétents dans différents domaines, de la rédaction à la programmation. Ce qui est vraiment formidable, c'est la transparence des profils et des évaluations, ce qui nous a aidés à faire des choix éclairés. Grâce à all-workers, nous avons pu livrer nos projets dans les délais tout en maîtrisant nos coûts.",
+        "picture": "../assets/img/avatar/img.png",
+        "workplace": "Entreprise en Expansion",
+        "rating" : 3
+      }
+    ]
+}
