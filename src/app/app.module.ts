@@ -26,6 +26,7 @@ import {SharedModule} from "./layout/shared/shared.module";
 import {RatingComponent} from "./layout/component/app-rating/app-rating.component";
 import {PaginationComponent} from "./layout/component/app-pagination/app-pagination.component";
 import {MessageService} from "primeng/api";
+import {FormsModule} from "@angular/forms";
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+
     CommonModule,
     TranslateModule.forRoot({
       loader: {

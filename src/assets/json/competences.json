@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c1",
+    "nom": "HTML",
+    "specialite_id": "s1"
+  },
+  {
+    "id": "c2",
+    "nom": "CSS",
+    "specialite_id": "s1"
+  },
+  {
+    "id": "c3",
+    "nom": "JavaScript",
+    "specialite_id": "s1"
+  },
+  {
+    "id": "c4",
+    "nom": "Java",
+    "specialite_id": "s2"
+  },
+  {
+    "id": "c5",
+    "nom": "Kotlin",
+    "specialite_id": "s2"
+  },
+  {
+    "id": "c6",
+    "nom": "Swift",
+    "specialite_id": "s2"
+  },
+  {
+    "id": "c7",
+    "nom": "Linux",
+    "specialite_id": "s3"
+  },
+  {
+    "id": "c8",
+    "nom": "Windows Server",
+    "specialite_id": "s3"
+  },
+  {
+    "id": "c9",
+    "nom": "Virtualisation",
+    "specialite_id": "s3"
+  },
+  {
+    "id": "c10",
+    "nom": "Firewall",
+    "specialite_id": "s4"
+  },
+  {
+    "id": "c11",
+    "nom": "Antivirus",
+    "specialite_id": "s4"
+  },
+  {
+    "id": "c12",
+    "nom": "Cryptographie",
+    "specialite_id": "s4"
+  },
+  {
+    "id": "c13",
+    "nom": "Examen pédiatrique",
+    "specialite_id": "s5"
+  },
+  {
+    "id": "c14",
+    "nom": "Vaccination",
+    "specialite_id": "s5"
+  },
+  {
+    "id": "c15",
+    "nom": "Suivi du développement",
+    "specialite_id": "s5"
+  },
+  {
+    "id": "c16",
+    "nom": "Gestion des maladies chroniques",
+    "specialite_id": "s6"
+  },
+  {
+    "id": "c17",
+    "nom": "Soins palliatifs",
+    "specialite_id": "s6"
+  },
+  {
+    "id": "c18",
+    "nom": "Évaluation fonctionnelle",
+    "specialite_id": "s6"
+  },
+  {
+    "id": "c19",
+    "nom": "Réparation des fractures",
+    "specialite_id": "s7"
+  },
+  {
+    "id": "c20",
+    "nom": "Prothèses",
+    "specialite_id": "s7"
+  },
+  {
+    "id": "c21",
+    "nom": "Arthroscopie",
+    "specialite_id": "s7"
+  },
+  {
+    "id": "c22",
+    "nom": "Pontages",
+    "specialite_id": "s8"
+  },
+  {
+    "id": "c23",
+    "nom": "Remplacement de valves",
+    "specialite_id": "s8"
+  },
+  {
+    "id": "c24",
+    "nom": "Interventions mini-invasives",
+    "specialite_id": "s8"
+  }
+]

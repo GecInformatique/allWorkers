@@ -13,6 +13,8 @@ import {
   SpecialismService
 } from "../../../core/libs/scripts/libs/all-workers-api";
 import cities from 'src/assets/json/cities.json';
+import {HttpClient} from "@angular/common/http";
+import {tap} from "rxjs";
 
 export interface City {
   value: string;
@@ -59,6 +61,7 @@ public password: boolean[] = [true];
     private specialismService: SpecialismService,
     private professionService: ProfessionService,
     private competenceService: CompetenceService,
+    private http: HttpClient,
     private authService: AuthService,
     private fb: FormBuilder,
     private dataservice: ShareDataService) {
@@ -90,7 +93,9 @@ public togglePassword(index: number) {
 
   ngOnInit(): void {
     this.selectedList1 = (cities.villes as string[]).map((city: string) => ({ value: city }));
-    this.getAllDomainActivity();
+   // this.getAllDomainActivity();
+    this.loadDomainData();
+    this.loadProfessionData();
     this.getCompetenceList();
     this.getProfessionList();
     this.getSpecialismList();
@@ -178,23 +183,39 @@ public togglePassword(index: number) {
 
 
   getAllDomainActivity() {
-    this.domainActivityService.getDomainActivityList().subscribe(
+   /* this.domainActivityService.getDomainActivityList().subscribe(
       (response: any )=> {
         this.domainActivity = response.data;
         console.log(this.domainActivity)
       },
       error => console.error('GET error:', error)
-    )
+    )*/
+  }
+
+  private loadDomainData(): void {
+    this.http.get<any[]>('assets/json/domaines.json').pipe(
+      tap(data => {
+        this.domainActivity = data;
+      })
+    ).subscribe();
+  }
+
+  private loadProfessionData(): void {
+    this.http.get<any[]>('assets/json/professions.json').pipe(
+      tap(data => {
+        this.professions = data;
+      })
+    ).subscribe();
   }
 
   getProfessionList() {
-    this.professionService.getProfessionList().subscribe(
+   /* this.professionService.getProfessionList().subscribe(
       (response: any )=> {
         this.professions = response.data;
         console.log(this.professions)
       },
       error => console.error('GET error:', error)
-    )
+    )*/
   }
 
   getSpecialismList() {
@@ -260,14 +281,19 @@ public togglePassword(index: number) {
     console.log('Selected Account:', account); // Log pour vérifier la sélection
     this.accountsType = account;
     this.registerForm.controls['accountsType'].setValue(account);
-    console.log('Form Value for accountsType:', this.registerForm.get('accountsType')?.value); // Log pour vérifier la valeur du formulaire
+    console.log('Form Value for accountsType:', this.registerForm.get('accountsType')?.value);
   }
 
-  onDomainChange(domain: any) {
-    console.log(domain)
-    this.filteredProfessions = this.professions.filter(prof => {
-      return +prof.domain_activities_id === +domain.value.id;
-    });
+
+  onDomainChange(event: any): void {
+    const selectedDomainId = event.value ? event.value.id : null;
+    if (selectedDomainId) {
+      this.filteredProfessions = this.professions.filter(
+        profession => profession.domaine_id === selectedDomainId
+      );
+    } else {
+      this.filteredProfessions = [];
+    }
   }
 
   onProfessionChange(profession: any) {
