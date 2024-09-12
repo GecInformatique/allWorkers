@@ -601,15 +601,11 @@
               <div class="review-info">
                 <h3><a [routerLink] = "routes.employee_review">{{testimonial.username}}</a></h3>
                 <h5>{{testimonial.workplace}}</h5>
-
               </div>
-
             </div>
             <div class="review-content">
               <p class="truncate-multiline">{{testimonial.description}}</p>
-
                <app-rating [rating]="testimonial?.rating"></app-rating>
-
               <div class="rating">
                 <i class="fas fa-star"></i>
               </div>
@@ -619,6 +615,12 @@
         </ng-template>
 
       </owl-carousel-o>
+
+      <div class="col-xl-12">
+        <div class="more-project text-center aos" data-aos="fade-up">
+          <a href="#" class="btn btn-primary">{{'ADD_TESTIMONIAL'|translate}}</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -642,7 +644,11 @@
             <p>{{question.answers}}</p>
           </div>
         </div>
-
+        <div class="col-xl-12">
+          <div class="more-project text-center aos" data-aos="fade-up">
+            <a href="#" class="btn btn-primary">{{'Read_More'|translate}}</a>
+          </div>
+        </div>
       </div>
 
       <div class="col-lg-5">
