@@ -1,21 +1,23 @@
-[
+{
+  "domaines":[
   { "id": "1", "name": "Agronomie et alimentation", "icon": "" },
-  { "id": "D2", "name": "Artisanat", "icon": "" },
-  { "id": "D3", "name": "Audiovisuel et spectacle", "icon": "" },
-  { "id": "D4", "name": "Bâtiment", "icon": "" },
-  { "id": "D5", "name": "Culture", "icon": "" },
-  { "id": "D6", "name": "Commerce", "icon": "" },
-  { "id": "D7", "name": "Droit", "icon": "" },
-  { "id": "D8", "name": "Education", "icon": "" },
-  { "id": "D9", "name": "Finances et gestion", "icon": "" },
-  { "id": "D10", "name": "Politique", "icon": "" },
-  { "id": "D11", "name": "Scientifique", "icon": "" },
-  { "id": "D12", "name": "Santé", "icon": "" },
-  { "id": "D13", "name": "Sécurité", "icon": "" },
-  { "id": "D14", "name": "Technologies", "icon": "" },
-  { "id": "D15", "name": "Sport", "icon": "" },
-  { "id": "D16", "name": "Transports et logistique", "icon": "" },
-  { "id": "D17", "name": "Beauté", "icon": "" },
-  { "id": "D18", "name": "Services personnels et domestiques", "icon": "" },
-  { "id": "D19", "name": "Autres", "icon": "" }
+  { "id": "2", "name": "Artisanat", "icon": "" },
+  { "id": "3", "name": "Audiovisuel et spectacle", "icon": "" },
+  { "id": "4", "name": "Bâtiment", "icon": "" },
+  { "id": "5", "name": "Culture", "icon": "" },
+  { "id": "6", "name": "Commerce", "icon": "" },
+  { "id": "7", "name": "Droit", "icon": "" },
+  { "id": "8", "name": "Education", "icon": "" },
+  { "id": "9", "name": "Finances et gestion", "icon": "" },
+  { "id": "10", "name": "Politique", "icon": "" },
+  { "id": "11", "name": "Scientifique", "icon": "" },
+  { "id": "12", "name": "Santé", "icon": "" },
+  { "id": "13", "name": "Sécurité", "icon": "" },
+  { "id": "14", "name": "Technologies", "icon": "" },
+  { "id": "15", "name": "Sport", "icon": "" },
+  { "id": "16", "name": "Transports et logistique", "icon": "" },
+  { "id": "17", "name": "Beauté", "icon": "" },
+  { "id": "18", "name": "Services personnels et domestiques", "icon": "" },
+  { "id": "19", "name": "Autres", "icon": "" }
 ]
+}

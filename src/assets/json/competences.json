@@ -1,122 +1,125 @@
-[
+{
+  "competences":
+ [
   {
     "id": "c1",
-    "nom": "HTML",
+    "name": "HTML",
     "specialite_id": "s1"
   },
   {
     "id": "c2",
-    "nom": "CSS",
+    "name": "CSS",
     "specialite_id": "s1"
   },
   {
     "id": "c3",
-    "nom": "JavaScript",
+    "name": "JavaScript",
     "specialite_id": "s1"
   },
   {
     "id": "c4",
-    "nom": "Java",
+    "name": "Java",
     "specialite_id": "s2"
   },
   {
     "id": "c5",
-    "nom": "Kotlin",
+    "name": "Kotlin",
     "specialite_id": "s2"
   },
   {
     "id": "c6",
-    "nom": "Swift",
+    "name": "Swift",
     "specialite_id": "s2"
   },
   {
     "id": "c7",
-    "nom": "Linux",
+    "name": "Linux",
     "specialite_id": "s3"
   },
   {
     "id": "c8",
-    "nom": "Windows Server",
+    "name": "Windows Server",
     "specialite_id": "s3"
   },
   {
     "id": "c9",
-    "nom": "Virtualisation",
+    "name": "Virtualisation",
     "specialite_id": "s3"
   },
   {
     "id": "c10",
-    "nom": "Firewall",
+    "name": "Firewall",
     "specialite_id": "s4"
   },
   {
     "id": "c11",
-    "nom": "Antivirus",
+    "name": "Antivirus",
     "specialite_id": "s4"
   },
   {
     "id": "c12",
-    "nom": "Cryptographie",
+    "name": "Cryptographie",
     "specialite_id": "s4"
   },
   {
     "id": "c13",
-    "nom": "Examen pédiatrique",
+    "name": "Examen pédiatrique",
     "specialite_id": "s5"
   },
   {
     "id": "c14",
-    "nom": "Vaccination",
+    "name": "Vaccination",
     "specialite_id": "s5"
   },
   {
     "id": "c15",
-    "nom": "Suivi du développement",
+    "name": "Suivi du développement",
     "specialite_id": "s5"
   },
   {
     "id": "c16",
-    "nom": "Gestion des maladies chroniques",
+    "name": "Gestion des maladies chroniques",
     "specialite_id": "s6"
   },
   {
     "id": "c17",
-    "nom": "Soins palliatifs",
+    "name": "Soins palliatifs",
     "specialite_id": "s6"
   },
   {
     "id": "c18",
-    "nom": "Évaluation fonctionnelle",
+    "name": "Évaluation fonctionnelle",
     "specialite_id": "s6"
   },
   {
     "id": "c19",
-    "nom": "Réparation des fractures",
+    "name": "Réparation des fractures",
     "specialite_id": "s7"
   },
   {
     "id": "c20",
-    "nom": "Prothèses",
+    "name": "Prothèses",
     "specialite_id": "s7"
   },
   {
     "id": "c21",
-    "nom": "Arthroscopie",
+    "name": "Arthroscopie",
     "specialite_id": "s7"
   },
   {
     "id": "c22",
-    "nom": "Pontages",
+    "name": "Pontages",
     "specialite_id": "s8"
   },
   {
     "id": "c23",
-    "nom": "Remplacement de valves",
+    "name": "Remplacement de valves",
     "specialite_id": "s8"
   },
   {
     "id": "c24",
-    "nom": "Interventions mini-invasives",
+    "name": "Interventions mini-invasives",
     "specialite_id": "s8"
   }
 ]
+}

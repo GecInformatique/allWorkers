@@ -126,7 +126,11 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
   }
 
   openModal(): void {
-    this.isModalOpen = true;
+    if(this.currentUser){
+      this.isModalOpen = true;
+    }
+    this.router.navigate(['/auth/login']);
+    
   }
 }
 

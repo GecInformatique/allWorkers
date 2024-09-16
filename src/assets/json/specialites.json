@@ -1,42 +1,45 @@
-[
+{
+
+"specialites": [
   {
     "id": "s1",
-    "nom": "Développement web",
-    "profession_id": "p1"
+    "name": "Développement web",
+    "domaine_id": "1"
   },
   {
     "id": "s2",
-    "nom": "Développement mobile",
-    "profession_id": "p1"
+    "name": "Développement mobile",
+    "domaine_id": "1"
   },
   {
     "id": "s3",
-    "nom": "Gestion des serveurs",
-    "profession_id": "p2"
+    "name": "Gestion des serveurs",
+    "domaine_id": "2"
   },
   {
     "id": "s4",
-    "nom": "Sécurité informatique",
-    "profession_id": "p2"
+    "name": "Sécurité informatique",
+    "domaine_id": "2"
   },
   {
     "id": "s5",
-    "nom": "Pédiatrie",
-    "profession_id": "p3"
+    "name": "Pédiatrie",
+    "domaine_id": "3"
   },
   {
     "id": "s6",
-    "nom": "Gériatrie",
-    "profession_id": "p3"
+    "name": "Gériatrie",
+    "domaine_id": "3"
   },
   {
     "id": "s7",
-    "nom": "Chirurgie orthopédique",
-    "profession_id": "p4"
+    "name": "Chirurgie orthopédique",
+    "domaine_id": "4"
   },
   {
     "id": "s8",
-    "nom": "Chirurgie cardiaque",
-    "profession_id": "p4"
+    "name": "Chirurgie cardiaque",
+    "domaine_id": "4"
   }
 ]
+}

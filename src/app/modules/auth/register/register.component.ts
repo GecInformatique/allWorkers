@@ -1,3 +1,5 @@
+import { Profession } from './../../../core/libs/scripts/libs/all-workers-api/model/profession';
+
 import {Component, OnInit} from '@angular/core';
 import {  Router } from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
@@ -8,11 +10,15 @@ import {
   Competence,
   CompetenceService,
   DomainActivity,
-  DomainActivityService, Profession, ProfessionService,
+  DomainActivityService,  ProfessionService,
   Specialism,
   SpecialismService
 } from "../../../core/libs/scripts/libs/all-workers-api";
 import cities from 'src/assets/json/cities.json';
+import domaines  from 'src/assets/json/domaines.json';
+import specialites from 'src/assets/json/specialites.json';
+import competences  from 'src/assets/json/competences.json';
+import Professions  from 'src/assets/json/professions.json';
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs";
 
@@ -32,10 +38,11 @@ public routes = routes;
   selectedList1: Array<City> = [];
   domainActivity : any[] =[];
   specialisms : any[] =[];
-  professions : any[] =[];
+  professionList : any[] =[];
   competence : any[] =[];
   filteredProfessions: any[] = [];
   filteredSpecialism: any[] = [];
+  filteredCompetence: any[] = [];
   selectedDomain !: number;
   selectedProfession !: number;
   selectedCompetence !: any;
@@ -94,9 +101,11 @@ public togglePassword(index: number) {
   ngOnInit(): void {
     this.selectedList1 = (cities.villes as string[]).map((city: string) => ({ value: city }));
    // this.getAllDomainActivity();
+   this.competence = competences.competences;
+   
     this.loadDomainData();
     this.loadProfessionData();
-    this.getCompetenceList();
+    //this.getCompetenceList();
     this.getProfessionList();
     this.getSpecialismList();
     this.registerForm = this.fb.group({
@@ -183,6 +192,7 @@ public togglePassword(index: number) {
 
 
   getAllDomainActivity() {
+   // this.domainActivity= domaines.domaines;
    /* this.domainActivityService.getDomainActivityList().subscribe(
       (response: any )=> {
         this.domainActivity = response.data;
@@ -193,19 +203,23 @@ public togglePassword(index: number) {
   }
 
   private loadDomainData(): void {
-    this.http.get<any[]>('assets/json/domaines.json').pipe(
+
+    this.domainActivity= domaines.domaines;
+   /*  this.http.get<any[]>('assets/json/domaines.json').pipe(
       tap(data => {
         this.domainActivity = data;
       })
-    ).subscribe();
+    ).subscribe(); */
   }
 
   private loadProfessionData(): void {
-    this.http.get<any[]>('assets/json/professions.json').pipe(
+    this.professionList = Professions.professions;
+   /*  this.http.get<any[]>('assets/json/professions.json').pipe(
       tap(data => {
         this.professions = data;
       })
-    ).subscribe();
+    ).subscribe(); */
+    
   }
 
   getProfessionList() {
@@ -219,13 +233,15 @@ public togglePassword(index: number) {
   }
 
   getSpecialismList() {
-    this.specialismService.getSpecialismList().subscribe(
+    this.specialisms = specialites.specialites;
+    console.log(this.specialisms, "les specialités")
+    /* this.specialismService.getSpecialismList().subscribe(
       (response: any )=> {
         this.specialisms = response.data;
         console.log(this.specialisms)
       },
       error => console.error('GET error:', error)
-    )
+    ) */
   }
 
   getCompetenceList() {
@@ -288,19 +304,30 @@ public togglePassword(index: number) {
   onDomainChange(event: any): void {
     const selectedDomainId = event.value ? event.value.id : null;
     if (selectedDomainId) {
-      this.filteredProfessions = this.professions.filter(
-        profession => profession.domaine_id === selectedDomainId
+      this.filteredSpecialism = this.specialisms.filter(
+        specialite => specialite.domaine_id === selectedDomainId
+        
       );
+      console.log("les specialités filtrées ",this.filteredSpecialism);
     } else {
-      this.filteredProfessions = [];
+      this.filteredSpecialism = [];
     }
   }
 
-  onProfessionChange(profession: any) {
-    this.filteredSpecialism = this.specialisms.filter(prof => {
-      return +prof.professions_id === +profession.value.id;
-    });
-  }
+  onspecialiteChange(event: any): void {
+    const selectSpecialiteId = event.value? event.value.id : null;
+    if(selectSpecialiteId){
+      this.filteredCompetence = this.competence.filter(
+        comp=>comp.specialite_id === selectSpecialiteId
+        )
+    }else{
+      this.filteredCompetence;
+    }
+   ;
+   console.log("les ID",selectSpecialiteId)
+    console.log("les competences",this.competence)
+    console.log("les competences filtré", this.filteredCompetence)
+  } 
 
   private getMaxDateFor18YearsOld(): string {
     const today = new Date();

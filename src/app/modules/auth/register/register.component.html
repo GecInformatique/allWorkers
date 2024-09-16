@@ -287,7 +287,8 @@
                       containerStyleClass="w-full"
                       [options]="domainActivity" id="domain_activity" formControlName="domain_activity"
                       optionLabel="name"  [showClear]="true" (onChange)="onDomainChange($event)"
-                    ></p-dropdown>
+                    >
+                  </p-dropdown>
                   </span>
                   <div *ngIf="registerForm.controls['domain_activity']?.invalid && (registerForm.controls['domain_activity']?.dirty || registerForm.controls['domain_activity']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['domain_activity']?.errors?.['required']" class="p-error"> Domaine d'activité obligatoire.</small>
@@ -295,7 +296,7 @@
 
                 </div>
               </div>
-              <div class="col-md-6">
+             <!-- <div class="col-md-6">
                 <div class="input-block">
                   <label for="profession" class="focus-label">{{ 'PROFESSION' | translate }}<span class="required text-danger">*</span></label>
 
@@ -312,18 +313,16 @@
                     <small *ngIf="registerForm.controls['profession']?.errors?.['required']" class="p-error"> Profession obligatoire.</small>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-12">
+              </div> ---->
+              <div class="col-md-6">
                 <div class="input-block">
                   <label for="specialism" class="focus-label">{{ 'SPECIALITY' | translate }}<span class="required text-danger">*</span></label>
-
-                  <span class="p-fluid">
+                   <span class="p-fluid">
                     <p-dropdown
-
                       class="w-full md:w-20rem"
                       containerStyleClass="w-full"
                       [options]="filteredSpecialism" id="specialism" formControlName="specialisms"
-                      optionLabel="name"  [showClear]="true"
+                      optionLabel="name"  [showClear]="true" (onChange)="onspecialiteChange($event)"
                     ></p-dropdown>
                   </span>
                   <div *ngIf="registerForm.controls['specialisms']?.invalid && (registerForm.controls['specialisms']?.dirty || registerForm.controls['specialisms']?.touched)" class="mb-2">
@@ -332,7 +331,7 @@
 
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="input-block">
                   <label for="competence" class="focus-label">{{ 'SKILLS' | translate }}<span class="required text-danger">*</span></label>
                   <span class="p-fluid">
@@ -342,12 +341,14 @@
                        class="w-full md:w-20rem"
                        containerStyleClass="w-full"
                        formControlName="competences"
-                       [options]="competence"
+                       [options]="filteredCompetence"
+                       optionLabel="name"
+                       id="competence"
                        display="chip"
-
-                       [metaKeySelection]="false"
+                       [metaKeySelection]="true"
                        selectionMode="checkbox"
-                       placeholder="Select Item"></p-treeSelect>
+                       placeholder="Select Item">
+                      </p-treeSelect>
                     </span>
                   <div *ngIf="registerForm.controls['competences']?.invalid && (registerForm.controls['competences']?.dirty || registerForm.controls['competences']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['competences']?.errors?.['required']" class="p-error"> Competence obligatoire.</small>
