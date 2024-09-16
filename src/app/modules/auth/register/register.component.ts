@@ -15,6 +15,7 @@ import {
   SpecialismService
 } from "../../../core/libs/scripts/libs/all-workers-api";
 import cities from 'src/assets/json/cities.json';
+import countries from 'src/assets/json/countries.json';
 import domaines  from 'src/assets/json/domaines.json';
 import specialites from 'src/assets/json/specialites.json';
 import competences  from 'src/assets/json/competences.json';
@@ -36,6 +37,7 @@ public routes = routes;
   registerForm!: FormGroup;
   public accountsType = 5;
   selectedList1: Array<City> = [];
+  selectedList2: Array<City> = [];
   domainActivity : any[] =[];
   specialisms : any[] =[];
   professionList : any[] =[];
@@ -100,6 +102,7 @@ public togglePassword(index: number) {
 
   ngOnInit(): void {
     this.selectedList1 = (cities.villes as string[]).map((city: string) => ({ value: city }));
+    this.selectedList2 = (countries.pays as string[]).map((country: string) => ({ value: country }));
    // this.getAllDomainActivity();
    this.competence = competences.competences;
    
@@ -117,6 +120,7 @@ public togglePassword(index: number) {
       'phone_number': new FormControl<string>(""),
       'gender': new FormControl<string>("", [Validators.required]),
       'city': new FormControl<string>("", [Validators.required]),
+      'country': new FormControl<string>("", [Validators.required]),
       'complete_address': new FormControl<string>(""),
       'domain_activity': new FormControl<number|null>(null, ),
       'profession': new FormControl<number[]|null>([], ),
@@ -171,6 +175,7 @@ public togglePassword(index: number) {
       phone_number: this.registerForm.get('phone_number')?.value || '',
       gender: this.registerForm.get('gender')?.value || '',
       city: this.registerForm.get('city')?.value || '',
+      country: this.registerForm.get('country')?.value || '',
       complete_address: this.registerForm.get('complete_address')?.value || '',
       domain_activity_id: domainActivityId || null, // Assurez-vous que c'est un ID
       profession_id: professionId || null, // Extraction des IDs
@@ -278,11 +283,15 @@ public togglePassword(index: number) {
     }
   }
 
+  backToHome() : void{
+    this.Router.navigate([routes.home])
+  }
+
   nextStep(stepNumber: number): void {
-    if (this.isStepValid(this.stepIndex)) {
+    
       this.stepIndex = stepNumber;
       this.selectedFieldSet[0] = stepNumber;
-    }
+    
   }
 
   // Méthode pour revenir à l'étape précédente

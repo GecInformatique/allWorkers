@@ -122,8 +122,8 @@
   "SPECIALTY": "Specialty",
   "CITY": "City",
   "COMPLETE_ADDRESS": "Complete address",
-  "Account_Type": "Type de compte",
-  "Select_Account_Type": "Select account type",
+  "Account_Type": "Account",
+  "Select_Account_Type": "Create your frelancer account",
   "SPECIALITY": "Speciality",
   "PROFESSION": "Profession",
   "Read_More": "Read more",
@@ -138,7 +138,8 @@
   "CHOICE_FORMATION": "Choose the training that suits you best.",
   "FREELANCE_DISPONIBLE" : "Freelancers available at All - Workers",
   "VIEW_MORE_FREELANCE": "View more freelancers",
-  "ADD_TESTIMONIAL" : "Add testimonial"
+  "ADD_TESTIMONIAL" : "Add testimonial",
+  "COUNTRY": "Country"
 
 
 

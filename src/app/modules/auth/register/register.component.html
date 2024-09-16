@@ -72,7 +72,7 @@
                       </div>
                       <div class="steps-count">
                         <span>{{'Step'|translate}} 3/4</span>
-                        <h5>Skills & Experience</h5>
+                        <h5>{{'PROFESSIONAL_INFO'|translate}}</h5>
                       </div>
                     </li>
                     <li
@@ -112,17 +112,16 @@
               <div class="select-box d-flex justify-content-center">
                 <label
                   class="employee-level free-lance-img accounts_type"
-                  [class.selected]="accountsType == 5 "
-                  (click)="selectAccount(5)"
+                
                 >
                   <a href="javascript:void(0);">
                     <img src="assets/img/select-04.svg" alt="Img" class="img-fluid" />
                     <input type="radio" formControlName="accountsType" value="employee" /> Freelancer
-                    <img *ngIf="accountsType == 5" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
+                    <img src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
                   </a>
                 </label>
 
-                <label
+               <!--- <label
                   class="employee-level employee-img accounts_type"
                   [class.selected]="accountsType == 6"
                   (click)="selectAccount(6)"
@@ -132,18 +131,17 @@
                     <input type="radio" formControlName="accountsType" value="employee" /> Employer
                     <img *ngIf="accountsType ==6" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
                   </a>
-                </label>
+                </label>-->
               </div>
             </div>
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" disabled />
+            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" (click)="backToHome()" />
             <input
               class="btn next_btn btn-primary btn-get btn-next"
               name="next"
               type="button"
               value="Suivant"
               (click)="nextStep(stepIndex + 1)"
-              [disabled]="!isStepValid(stepIndex)"
-
+             
             />
           </div>
         </div>
@@ -242,13 +240,26 @@
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
+                  <label class="form-label">{{ 'COUNTRY' | translate }}<span class="required text-danger">*</span></label>
+                  <select class="form-select" formControlName="country">
+                    <option>Select</option>
+                    <option *ngFor="let data of selectedList2" [value]="data.value">{{ data.value }}</option>
+                  </select>
+
+                  <div *ngIf="registerForm.controls['country']?.invalid && (registerForm.controls['country']?.dirty || registerForm.controls['country']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['country']?.errors?.['required']" class="p-error">Pays de résidence obligatoire.</small>
+                  </div>
+                </div>
+              </div>
+              <!--<div class="col-md-6 col-lg-6">
+                <div class="input-block">
                   <label for="address" class="form-label">{{ 'COMPLETE_ADDRESS' | translate }}<span class="required text-danger">*</span></label>
                   <input type="text" id="address" class="form-control" formControlName="complete_address" />
                   <div *ngIf="registerForm.controls['complete_address']?.invalid && (registerForm.controls['complete_address']?.dirty || registerForm.controls['complete_address']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['complete_address']?.errors?.['required']" class="p-error">Adresse compléte obligatoire.</small>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
           </div>
           <div class="text-center">
