@@ -335,17 +335,16 @@
                 <div class="input-block">
                   <label for="competence" class="focus-label">{{ 'SKILLS' | translate }}<span class="required text-danger">*</span></label>
                   <span class="p-fluid">
-
-
+                   
                      <p-treeSelect
                        class="w-full md:w-20rem"
                        containerStyleClass="w-full"
                        formControlName="competences"
                        [options]="filteredCompetence"
-                       optionLabel="name"
+                      
                        id="competence"
                        display="chip"
-                       [metaKeySelection]="true"
+                       [metaKeySelection]="false"
                        selectionMode="checkbox"
                        placeholder="Select Item">
                       </p-treeSelect>
