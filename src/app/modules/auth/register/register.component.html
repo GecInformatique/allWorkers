@@ -112,36 +112,40 @@
               <div class="select-box d-flex justify-content-center">
                 <label
                   class="employee-level free-lance-img accounts_type"
-                
+                  [class.selected]="accountsType == 5 "
+                  (click)="selectAccount(5)"
                 >
                   <a href="javascript:void(0);">
                     <img src="assets/img/select-04.svg" alt="Img" class="img-fluid" />
-                    <input type="radio" formControlName="accountsType" value="employee" /> Freelancer
-                    <img src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
+                    <input type="radio" formControlName="accountsType" value="employee" />
+                    {{ 'PARTICULIER' | translate }} 
+                    <img *ngIf="accountsType == 5" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
                   </a>
                 </label>
 
-               <!--- <label
+                <label
                   class="employee-level employee-img accounts_type"
                   [class.selected]="accountsType == 6"
                   (click)="selectAccount(6)"
                 >
                   <a href="javascript:void(0);">
                     <img src="assets/img/select-05.svg" alt="Img" class="img-fluid" />
-                    <input type="radio" formControlName="accountsType" value="employee" /> Employer
+                    <input type="radio" formControlName="accountsType" value="employee" />
+                     {{ 'ENTREPRISE' | translate }}
                     <img *ngIf="accountsType ==6" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
                   </a>
-                </label>-->
+                </label>
               </div>
             </div>
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" (click)="backToHome()" />
+            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" 
+            (click)="backToHome()" />
             <input
               class="btn next_btn btn-primary btn-get btn-next"
               name="next"
               type="button"
               value="Suivant"
               (click)="nextStep(stepIndex + 1)"
-             
+             [disabled]="!isStepValid(stepIndex)"
             />
           </div>
         </div>
@@ -196,7 +200,7 @@
                 <div class="input-block">
                   <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
                   <span class="p-fluid">
-                       <p-inputMask mask="(999) 699999999" formControlName="phone_number" id="phone_number" placeholder="(999) 999-9999"></p-inputMask>
+                       <p-inputMask mask="(237) 600000000" formControlName="phone_number" id="phone_number" placeholder="(999) 999-9999"></p-inputMask>
                     </span>
                   <div *ngIf="registerForm.controls['phone_number']?.invalid && (registerForm.controls['phone_number']?.dirty || registerForm.controls['phone_number']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['phone_number']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
@@ -227,23 +231,10 @@
 
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
-                  <label class="form-label">{{ 'CITY' | translate }}<span class="required text-danger">*</span></label>
-                  <select class="form-select" formControlName="city">
-                    <option>Select</option>
-                    <option *ngFor="let data of selectedList1" [value]="data.value">{{ data.value }}</option>
-                  </select>
-
-                  <div *ngIf="registerForm.controls['city']?.invalid && (registerForm.controls['city']?.dirty || registerForm.controls['city']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['city']?.errors?.['required']" class="p-error">Ville de résidence obligatoire.</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
                   <label class="form-label">{{ 'COUNTRY' | translate }}<span class="required text-danger">*</span></label>
-                  <select class="form-select" formControlName="country">
-                    <option>Select</option>
-                    <option *ngFor="let data of selectedList2" [value]="data.value">{{ data.value }}</option>
+                  <select class="form-select" id="countries" formControlName="country" (change)="onCountryChange($event)">
+                    <option></option>
+                    <option *ngFor="let data of countries" [value]="data.id">{{ data.name }}</option>
                   </select>
 
                   <div *ngIf="registerForm.controls['country']?.invalid && (registerForm.controls['country']?.dirty || registerForm.controls['country']?.touched)" class="mb-2">
@@ -251,6 +242,21 @@
                   </div>
                 </div>
               </div>
+
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label class="form-label">{{ 'CITY' | translate }}<span class="required text-danger">*</span></label>
+                  <select class="form-select" formControlName="city">
+                    <option></option>
+                    <option *ngFor="let data of filteredCity" [value]="data.name">{{ data.name }}</option>
+                  </select>
+
+                  <div *ngIf="registerForm.controls['city']?.invalid && (registerForm.controls['city']?.dirty || registerForm.controls['city']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['city']?.errors?.['required']" class="p-error">Ville de résidence obligatoire.</small>
+                  </div>
+                </div>
+              </div>
+
               <!--<div class="col-md-6 col-lg-6">
                 <div class="input-block">
                   <label for="address" class="form-label">{{ 'COMPLETE_ADDRESS' | translate }}<span class="required text-danger">*</span></label>
@@ -368,7 +374,8 @@
             </div>
           </div>
           <div class="text-center">
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Precedent" (click)="selectedFieldSet[0] = 1" />
+            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Precedent"
+                   (click)="selectedFieldSet[0] = 1" />
             <input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Suivant"
                    (click)="onSubmit(3)"
                    [disabled]="!isStepValid(stepIndex)"
@@ -397,7 +404,7 @@
             >
           </div>
           <div class="text-center">
-            <a class="btn  prev_btn " href="auth/login">Terminer</a>
+            <a class="btn btn-prev prev_btn btn-back" href="auth/login">Terminer</a>
 
           </div>
         </div>

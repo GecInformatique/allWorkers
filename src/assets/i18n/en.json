@@ -123,7 +123,7 @@
   "CITY": "City",
   "COMPLETE_ADDRESS": "Complete address",
   "Account_Type": "Account",
-  "Select_Account_Type": "Create your frelancer account",
+  "Select_Account_Type": "Create your account",
   "SPECIALITY": "Speciality",
   "PROFESSION": "Profession",
   "Read_More": "Read more",
@@ -139,7 +139,9 @@
   "FREELANCE_DISPONIBLE" : "Freelancers available at All - Workers",
   "VIEW_MORE_FREELANCE": "View more freelancers",
   "ADD_TESTIMONIAL" : "Add testimonial",
-  "COUNTRY": "Country"
+  "COUNTRY": "Country",
+  "ENTREPRISE" :"Entrprise",
+  "PARTICULIER" : "Particulier"
 
 
 

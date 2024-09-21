@@ -128,7 +128,7 @@
   "CITY": "Ville",
   "COMPLETE_ADDRESS": "Adresse complet",
   "Account_Type": "Compte",
-  "Select_Account_Type": "Creer votre compte freelance",
+  "Select_Account_Type": "Creer votre compte",
   "SKILLS": "Compétence",
   "POST_PROJECT": "Ajouter un projet",
   "PROFESSION": "Profession",
@@ -145,7 +145,8 @@
   "FREELANCE_DISPONIBLE" : "Freelancers disponible chez All - Workers",
   "VIEW_MORE_FREELANCE": "Voir plus de freelancers",
   "ADD_TESTIMONIAL" : "Ajouter un témoignage",
-  "COUNTRY": "Pays"
-
+  "COUNTRY": "Pays",
+  "ENTREPRISE" :"Entrprise",
+  "PARTICULIER" : "Particulier"
 
 }

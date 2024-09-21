@@ -19,12 +19,18 @@ import countries from 'src/assets/json/countries.json';
 import domaines  from 'src/assets/json/domaines.json';
 import specialites from 'src/assets/json/specialites.json';
 import competences  from 'src/assets/json/competences.json';
-import Professions  from 'src/assets/json/professions.json';
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs";
 
 export interface City {
-  value: string;
+  id: string;
+  name: string;
+  pays_id: string
+}
+export interface Country {
+  id: string;
+  name: string;
+
 }
 
 @Component({
@@ -36,8 +42,8 @@ export class RegisterComponent  implements OnInit{
 public routes = routes;
   registerForm!: FormGroup;
   public accountsType = 5;
-  selectedList1: Array<City> = [];
-  selectedList2: Array<City> = [];
+  cities: Array<City> = [];
+  countries: any = [];
   domainActivity : any[] =[];
   specialisms : any[] =[];
   professionList : any[] =[];
@@ -45,6 +51,7 @@ public routes = routes;
   filteredProfessions: any[] = [];
   filteredSpecialism: any[] = [];
   filteredCompetence: any[] = [];
+  filteredCity: any[] = [];
   selectedDomain !: number;
   selectedProfession !: number;
   selectedCompetence !: any;
@@ -101,15 +108,11 @@ public togglePassword(index: number) {
   }
 
   ngOnInit(): void {
-    this.selectedList1 = (cities.villes as string[]).map((city: string) => ({ value: city }));
-    this.selectedList2 = (countries.pays as string[]).map((country: string) => ({ value: country }));
-   // this.getAllDomainActivity();
+    this.countries = countries.pays;
+    this.cities= cities.cities;
    this.competence = competences.competences;
    
     this.loadDomainData();
-    this.loadProfessionData();
-    //this.getCompetenceList();
-    this.getProfessionList();
     this.getSpecialismList();
     this.registerForm = this.fb.group({
       'accountsType': new FormControl<number|null>(null, [Validators.required]),
@@ -120,29 +123,15 @@ public togglePassword(index: number) {
       'phone_number': new FormControl<string>(""),
       'gender': new FormControl<string>("", [Validators.required]),
       'city': new FormControl<string>("", [Validators.required]),
-      'country': new FormControl<string>("", [Validators.required]),
+      'country': new FormControl<number|null>(null, [Validators.required]),
       'complete_address': new FormControl<string>(""),
       'domain_activity': new FormControl<number|null>(null, ),
-      'profession': new FormControl<number[]|null>([], ),
       'specialisms': new FormControl<number|null>(null, ),
       'competences': new FormControl<number[]>([], ),
     });
-
-
   }
 
- /* get email() { return this.registerForm!.get('email'); }
-  get first_name() { return this.registerForm!.get('first_name'); }
-  get last_name() { return this.registerForm!.get('last_name'); }
-  get day_birth() { return this.registerForm!.get('day_birth'); }
-  get phone_number() { return this.registerForm!.get('phone_number'); }
-  get gender() { return this.registerForm!.get('gender'); }
-  get city() { return this.registerForm!.get('city'); }
-  get complete_address() { return this.registerForm!.get('complete_address'); }
-  get domain_activity() { return (parseInt(this.registerForm.get('domain_activity')?.value, 10))}
-  get profession() { return this.registerForm!.get('profession')?.value as number | null; }
-  get specialism() { return this.registerForm!.get('specialism')?.value as number | null; }
-  get competences() { return this.registerForm!.get('competences')?.value as number | null;}*/
+
 
 
   protected transformFormData(): any {
@@ -150,16 +139,16 @@ public togglePassword(index: number) {
     const professionValue = this.registerForm.get('profession')?.value;
     const competencesValue = this.registerForm.get('competences')?.value;
     const domainActivity = this.registerForm.get('domain_activity')?.value;
-    const profession = this.registerForm.get('profession')?.value;
+    const country =  this.registerForm.get('country')?.value;
+    //const profession = this.registerForm.get('profession')?.value;
     const specialism = this.registerForm.get('specialisms')?.value;
     const accountsTypeValue = this.registerForm.get('accountsType')?.value;
 
-    // Log pour vérifier la valeur pendant la transformation
-    console.log('Transform FormData - accountsType:', accountsTypeValue);
-
-    // Vérifier si domainActivity, profession, specialism sont des objets et extraire les IDs
+  
+    // Vérifier si domainActivity, country, specialism sont des objets et extraire les IDs
     const domainActivityId = domainActivity && typeof domainActivity === 'object' ? domainActivity.id : domainActivity;
-    const professionId = profession && typeof profession === 'object' ? profession.id : profession;
+    const countryId = country && typeof country === 'object' ? country.id : country;
+    //const professionId = profession && typeof profession === 'object' ? profession.id : profession;
     const specialismId = specialism && typeof specialism === 'object' ? specialism.id : specialism;
 
     // Extraire les IDs des compétences
@@ -175,10 +164,10 @@ public togglePassword(index: number) {
       phone_number: this.registerForm.get('phone_number')?.value || '',
       gender: this.registerForm.get('gender')?.value || '',
       city: this.registerForm.get('city')?.value || '',
-      country: this.registerForm.get('country')?.value || '',
+      
       complete_address: this.registerForm.get('complete_address')?.value || '',
       domain_activity_id: domainActivityId || null, // Assurez-vous que c'est un ID
-      profession_id: professionId || null, // Extraction des IDs
+      country_id : countryId || null,
       specialisms_id: specialismId || null, // Assurez-vous que c'est un ID
       competences: competenceIds, // Extraction des IDs des compétences
       enable: 1,
@@ -196,57 +185,21 @@ public togglePassword(index: number) {
   }
 
 
-  getAllDomainActivity() {
-   // this.domainActivity= domaines.domaines;
-   /* this.domainActivityService.getDomainActivityList().subscribe(
-      (response: any )=> {
-        this.domainActivity = response.data;
-        console.log(this.domainActivity)
-      },
-      error => console.error('GET error:', error)
-    )*/
-  }
+ 
 
   private loadDomainData(): void {
 
     this.domainActivity= domaines.domaines;
-   /*  this.http.get<any[]>('assets/json/domaines.json').pipe(
-      tap(data => {
-        this.domainActivity = data;
-      })
-    ).subscribe(); */
+  
   }
 
-  private loadProfessionData(): void {
-    this.professionList = Professions.professions;
-   /*  this.http.get<any[]>('assets/json/professions.json').pipe(
-      tap(data => {
-        this.professions = data;
-      })
-    ).subscribe(); */
-    
-  }
+ 
 
-  getProfessionList() {
-   /* this.professionService.getProfessionList().subscribe(
-      (response: any )=> {
-        this.professions = response.data;
-        console.log(this.professions)
-      },
-      error => console.error('GET error:', error)
-    )*/
-  }
+ 
 
   getSpecialismList() {
     this.specialisms = specialites.specialites;
-    console.log(this.specialisms, "les specialités")
-    /* this.specialismService.getSpecialismList().subscribe(
-      (response: any )=> {
-        this.specialisms = response.data;
-        console.log(this.specialisms)
-      },
-      error => console.error('GET error:', error)
-    ) */
+   
   }
 
   getCompetenceList() {
@@ -260,7 +213,7 @@ public togglePassword(index: number) {
           }))
           : [];
 
-        console.log(this.competence);
+       
       },
       error => console.error('GET error:', error)
     );
@@ -272,7 +225,6 @@ public togglePassword(index: number) {
      // Vérifiez le format avant l'envoi
     if (this.registerForm.valid) {
       const candidate = this.transformFormData();
-      console.log(candidate,'candidate');
       this.authService.register(candidate).subscribe({
         next: (response: any) => {
           console.log('Domain created:', response);
@@ -280,6 +232,7 @@ public togglePassword(index: number) {
         error: error => console.error('POST error:', error)
       });
       this.selectedFieldSet[0] = step;
+     
     }
   }
 
@@ -288,10 +241,10 @@ public togglePassword(index: number) {
   }
 
   nextStep(stepNumber: number): void {
-    
+    if(this.isStepValid(this.stepIndex)){
       this.stepIndex = stepNumber;
       this.selectedFieldSet[0] = stepNumber;
-    
+    }
   }
 
   // Méthode pour revenir à l'étape précédente
@@ -303,25 +256,38 @@ public togglePassword(index: number) {
   }
 
   selectAccount(account: number) {
-    console.log('Selected Account:', account); // Log pour vérifier la sélection
     this.accountsType = account;
     this.registerForm.controls['accountsType'].setValue(account);
-    console.log('Form Value for accountsType:', this.registerForm.get('accountsType')?.value);
   }
 
 
   onDomainChange(event: any): void {
+    
     const selectedDomainId = event.value ? event.value.id : null;
     if (selectedDomainId) {
       this.filteredSpecialism = this.specialisms.filter(
         specialite => specialite.domaine_id === selectedDomainId
         
       );
-      console.log("les specialités filtrées ",this.filteredSpecialism);
     } else {
       this.filteredSpecialism = [];
     }
   }
+
+
+  onCountryChange(event: any): void {
+    const selectedCountryId = event.target.value;
+    if (selectedCountryId) {
+      this.filteredCity = this.cities.filter(
+        city => city.pays_id === selectedCountryId
+      );
+      
+    } else {
+      this.filteredCity = []; 
+    }
+  }
+  
+  
 
   onspecialiteChange(event: any): void {
     const selectSpecialiteId = event.value? event.value.id : null;
@@ -333,9 +299,7 @@ public togglePassword(index: number) {
       this.filteredCompetence;
     }
    ;
-   console.log("les ID",selectSpecialiteId)
-    console.log("les competences",this.competence)
-    console.log("les competences filtré", this.filteredCompetence)
+  
   } 
 
   private getMaxDateFor18YearsOld(): string {
@@ -362,10 +326,9 @@ public togglePassword(index: number) {
         (this.registerForm.get('phone_number')?.valid ?? false);
 
       case 2:
-        // Vérifier la validité des champs de l'étape 1
+        // Vérifier la validité des champs de l'étape 3
 
         return (this.registerForm.get('domain_activity')?.valid ?? false) &&
-          (this.registerForm.get('profession')?.valid ?? false) &&
           (this.registerForm.get('competences')?.valid ?? false) &&
           (this.registerForm.get('specialisms')?.valid ?? false);
 
