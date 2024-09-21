@@ -1,23 +1,12 @@
 {
   "domaines":[
-  { "id": "1", "name": "Agronomie et alimentation", "icon": "" },
-  { "id": "2", "name": "Artisanat", "icon": "" },
-  { "id": "3", "name": "Audiovisuel et spectacle", "icon": "" },
-  { "id": "4", "name": "Bâtiment", "icon": "" },
-  { "id": "5", "name": "Culture", "icon": "" },
-  { "id": "6", "name": "Commerce", "icon": "" },
-  { "id": "7", "name": "Droit", "icon": "" },
-  { "id": "8", "name": "Education", "icon": "" },
-  { "id": "9", "name": "Finances et gestion", "icon": "" },
-  { "id": "10", "name": "Politique", "icon": "" },
-  { "id": "11", "name": "Scientifique", "icon": "" },
-  { "id": "12", "name": "Santé", "icon": "" },
-  { "id": "13", "name": "Sécurité", "icon": "" },
-  { "id": "14", "name": "Technologies", "icon": "" },
-  { "id": "15", "name": "Sport", "icon": "" },
-  { "id": "16", "name": "Transports et logistique", "icon": "" },
-  { "id": "17", "name": "Beauté", "icon": "" },
-  { "id": "18", "name": "Services personnels et domestiques", "icon": "" },
-  { "id": "19", "name": "Autres", "icon": "" }
+  { "id": "1", "name": "Agriculture", "icon": "assets/icons/icons/agriculture.png" },
+  { "id": "2", "name": "Commerce", "icon": "assets/icons/icons/commerce.png" },
+  { "id": "3", "name": "Culture", "icon": "assets/icons/icons/culture.png" },
+  { "id": "4", "name": "Energy", "icon": "assets/icons/icons/energy.png" },
+  { "id": "12", "name": "Information & Technologie", "icon": "assets/icons/icons/information-technology.png" },
+  { "id": "13", "name": "Infrastructure", "icon": "assets/icons/icons/infrastructure.png" },
+  { "id": "14", "name": "Medecine", "icon": "assets/icons/icons/medicine.png" },
+  { "id": "16", "name": "Transports & logistique", "icon": "assets/icons/icons/transport_logistic.png" }
 ]
 }

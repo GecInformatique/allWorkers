@@ -22,6 +22,8 @@ import testimonial from 'src/assets/json/testimonial.json';
 })
 export class HomeComponent implements OnInit {
   public routes = routes;
+  public isModalOpen: boolean = false;
+  public currentUser: any;
   domainActivity : any[] =[];
   candidates : any[] =[];
   userConnected : Candidate | any;
@@ -339,4 +341,18 @@ export class HomeComponent implements OnInit {
       error => console.error('GET error:', error)
     )
   }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
+
+  openModal(): void {
+    if(this.currentUser){
+      this.isModalOpen = true;
+    }
+    this.router.navigate(['/auth/login']);
+    
+  }
+
+  
 }
