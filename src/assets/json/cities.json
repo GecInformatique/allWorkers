@@ -273,15 +273,15 @@
       {"id": "255", "name": "Kandi", "pays_id": "3"},
       {"id": "256", "name": "Savè", "pays_id": "3"},
 
-  {"id": "257", "name": "Bangangté", "pays_id": "8"},
-  {"id": "258", "name": "Pitoa", "pays_id": "8"},
-  {"id": "259", "name": "Njinikom", "pays_id": "8"},
-  {"id": "260", "name": "Ngoumou", "pays_id": "8"},
-  {"id": "261", "name": "Mundemba", "pays_id": "8"},
-  {"id": "262", "name": "Ndop", "pays_id": "8"},
-  {"id": "263", "name": "Magba", "pays_id": "8"},
-  {"id": "264", "name": "Mora", "pays_id": "8"},
-  {"id": "265", "name": "Fundong", "pays_id": "8"},
-  {"id": "266", "name": "Nanga-Eboko", "pays_id": "8"}
+      {"id": "257", "name": "Bangangté", "pays_id": "8"},
+      {"id": "258", "name": "Pitoa", "pays_id": "8"},
+      {"id": "259", "name": "Njinikom", "pays_id": "8"},
+      {"id": "260", "name": "Ngoumou", "pays_id": "8"},
+      {"id": "261", "name": "Mundemba", "pays_id": "8"},
+      {"id": "262", "name": "Ndop", "pays_id": "8"},
+      {"id": "263", "name": "Magba", "pays_id": "8"},
+      {"id": "264", "name": "Mora", "pays_id": "8"},
+      {"id": "265", "name": "Fundong", "pays_id": "8"},
+      {"id": "266", "name": "Nanga-Eboko", "pays_id": "8"}
     ]
 }

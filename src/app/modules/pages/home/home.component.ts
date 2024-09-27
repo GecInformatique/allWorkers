@@ -14,6 +14,7 @@ import cities from "../../../../assets/json/cities.json";
 import testimonial from 'src/assets/json/testimonial.json';
  import faq from 'src/assets/json/faq.json';
  import domaine from 'src/assets/json/domaines.json';
+ import formations from 'src/assets/json/formations.json';
 
 @Component({
   selector: 'app-home',
@@ -303,13 +304,14 @@ export class HomeComponent implements OnInit {
     )
   }
   getFormationList() {
-    this.formationService.getFormationList().subscribe(
+   this.formations = formations.formation;
+    /* this.formationService.getFormationList().subscribe(
       (response: any )=> {
         this.formations = response.data;
         console.log(this.formations)
       },
       error => console.error('GET error:', error)
-    )
+    ) */
   }
 
   getQuestionList() {
