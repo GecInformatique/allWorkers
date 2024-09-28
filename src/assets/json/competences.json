@@ -1,125 +1,79 @@
 {
   "competences":
  [
-  {
-    "id": "c1",
-    "label": "HTML",
-    "speciamlite_id": "s1"
-  },
-  {
-    "id": "c2",
-    "label": "CSS",
-    "specialite_id": "s1"
-  },
-  {
-    "id": "c3",
-    "label": "JavaScript",
-    "specialite_id": "s1"
-  },
-  {
-    "id": "c4",
-    "label": "Java",
-    "specialite_id": "s2"
-  },
-  {
-    "id": "c5",
-    "label": "Kotlin",
-    "specialite_id": "s2"
-  },
-  {
-    "id": "c6",
-    "label": "Swift",
-    "specialite_id": "s2"
-  },
-  {
-    "id": "c7",
-    "label": "Linux",
-    "specialite_id": "s3"
-  },
-  {
-    "id": "c8",
-    "label": "Windows Server",
-    "specialite_id": "s3"
-  },
-  {
-    "id": "c9",
-    "label": "Virtualisation",
-    "specialite_id": "s3"
-  },
-  {
-    "id": "c10",
-    "label": "Firewall",
-    "specialite_id": "s4"
-  },
-  {
-    "id": "c11",
-    "label": "Antivirus",
-    "specialite_id": "s4"
-  },
-  {
-    "id": "c12",
-    "label": "Cryptographie",
-    "specialite_id": "s4"
-  },
-  {
-    "id": "c13",
-    "label": "Examen pédiatrique",
-    "specialite_id": "s5"
-  },
-  {
-    "id": "c14",
-    "label": "Vaccination",
-    "specialite_id": "s5"
-  },
-  {
-    "id": "c15",
-    "label": "Suivi du développement",
-    "specialite_id": "s5"
-  },
-  {
-    "id": "c16",
-    "label": "Gestion des maladies chroniques",
-    "specialite_id": "s6"
-  },
-  {
-    "id": "c17",
-    "label": "Soins palliatifs",
-    "specialite_id": "s6"
-  },
-  {
-    "id": "c18",
-    "label": "Évaluation fonctionnelle",
-    "specialite_id": "s6"
-  },
-  {
-    "id": "c19",
-    "label": "Réparation des fractures",
-    "specialite_id": "s7"
-  },
-  {
-    "id": "c20",
-    "label": "Prothèses",
-    "specialite_id": "s7"
-  },
-  {
-    "id": "c21",
-    "label": "Arthroscopie",
-    "specialite_id": "s7"
-  },
-  {
-    "id": "c22",
-    "label": "Pontages",
-    "specialite_id": "s8"
-  },
-  {
-    "id": "c23",
-    "label": "Remplacement de valves",
-    "specialite_id": "s8"
-  },
-  {
-    "id": "c24",
-    "label": "Interventions mini-invasives",
-    "specialite_id": "s8"
-  }
+  { "id": "1", "label": "Développement Web" },
+  { "id": "2", "label": "Programmation en Java" },
+  { "id": "3", "label": "Gestion de bases de données" },
+  { "id": "4", "label": "Sécurité informatique" },
+  { "id": "5", "label": "Cloud Computing" },
+  { "id": "6", "label": "DevOps" },
+  { "id": "7", "label": "Développement Mobile" },
+  { "id": "8", "label": "Machine Learning" },
+  { "id": "9", "label": "Analyse de données" },
+  { "id": "10", "label": "Développement Full Stack" },
+  { "id": "11", "label": "Marketing digital" },
+  { "id": "12", "label": "SEO/SEA" },
+  { "id": "13", "label": "Gestion des réseaux sociaux" },
+  { "id": "14", "label": "Branding" },
+  { "id": "15", "label": "Publicité en ligne" },
+  { "id": "16", "label": "Études de marché" },
+  { "id": "17", "label": "Copywriting" },
+  { "id": "18", "label": "Email marketing" },
+  { "id": "19", "label": "Analyse de la concurrence" },
+  { "id": "20", "label": "Marketing d'influence" },
+  { "id": "21", "label": "Analyse financière" },
+  { "id": "22", "label": "Comptabilité" },
+  { "id": "23", "label": "Gestion des risques" },
+  { "id": "24", "label": "Planification financière" },
+  { "id": "25", "label": "Audit interne" },
+  { "id": "26", "label": "Gestion d'actifs" },
+  { "id": "27", "label": "Évaluation d'entreprises" },
+  { "id": "28", "label": "Trésorerie" },
+  { "id": "29", "label": "Fiscalité" },
+  { "id": "30", "label": "Investissement" },
+  { "id": "31", "label": "Recrutement" },
+  { "id": "32", "label": "Gestion des talents" },
+  { "id": "33", "label": "Formation et développement" },
+  { "id": "34", "label": "Relations sociales" },
+  { "id": "35", "label": "Paie et administration du personnel" },
+  { "id": "36", "label": "Gestion des performances" },
+  { "id": "37", "label": "Droit du travail" },
+  { "id": "38", "label": "Gestion des conflits" },
+  { "id": "39", "label": "Planification des effectifs" },
+  { "id": "40", "label": "Bien-être des employés" },
+  { "id": "41", "label": "Gestion des ressources énergétiques" },
+  { "id": "42", "label": "Conception de systèmes énergétiques" },
+  { "id": "43", "label": "Énergies renouvelables" },
+  { "id": "44", "label": "Stockage d'énergie" },
+  { "id": "45", "label": "Efficacité énergétique" },
+  { "id": "46", "label": "Maintenance des installations" },
+  { "id": "47", "label": "Analyse du cycle de vie" },
+  { "id": "48", "label": "Réseaux intelligents" },
+  { "id": "49", "label": "Ingénierie électrique" },
+  { "id": "50", "label": "Audits énergétiques" },
+  { "id": "51", "label": "Soins infirmiers" },
+  { "id": "52", "label": "Gestion des patients" },
+  { "id": "53", "label": "Pharmacologie" },
+  { "id": "54", "label": "Analyse biomédicale" },
+  { "id": "55", "label": "Planification des soins" },
+  { "id": "56", "label": "Nutrition" },
+  { "id": "57", "label": "Ergothérapie" },
+  { "id": "58", "label": "Gestion des équipements médicaux" },
+  { "id": "59", "label": "Prévention des infections" },
+  { "id": "60", "label": "Épidémiologie" },
+  { "id": "61", "label": "Conception de bâtiments" },
+  { "id": "62", "label": "Gestion de chantier" },
+  { "id": "63", "label": "Lecture de plans" },
+  { "id": "64", "label": "Sécurité au travail" },
+  { "id": "65", "label": "Construction durable" },
+  { "id": "66", "label": "Travaux publics" },
+  { "id": "67", "label": "Génie civil" },
+  { "id": "68", "label": "Utilisation de logiciels CAO/DAO" },
+  { "id": "69", "label": "Évaluation des coûts" },
+  { "id": "70", "label": "Gestion des matériaux" },
+  { "id": "71", "label": "Négociation commerciale" },
+  { "id": "72", "label": "Gestion de la relation client" },
+  { "id": "73", "label": "Vente B2B" },
+  { "id": "74", "label": "Gestion des stocks" }
 ]
 }

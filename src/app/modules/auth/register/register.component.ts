@@ -114,6 +114,8 @@ public togglePassword(index: number) {
    
     this.loadDomainData();
     this.getSpecialismList();
+    this.getCompetenceList()
+    console.log("competences" ,this.competence)
     this.registerForm = this.fb.group({
       'accountsType': new FormControl<number|null>(null, [Validators.required]),
       'last_name': new FormControl<string>("", [Validators.required]),
@@ -202,7 +204,14 @@ public togglePassword(index: number) {
    
   }
 
-  getCompetenceList() {
+
+  private getCompetenceList(): void {
+
+    this.competence= competences.competences;
+  
+  }
+
+  /* getCompetenceList() {
     this.competenceService.getCompetenceList().subscribe(
       (response: any) => {
         // Transformation des données
@@ -217,7 +226,7 @@ public togglePassword(index: number) {
       },
       error => console.error('GET error:', error)
     );
-  }
+  } */
 
 
   onSubmit(step: number) {
