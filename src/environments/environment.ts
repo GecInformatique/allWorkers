@@ -8,8 +8,8 @@ export const environment = {
   production: false,
 
   //baseURL: "http://192.168.1.175:8000/api/v1",
-  baseURL: "http://localhost:8000/api/v1",
- // baseURL: "http://api.all-worker.com/api/v1",
+  //baseURL: "http://localhost:8000/api/v1",
+  baseURL: "http://api.all-worker.com/api/v1",
 
   apiURL: "http://api.all-worker.com/api",
 

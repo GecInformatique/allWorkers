@@ -72,7 +72,7 @@
                       </div>
                       <div class="steps-count">
                         <span>{{'Step'|translate}} 3/4</span>
-                        <h5>Skills & Experience</h5>
+                        <h5>{{'PROFESSIONAL_INFO'|translate}}</h5>
                       </div>
                     </li>
                     <li
@@ -117,7 +117,8 @@
                 >
                   <a href="javascript:void(0);">
                     <img src="assets/img/select-04.svg" alt="Img" class="img-fluid" />
-                    <input type="radio" formControlName="accountsType" value="employee" /> Freelancer
+                    <input type="radio" formControlName="accountsType" value="employee" />
+                    {{ 'PARTICULIER' | translate }} 
                     <img *ngIf="accountsType == 5" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
                   </a>
                 </label>
@@ -129,21 +130,22 @@
                 >
                   <a href="javascript:void(0);">
                     <img src="assets/img/select-05.svg" alt="Img" class="img-fluid" />
-                    <input type="radio" formControlName="accountsType" value="employee" /> Employer
+                    <input type="radio" formControlName="accountsType" value="employee" />
+                     {{ 'ENTREPRISE' | translate }}
                     <img *ngIf="accountsType ==6" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
                   </a>
                 </label>
               </div>
             </div>
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" disabled />
+            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" 
+            (click)="backToHome()" />
             <input
               class="btn next_btn btn-primary btn-get btn-next"
               name="next"
               type="button"
               value="Suivant"
               (click)="nextStep(stepIndex + 1)"
-              [disabled]="!isStepValid(stepIndex)"
-
+             [disabled]="!isStepValid(stepIndex)"
             />
           </div>
         </div>
@@ -194,20 +196,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
-                  <span class="p-fluid">
-                       <p-inputMask mask="(999) 699999999" formControlName="phone_number" id="phone_number" placeholder="(999) 999-9999"></p-inputMask>
-                    </span>
-                  <div *ngIf="registerForm.controls['phone_number']?.invalid && (registerForm.controls['phone_number']?.dirty || registerForm.controls['phone_number']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['phone_number']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
-                  </div>
-                </div>
-              </div>
+              
               <div class="col-12 col-xl-6 col-lg-6">
-
-
                 <div class="form-group">
                   <label>{{ 'GENDER' | translate }}<span class="required text-danger">*</span></label>
                   <div class="form-group radio_input">
@@ -229,10 +219,24 @@
 
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
+                  <label class="form-label">{{ 'COUNTRY' | translate }}<span class="required text-danger">*</span></label>
+                  <select class="form-select" id="countries" formControlName="country" (change)="onCountryChange($event)">
+                    <option></option>
+                    <option *ngFor="let data of countries" [value]="data.id">{{ data.name }}</option>
+                  </select>
+
+                  <div *ngIf="registerForm.controls['country']?.invalid && (registerForm.controls['country']?.dirty || registerForm.controls['country']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['country']?.errors?.['required']" class="p-error">Pays de résidence obligatoire.</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
                   <label class="form-label">{{ 'CITY' | translate }}<span class="required text-danger">*</span></label>
                   <select class="form-select" formControlName="city">
-                    <option>Select</option>
-                    <option *ngFor="let data of selectedList1" [value]="data.value">{{ data.value }}</option>
+                    <option></option>
+                    <option *ngFor="let data of filteredCity" [value]="data.name">{{ data.name }}</option>
                   </select>
 
                   <div *ngIf="registerForm.controls['city']?.invalid && (registerForm.controls['city']?.dirty || registerForm.controls['city']?.touched)" class="mb-2">
@@ -242,13 +246,25 @@
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
+                  <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
+                  <span class="p-fluid">
+                       <p-inputMask mask="(+237) 999-9999" formControlName="phone_number" id="phone_number" placeholder="(+237) 999-9999"></p-inputMask>
+                    </span>
+                  <div *ngIf="registerForm.controls['phone_number']?.invalid && (registerForm.controls['phone_number']?.dirty || registerForm.controls['phone_number']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['phone_number']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
+                  </div>
+                </div>
+              </div>
+
+              <!--<div class="col-md-6 col-lg-6">
+                <div class="input-block">
                   <label for="address" class="form-label">{{ 'COMPLETE_ADDRESS' | translate }}<span class="required text-danger">*</span></label>
                   <input type="text" id="address" class="form-control" formControlName="complete_address" />
                   <div *ngIf="registerForm.controls['complete_address']?.invalid && (registerForm.controls['complete_address']?.dirty || registerForm.controls['complete_address']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['complete_address']?.errors?.['required']" class="p-error">Adresse compléte obligatoire.</small>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
           </div>
           <div class="text-center">
@@ -287,7 +303,8 @@
                       containerStyleClass="w-full"
                       [options]="domainActivity" id="domain_activity" formControlName="domain_activity"
                       optionLabel="name"  [showClear]="true" (onChange)="onDomainChange($event)"
-                    ></p-dropdown>
+                    >
+                  </p-dropdown>
                   </span>
                   <div *ngIf="registerForm.controls['domain_activity']?.invalid && (registerForm.controls['domain_activity']?.dirty || registerForm.controls['domain_activity']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['domain_activity']?.errors?.['required']" class="p-error"> Domaine d'activité obligatoire.</small>
@@ -295,6 +312,26 @@
 
                 </div>
               </div>
+              
+              <div class="col-md-6">
+                <div class="input-block">
+                  <label for="specialism" class="focus-label">{{ 'SPECIALITY' | translate }}<span class="required text-danger">*</span></label>
+                   <span class="p-fluid">
+                    <p-dropdown
+                      class="w-full md:w-20rem"
+                      containerStyleClass="w-full"
+                      [options]="filteredSpecialism" id="specialism" formControlName="specialisms"
+                      optionLabel="name" [filter]="true"  [showClear]="true" (onChange)="onspecialiteChange($event)"
+                      (onFilter)="onFilterSpecialisms($event)">
+                    ></p-dropdown>
+                  </span>
+                  <div *ngIf="registerForm.controls['specialisms']?.invalid && (registerForm.controls['specialisms']?.dirty || registerForm.controls['specialisms']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['specialisms']?.errors?.['required']" class="p-error"> Specialité obligatoire.</small>
+                  </div>
+
+                </div>
+              </div>
+
               <div class="col-md-6">
                 <div class="input-block">
                   <label for="profession" class="focus-label">{{ 'PROFESSION' | translate }}<span class="required text-danger">*</span></label>
@@ -304,50 +341,33 @@
 
                       class="w-full md:w-20rem"
                       containerStyleClass="w-full"
-                      [options]="filteredProfessions" id="profession" formControlName="profession"
-                      optionLabel="name"  [showClear]="true" (onChange)="onProfessionChange($event)"
+                      [options]="professionList" id="profession" formControlName="profession"
+                      optionLabel="name"  [showClear]="true" 
                     ></p-dropdown>
                   </span>
                   <div *ngIf="registerForm.controls['profession']?.invalid && (registerForm.controls['profession']?.dirty || registerForm.controls['profession']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['profession']?.errors?.['required']" class="p-error"> Profession obligatoire.</small>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-12">
-                <div class="input-block">
-                  <label for="specialism" class="focus-label">{{ 'SPECIALITY' | translate }}<span class="required text-danger">*</span></label>
+              </div> 
 
-                  <span class="p-fluid">
-                    <p-dropdown
-
-                      class="w-full md:w-20rem"
-                      containerStyleClass="w-full"
-                      [options]="filteredSpecialism" id="specialism" formControlName="specialisms"
-                      optionLabel="name"  [showClear]="true"
-                    ></p-dropdown>
-                  </span>
-                  <div *ngIf="registerForm.controls['specialisms']?.invalid && (registerForm.controls['specialisms']?.dirty || registerForm.controls['specialisms']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['specialisms']?.errors?.['required']" class="p-error"> Specialité obligatoire.</small>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="input-block">
                   <label for="competence" class="focus-label">{{ 'SKILLS' | translate }}<span class="required text-danger">*</span></label>
                   <span class="p-fluid">
-
-
+                   
                      <p-treeSelect
                        class="w-full md:w-20rem"
                        containerStyleClass="w-full"
                        formControlName="competences"
                        [options]="competence"
+                      [filter]=true
+                       id="competence"
                        display="chip"
-
                        [metaKeySelection]="false"
                        selectionMode="checkbox"
-                       placeholder="Select Item"></p-treeSelect>
+                       placeholder="Select Item">
+                      </p-treeSelect>
                     </span>
                   <div *ngIf="registerForm.controls['competences']?.invalid && (registerForm.controls['competences']?.dirty || registerForm.controls['competences']?.touched)" class="mb-2">
                     <small *ngIf="registerForm.controls['competences']?.errors?.['required']" class="p-error"> Competence obligatoire.</small>
@@ -357,7 +377,8 @@
             </div>
           </div>
           <div class="text-center">
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Precedent" (click)="selectedFieldSet[0] = 1" />
+            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Precedent"
+                   (click)="selectedFieldSet[0] = 1" />
             <input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Suivant"
                    (click)="onSubmit(3)"
                    [disabled]="!isStepValid(stepIndex)"
@@ -386,7 +407,7 @@
             >
           </div>
           <div class="text-center">
-            <a class="btn  prev_btn " href="auth/login">Terminer</a>
+            <a class="btn btn-prev prev_btn btn-back" href="auth/login">Terminer</a>
 
           </div>
         </div>

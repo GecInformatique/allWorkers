@@ -1,0 +1,21 @@
+{
+    "formation" : [
+        { "id": "1", "picture": "assets/img/formations/aero.jpeg", "type": "En Ligne","created_at": "05-08-2024", 
+         "title": "Aero dynamique", "matiere": "Moteur","location": "Yaounde",  
+        "description": "La formation de recyclage en conduite est essentielle pour maintenir et améliorer les"
+        },
+       
+        {"id": "3", "picture": "assets/img/formations/mobile.jpeg", "type": "En Ligne", "created_at": "05-08-2024",
+         "title": "Developpement ", "matiere": "Developpement mobile",  "location": "Yaounde",
+        "description": "La formation en développement mobile permet d'acquérir les compétences essentielles pour créer des applications innovantes et performantes sur Android et iOS, ouvrant la voie à des opportunités professionnelles dans un secteur en pleine croissance"
+        },
+        {"id": "4", "picture": "assets/img/formations/management.jpeg", "type": "En Ligne","created_at": "05-08-2024", 
+         "title": "Management", "matiere": "Management d'entreprise", "location": "Yaounde",
+         "description": "La formation en management développe les compétences nécessaires pour diriger efficacement des équipes, prendre des décisions stratégiques et optimiser la performance organisationnelle"
+        },
+        {"id": "5", "picture": "assets/img/formations/ux-design.jpeg", "type": "En presentiel", "created_at": "05-08-2024",
+         "title": "Design", "matiere": "UX Designer",  "location": "Yaounde",
+        "description": "La formation en UX design enseigne les méthodes pour concevoir des expériences utilisateurs intuitives et engageantes, en plaçant les besoins des utilisateurs au cœur du processus de création"
+    }
+    ]
+}

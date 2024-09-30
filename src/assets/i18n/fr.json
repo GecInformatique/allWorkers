@@ -127,8 +127,8 @@
   "SPECIALTY": "Spécialité",
   "CITY": "Ville",
   "COMPLETE_ADDRESS": "Adresse complet",
-  "Account_Type": "Type de compte",
-  "Select_Account_Type": "Choisir le type de compte",
+  "Account_Type": "Compte",
+  "Select_Account_Type": "Creer votre compte",
   "SKILLS": "Compétence",
   "POST_PROJECT": "Ajouter un projet",
   "PROFESSION": "Profession",
@@ -144,7 +144,9 @@
   "CHOICE_FORMATION": "Choisir la formation qui vous convient le mieux",
   "FREELANCE_DISPONIBLE" : "Freelancers disponible chez All - Workers",
   "VIEW_MORE_FREELANCE": "Voir plus de freelancers",
-  "ADD_TESTIMONIAL" : "Ajouter un témoignage"
-
+  "ADD_TESTIMONIAL" : "Ajouter un témoignage",
+  "COUNTRY": "Pays",
+  "ENTREPRISE" :"Entreprise",
+  "PARTICULIER" : "Particulier"
 
 }

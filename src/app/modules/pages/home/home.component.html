@@ -123,11 +123,11 @@
 
       </div>
     </div>
-    <div class="home-four-viewall" *ngIf="domainActivity && domainActivity.length > 0">
+    <!---<div class="home-four-viewall" *ngIf="domainActivity && domainActivity.length > 0">
 
       <a [routerLink]="routes.domainView" class="home-four-viewall-btn">{{'SEE_ALL_BUSINESS_DOMAINS'|translate}}</a>
 
-    </div>
+    </div>---->
   </div>
 </section>
 <!-- /Browse Categories -->
@@ -216,7 +216,8 @@
           <div class="work-content">
             <h2>{{'HOW_CAN'|translate}}<span>{{'WE_HELP'|translate}}</span></h2>
             <p>{{'EXPRESS_YOUR_NEED'|translate}}</p>
-            <a [routerLink]="routes.freelancer_project" class="btn btn-primary">{{'I_will_speak'|translate}}</a>
+           <a href="javascript:void(0);" (click)="openModal()" class="btn btn-primary">{{'I_will_speak'|translate}}</a>
+            
           </div>
         </div>
       </div>
@@ -251,7 +252,7 @@
           <div class="home-four-viewall">
             <a [routerLink] = "routes.register" class="home-four-viewall-btn">{{'BECOME_MEMBER'|translate}} <i
               class="feather icon-arrow-right ms-2"></i></a>
-            <a [routerLink] = "routes.employee_post_project" class="home-four-viewall-btn">{{'EXPRESS_YOUR_NEED_AGAIN'|translate}}<i
+            <a href="javascript:void(0);" (click)="openModal()" class="home-four-viewall-btn">{{'EXPRESS_YOUR_NEED_AGAIN'|translate}}<i
               class="feather icon-arrow-right ms-2"></i></a>
           </div>
         </div>
@@ -308,7 +309,7 @@
       </owl-carousel-o>
     </div>
     <div class="home-four-viewall">
-       <a routerLink="/candidate-list" class="home-four-viewall-btn" >{{'VIEW_MORE_FREELANCE'| translate }}<i class="feather-arrow-right ms-2"></i></a>
+       <a [routerLink]="routes.candidatView"  class="home-four-viewall-btn" >{{'VIEW_MORE_FREELANCE'| translate }}<i class="feather-arrow-right ms-2"></i></a>
     </div>
   </div>
 </section>
@@ -334,8 +335,8 @@
             <li><i class="fa-solid fa-circle-check"></i> {{'OUR_TALENTED_TEAM_CAN_HELP'|translate}}</li>
           </ul>
           <div class="market-place-btn">
-            <a [routerLink] = "routes.freelancerProject" class="btn btn-primary market-project me-2">{{'POST_A_PROJECT'|translate}}</a>
-            <a [routerLink] = "routes.freelancer_developer_profile" class="btn btn-primary market-developer">{{'FIND_FREELANCER'|translate}}</a>
+            <a href="javascript:void(0);" (click)="openModal()" class="btn btn-primary market-project me-2">{{'POST_A_PROJECT'|translate}}</a>
+            <a [routerLink]="routes.candidatView"class="btn btn-primary market-developer">{{'FIND_FREELANCER'|translate}}</a>
           </div>
         </div>
       </div>
@@ -556,7 +557,7 @@
             </div>
             <h4 (click)="navigateToFormationDetail(formation)">{{formation.title}}</h4>
             <ul class="feature-project-list nav">
-              <li><i class="feather-user me-1"></i>UI/UX Designer</li>
+              <li><i class="feather-user me-1"></i>{{formation.matiere}}</li>
               <li><i class="feather-map-pin me-1"></i>{{formation.location}}</li>
             </ul>
             <p class="truncate-multiline">{{formation.description}}</p>
@@ -615,12 +616,12 @@
         </ng-template>
 
       </owl-carousel-o>
-
-      <div class="col-xl-12">
+      <!----Bouton d'ajout d'un temognage-->
+      <!---<div class="col-xl-12">
         <div class="more-project text-center aos" data-aos="fade-up">
           <a href="#" class="btn btn-primary">{{'ADD_TESTIMONIAL'|translate}}</a>
         </div>
-      </div>
+      </div>--->
     </div>
   </div>
 </section>
@@ -644,11 +645,12 @@
             <p>{{question.answers}}</p>
           </div>
         </div>
-        <div class="col-xl-12">
+        <!--Boutn d'ajout de FAQ-->
+        <!--<div class="col-xl-12">
           <div class="more-project text-center aos" data-aos="fade-up">
             <a [routerLink] = "routes.faq" class="btn btn-primary">{{'Read_More'|translate}}</a>
           </div>
-        </div>
+        </div>---->
       </div>
 
       <div class="col-lg-5">
