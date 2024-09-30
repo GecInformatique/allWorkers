@@ -13,7 +13,7 @@ export const environment = {
 
   apiURL: "http://api.all-worker.com/api",
 
-  appUrl: "http://all-worker.com/",
+  appUrl: "https://all-worker.com/",
 
   moduleApp: 'website',
 
