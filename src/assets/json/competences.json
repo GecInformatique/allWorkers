@@ -74,6 +74,13 @@
   { "id": "71", "label": "Négociation commerciale" },
   { "id": "72", "label": "Gestion de la relation client" },
   { "id": "73", "label": "Vente B2B" },
-  { "id": "74", "label": "Gestion des stocks" }
+  { "id": "74", "label": "Gestion des stocks" },
+  { "id": "75", "label": "Stratégies de vente" },
+  { "id": "76", "label": "Distribution" },
+  { "id": "77", "label": "Service après-vente" },
+  { "id": "78", "label": "Gestion d'équipe" },
+  { "id": "79", "label": "Analyse des tendances du marché" },
+  { "id": "80", "label": "Techniques de fidélisation" },
+  { "id": "81", "label": "Conception graphique" }
 ]
 }

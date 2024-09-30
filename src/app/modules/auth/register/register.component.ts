@@ -19,6 +19,7 @@ import countries from 'src/assets/json/countries.json';
 import domaines  from 'src/assets/json/domaines.json';
 import specialites from 'src/assets/json/specialites.json';
 import competences  from 'src/assets/json/competences.json';
+import professions  from 'src/assets/json/Professions.json';
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs";
 
@@ -111,11 +112,10 @@ public togglePassword(index: number) {
     this.countries = countries.pays;
     this.cities= cities.cities;
    this.competence = competences.competences;
-   
+   this.professionList = professions.professions
     this.loadDomainData();
     this.getSpecialismList();
     this.getCompetenceList()
-    console.log("competences" ,this.competence)
     this.registerForm = this.fb.group({
       'accountsType': new FormControl<number|null>(null, [Validators.required]),
       'last_name': new FormControl<string>("", [Validators.required]),
@@ -310,6 +310,15 @@ public togglePassword(index: number) {
    ;
   
   } 
+
+  onFilterSpecialisms(event: any): void {
+    const query = event.filter.toLowerCase();
+
+    // Filtrer la liste des spécialités selon la saisie de l'utilisateur
+    this.filteredSpecialism = this.specialisms.filter(specialism =>
+      specialism.name.toLowerCase().includes(query)
+    );
+  }
 
   private getMaxDateFor18YearsOld(): string {
     const today = new Date();
