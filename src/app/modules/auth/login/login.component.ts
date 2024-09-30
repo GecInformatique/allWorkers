@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   public Toggledata = true;
   email !: string  ;
   password !: string  ;
+  errorMessage !: string  ;
 
   public showProgressBar = false;
 
@@ -66,10 +67,10 @@ export class LoginComponent implements OnInit {
       }
     );
   }*/
-
   login(): void {
-    this.showProgressBar = true
-    console.log(this.email, this.password);
+    this.showProgressBar = true;
+    this.errorMessage = '';  // Réinitialiser l'erreur avant chaque tentative
+
     const body = {
       email: this.email,
       password: this.password
@@ -78,32 +79,24 @@ export class LoginComponent implements OnInit {
     this.authService.login(body).subscribe(
       (response: any) => {
         if (response && response.access_token) {
-          // Save the token and user details to local storage
-
           this.localTokenService.setToken(response.access_token);
-
-          // Call the user method to get user details after successful login
           this.authService.user().subscribe(
             (userData: any) => {
-              // Optionally save or use user data here
-              console.log('User data:', userData);
               this.localAuthService.setCurrentUser(userData);
-              this.showProgressBar = false
-              this.router.navigate(['/home']); // Navigate to the dashboard or another route
+              this.showProgressBar = false;
+              this.router.navigate(['/home']);
             },
             (error: any) => {
-              console.error('Error fetching user data:', error);
-              // Handle error as needed
             }
           );
         } else {
-          console.error('Login response does not contain a valid token');
-          // Handle the case where token is missing
+          this.showProgressBar = false;
+          this.errorMessage = 'Échec de la connexion. Veuillez vérifier vos informations.';
         }
       },
       (error: any) => {
-        console.error('Login failed', error);
-        // Handle login failure
+        this.showProgressBar = false;
+        this.errorMessage = 'Email ou mot de passe incorrect. Veuillez réessayer.';
       }
     );
   }

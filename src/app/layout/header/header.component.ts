@@ -126,11 +126,14 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
   }
 
   openModal(): void {
-    if(this.currentUser){
+    console.log(this.currentUser,'user connectec ')
+    if(this.currentUser !== null){
       this.isModalOpen = true;
+    }else {
+      this.router.navigate(['/auth/login']);
+
     }
-    this.router.navigate(['/auth/login']);
-    
+
   }
 }
 
