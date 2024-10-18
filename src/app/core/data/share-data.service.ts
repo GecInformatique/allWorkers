@@ -1341,7 +1341,7 @@ export class ShareDataService {
     {
       title: 'Dashboard',
       icon: 'assets/img/icon/sidebar-icon-01.svg',
-      routes: routes.admin_dashboard,
+      routes: routes.freelancer_dashboard,
       page: 'dashboards',
       hasSubRoute: false,
     },
@@ -1351,7 +1351,7 @@ export class ShareDataService {
       routes: routes.admin_domain,
       page: 'domain',
       hasSubRoute: false,
-    },*/
+    },
     {
       title: 'Projects',
       icon: 'assets/img/icon/sidebar-icon-02.svg',
@@ -1384,7 +1384,7 @@ export class ShareDataService {
         },
       ],
     },
-    {
+  /*  {
       title: 'Favourites',
       icon: 'assets/img/icon/sidebar-icon-03.svg',
       hasSubRoute: true,
@@ -1403,18 +1403,18 @@ export class ShareDataService {
         },
       ],
     },
-    {
+  {
       title: 'Reviews',
       hasSubRoute: false,
       icon: 'assets/img/icon/sidebar-icon-04.svg',
       routes: routes.freelancer_review,
       page: 'reviews',
-    },
+    },*/
     {
-      title: 'Portfolio',
+      title: 'Profile',
       hasSubRoute: false,
       icon: 'assets/img/icon/sidebar-icon-05.svg',
-      routes: routes.freelancer_portfolio,
+      routes: routes.freelancer_profiles_settings,
       page: 'portfolio',
     },
     /*{
@@ -1437,7 +1437,7 @@ export class ShareDataService {
       icon: 'assets/img/icon/sidebar-icon-08.svg',
       routes: routes.freelancer_payout,
       page: 'payout',
-    },*/
+    },
 
     {
       title: 'Statement',
@@ -1476,13 +1476,13 @@ export class ShareDataService {
           routes: routes.freelancer_change_passwords,
           page: 'change-password',
         },
-       /* {
+        {
           title: 'Delete Account',
           routes: routes.freelancer_delete_account,
           page: 'delete-account',
-        },*/
+        },
       ],
-    },
+    },*/
     {
       title: 'Logout',
       hasSubRoute: false,

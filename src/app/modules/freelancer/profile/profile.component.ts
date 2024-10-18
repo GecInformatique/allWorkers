@@ -3,6 +3,7 @@ import { Validators, Editor, Toolbar } from 'ngx-editor';
 import { FormControl, FormGroup } from '@angular/forms';
 import { routes } from 'src/app/core/helpers/routes/routes';
 import { Router } from '@angular/router';
+import {LocalAuthService} from "../../../core/data/local/local.auth.service";
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   deleteDetails(array: number[], index: number) {
     this.details.splice(index, 1);
   }
-
+  constructor(private router: Router, public authService: LocalAuthService) {}
   editor!: Editor;
   toolbar: Toolbar = [
     ['bold', 'italic'],
@@ -68,7 +69,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       role: 'Web design',
     },
   ];
-  constructor(private router: Router) {}
+
   navigation() {
     this.router.navigate([routes.employee_dashboard]);
   }

@@ -7,6 +7,7 @@
           <h3>Profile Setting</h3>
         </div>
         <div class="pro-body">
+          <form [formGroup]="candidatForm" >
           <div class="row">
             <div class="col-lg-12">
               <div class="form-row pro-pad pt-0 ps-0">
@@ -14,7 +15,8 @@
                   <label for="profile-picture" class="form-label">Profile Picture</label>
                   <div class="d-flex align-items-center">
                     <div class="upload-images freelancer-pic-box">
-                      <img src="assets/img/icon/user-img.svg" alt="" id="blah">
+                      <img alt="profile image" [src]="currentUser?.picture"
+                           class="avatar-lg " style="width:100%;height:100%">
                     </div>
                     <div class="ms-3 freelancer-pic-upload">
                       <label class="file-upload image-upbtn">
@@ -29,49 +31,63 @@
               </div>
             </div>
             <div class="col-lg-6 col-md-12">
-              <div class="mb-3">
-                <label for="first-name" class="form-label">First Name</label>
-                <input type="text" class="form-control">
+
+                <div class="mb-3">
+                  <label for="first-name" class="form-label">First Name</label>
+                  <input type="text" class="form-control" formControlName="full_name">
+                </div>
               </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="mb-3">
-                <label for="last-name" class="form-label">Last Name</label>
-                <input type="text" class="form-control">
+              <div class="col-lg-4 col-md-12">
+                <div class="mb-3">
+                  <label for="last-name" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" formControlName="last_name"> <!-- Ajouté le formControlName -->
+                </div>
               </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-2 col-md-12">
               <div class="mb-3">
-                <label for="phone-number" class="form-label">Phone Number</label>
-                <input type="text" class="form-control">
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="mb-3">
-                <label for="email-address" class="form-label">Email Address</label>
-                <input type="text" class="form-control">
+                <label for="last-name" class="form-label">Sexe</label>
+                <input type="text" class="form-control" formControlName="gender"> <!-- Ajouté le formControlName -->
               </div>
             </div>
             <div class="col-lg-4 col-md-12">
               <div class="mb-3">
-                <label for="date-of-birth" class="form-label">Date of Birth</label>
-                <input type="text" class="form-control">
+                <label for="date-of-birth" class="form-label">Date de naissance</label>
+                <input type="text" class="form-control" formControlName="date_of_birth"> <!-- Ajouté le formControlName -->
+              </div>
+            </div>
+              <div class="col-lg-4 col-md-12">
+                <div class="mb-3">
+                  <label for="phone-number" class="form-label">Telephone</label>
+                  <input type="text" class="form-control" formControlName="phone_number"> <!-- Ajouté le formControlName -->
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12">
+                <div class="mb-3">
+                  <label for="email-address" class="form-label">Email</label>
+                  <input type="text" class="form-control" formControlName="email" name="email">
+                </div>
+              </div>
+           
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="jobs" class="form-label">Pays</label>
+                <input type="text" class="form-control" formControlName="nationality">
               </div>
             </div>
             <div class="col-lg-4 col-md-12">
               <div class="mb-3">
-                <label for="job-title" class="form-label">Your Job Title</label>
-                <input type="text" class="form-control">
+                <label for="jobs" class="form-label">Ville</label>
+                <input type="text" class="form-control" formControlName="city">
               </div>
             </div>
             <div class="col-lg-4 col-md-12">
               <div class="mb-3">
-                <label for="jobs" class="form-label">Type of Job</label>
-                <input type="text" class="form-control">
+                <label for="jobs" class="form-label">Address</label>
+                <input type="text" class="form-control" formControlName="complete_address">
               </div>
             </div>
           </div>
-
+          </form>
         </div>
       </div>
 

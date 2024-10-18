@@ -24,6 +24,7 @@ export class ProfileSettingsComponent  implements OnInit{
   public selectedValue8 = '';
   public selectedValue9 = '';
   public customvalue1 = '';
+  candidatForm !: FormGroup;
 
   public skills: number[] = [];
   public education: number[] = [];
@@ -124,11 +125,27 @@ export class ProfileSettingsComponent  implements OnInit{
   removeDatas(index: number) {
     this.datas[index] = !this.datas[index];
   }
-  constructor(private router: Router,private datePipe: DatePipe,    private fb: FormBuilder, public authService: LocalAuthService,
-  ) {}
+  constructor(
+    private router: Router,private datePipe: DatePipe,
+    private fb: FormBuilder, public authService: LocalAuthService,
+  ) {
+
+  }
 
   ngOnInit(): void {
-    this.currentUser = this.authService.getCurrentUser();
+    this.currentUser = this.authService.getCurrentUser().data;
+
+    console.log(this.currentUser,'info du candidat')
+    this.candidatForm = this.fb.group({
+      full_name: [this.currentUser?.full_name || ''],
+      email: [this.currentUser?.email || ''],
+      phone_number: [this.currentUser?.phone_number || ''],
+      date_of_birth: [this.currentUser?.date_of_birth || ''],
+      city: [this.currentUser?.city || ''],
+      complete_address: [this.currentUser?.complete_address || ''],
+      gender: [this.currentUser?.gender || ''],
+    });
+
     this.educationForm = this.fb.group({
       'name': new FormControl<number | null>(null, []),
       'university_name': new FormControl<string>("", []),
@@ -137,7 +154,12 @@ export class ProfileSettingsComponent  implements OnInit{
       'diploma': new FormControl<string>("", []),
       'description': new FormControl<string>("", []),
     })
-    }
+
+
+
+  }
+
+
   navigation() {
     this.router.navigate([routes.freelancerprofile])
   }

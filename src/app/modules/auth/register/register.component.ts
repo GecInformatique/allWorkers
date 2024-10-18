@@ -56,6 +56,7 @@ public routes = routes;
   selectedDomain !: number;
   selectedProfession !: number;
   selectedCompetence !: any;
+  gender : any[]=[]
 public displayBlock = false;
 public displayNone = false;
 public selectedFieldSet = [0];
@@ -131,6 +132,13 @@ public togglePassword(index: number) {
       'specialisms': new FormControl<number|null>(null, ),
       'competences': new FormControl<number[]>([], ),
     });
+
+    this.gender = [
+      { name: 'Masculin', code: 'M' },
+      { name: 'Feminin', code: 'F' },
+    ]
+
+
   }
 
 
@@ -146,7 +154,7 @@ public togglePassword(index: number) {
     const specialism = this.registerForm.get('specialisms')?.value;
     const accountsTypeValue = this.registerForm.get('accountsType')?.value;
 
-  
+
     // Vérifier si domainActivity, country, specialism sont des objets et extraire les IDs
     const domainActivityId = domainActivity && typeof domainActivity === 'object' ? domainActivity.id : domainActivity;
     const countryId = country && typeof country === 'object' ? country.id : country;
@@ -166,7 +174,7 @@ public togglePassword(index: number) {
       phone_number: this.registerForm.get('phone_number')?.value || '',
       gender: this.registerForm.get('gender')?.value || '',
       city: this.registerForm.get('city')?.value || '',
-      
+
       complete_address: this.registerForm.get('complete_address')?.value || '',
       domain_activity_id: domainActivityId || null, // Assurez-vous que c'est un ID
       country_id : countryId || null,
@@ -187,28 +195,28 @@ public togglePassword(index: number) {
   }
 
 
- 
+
 
   private loadDomainData(): void {
 
     this.domainActivity= domaines.domaines;
-  
+
   }
 
- 
 
- 
+
+
 
   getSpecialismList() {
     this.specialisms = specialites.specialites;
-   
+
   }
 
 
   private getCompetenceList(): void {
 
     this.competence= competences.competences;
-  
+
   }
 
   /* getCompetenceList() {
@@ -222,7 +230,7 @@ public togglePassword(index: number) {
           }))
           : [];
 
-       
+
       },
       error => console.error('GET error:', error)
     );
@@ -241,7 +249,7 @@ public togglePassword(index: number) {
         error: error => console.error('POST error:', error)
       });
       this.selectedFieldSet[0] = step;
-     
+
     }
   }
 
@@ -271,12 +279,12 @@ public togglePassword(index: number) {
 
 
   onDomainChange(event: any): void {
-    
+
     const selectedDomainId = event.value ? event.value.id : null;
     if (selectedDomainId) {
       this.filteredSpecialism = this.specialisms.filter(
         specialite => specialite.domaine_id === selectedDomainId
-        
+
       );
     } else {
       this.filteredSpecialism = [];
@@ -290,13 +298,13 @@ public togglePassword(index: number) {
       this.filteredCity = this.cities.filter(
         city => city.pays_id === selectedCountryId
       );
-      
+
     } else {
-      this.filteredCity = []; 
+      this.filteredCity = [];
     }
   }
-  
-  
+
+
 
   onspecialiteChange(event: any): void {
     const selectSpecialiteId = event.value? event.value.id : null;
@@ -308,8 +316,8 @@ public togglePassword(index: number) {
       this.filteredCompetence;
     }
    ;
-  
-  } 
+
+  }
 
   onFilterSpecialisms(event: any): void {
     const query = event.filter.toLowerCase();

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, ViewChild } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -13,9 +13,10 @@ import {
   ApexPlotOptions,
 } from 'ng-apexcharts';
 import { routes } from 'src/app/core/helpers/routes/routes';
+import {LocalAuthService} from "../../../core/data/local/local.auth.service";
 
 export type ChartOptions = {
-   
+
   series: ApexAxisChartSeries | any;
   chart: ApexChart | any;
   xaxis: ApexXAxis | any;
@@ -28,7 +29,7 @@ export type ChartOptions = {
   yaxis: any;
 };
 export type radialChartOptions = {
-   
+
   series: ApexNonAxisChartSeries | any;
   chart: ApexChart | any;
   labels: string[] | any;
@@ -41,13 +42,14 @@ export type radialChartOptions = {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements  OnInit{
   public routes = routes;
+
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   public radialchartOptions: Partial<ChartOptions> | any;
 
-  constructor() {
+  constructor(public authService: LocalAuthService,) {
     this.chartOptions = {
       series: [
         {
@@ -178,5 +180,9 @@ export class DashboardComponent {
         },
       ],
     };
+  }
+
+  ngOnInit(): void {
+
   }
 }
