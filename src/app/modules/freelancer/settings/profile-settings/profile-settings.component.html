@@ -22,7 +22,7 @@
                       <label class="file-upload image-upbtn">
                         Upload Image <input type="file" id="imgInp">
                       </label>
-                      <p>Max Image size 300*300</p>
+                     <!-- <p>Max Image size 300*300</p>-->
                     </div>
 
                   </div>
@@ -30,20 +30,20 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-4 col-md-12">
 
                 <div class="mb-3">
                   <label for="first-name" class="form-label">First Name</label>
                   <input type="text" class="form-control" formControlName="full_name">
                 </div>
-              </div>
+            </div>
               <div class="col-lg-4 col-md-12">
                 <div class="mb-3">
                   <label for="last-name" class="form-label">Last Name</label>
                   <input type="text" class="form-control" formControlName="last_name"> <!-- Ajouté le formControlName -->
                 </div>
               </div>
-            <div class="col-lg-2 col-md-12">
+            <div class="col-lg-4 col-md-12">
               <div class="mb-3">
                 <label for="last-name" class="form-label">Sexe</label>
                 <input type="text" class="form-control" formControlName="gender"> <!-- Ajouté le formControlName -->
@@ -53,6 +53,12 @@
               <div class="mb-3">
                 <label for="date-of-birth" class="form-label">Date de naissance</label>
                 <input type="text" class="form-control" formControlName="date_of_birth"> <!-- Ajouté le formControlName -->
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="phone-number" class="form-label">Lieu de naissance</label>
+                <input type="text" class="form-control" formControlName=""> <!-- Ajouté le formControlName -->
               </div>
             </div>
               <div class="col-lg-4 col-md-12">
@@ -74,6 +80,7 @@
                 <input type="text" class="form-control" formControlName="nationality">
               </div>
             </div>
+            
             <div class="col-lg-4 col-md-12">
               <div class="mb-3">
                 <label for="jobs" class="form-label">Ville</label>
@@ -86,12 +93,54 @@
                 <input type="text" class="form-control" formControlName="complete_address">
               </div>
             </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="phone-number" class="form-label">Numero CNI</label>
+                <input type="text" class="form-control" formControlName=""> <!-- Ajouté le formControlName -->
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="phone-number" class="form-label">CNI delivré le:</label>
+                <input type="text" class="form-control" formControlName=""> <!-- Ajouté le formControlName -->
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="jobs" class="form-label">Region d'origine</label>
+                <input type="text" class="form-control" formControlName="nationality">
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="jobs" class="form-label">Departement d'origine</label>
+                <input type="text" class="form-control" formControlName="nationality">
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="phone-number" class="form-label">NUI</label>
+                <input type="text" class="form-control" formControlName=""> <!-- Ajouté le formControlName -->
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="phone-number" class="form-label">Situation matrimonial</label>
+                <input type="text" class="form-control" formControlName=""> <!-- Ajouté le formControlName -->
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="mb-3">
+                <label for="phone-number" class="form-label">Nombre d'enfant</label>
+                <input type="text" class="form-control" formControlName=""> <!-- Ajouté le formControlName -->
+              </div>
+            </div>
           </div>
           </form>
         </div>
       </div>
 
-      <div class="card">
+      <!--<div class="card">
         <div class="pro-head">
           <h4 class="pro-titles mb-0">Overview</h4>
         </div>
@@ -103,13 +152,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <div class="form-row">
         <div class="col-lg-12 w-100">
           <div class="card flex-fill mb-3">
             <div class="pro-head">
-              <h4 class="pro-titles mb-0">Skills</h4>
+              <h4 class="pro-titles mb-0">Competences</h4>
             </div>
             <div class="pro-body  skill-info">
               <div class="form-row align-items-center skill-cont" [ngClass]="{'d-none': datas[1]}">
@@ -225,21 +274,21 @@
               <div class="pro-body  ">
                 <div class="form-row align-items-center skill-cont" [ngClass]="{'d-none': datas[4]}">
                   <div class="input-block col-lg-3">
-                    <label for="degree-name" class="form-label">Degree Name</label>
+                    <label for="degree-name" class="form-label">Diplome</label>
                     <input type="text" class="form-control" value="BE CSE">
                   </div>
                   <div class="input-block col-lg-3">
-                    <label for="university-name" class="form-label">University Name</label>
+                    <label for="university-name" class="form-label">Université</label>
                     <input type="text" class="form-control" value="Brington">
                   </div>
                   <div class="col-md-3 input-block floating-icon">
-                    <label for="start" class="form-label">Start Date</label>
+                    <label for="start" class="form-label">Date debut</label>
                     <input type="text" class="form-control datetimepicker" bsDatepicker
                       placeholder="Choose">
                       <span><i class="feather icon-calendar"></i></span>
                     </div>
                     <div class="col-md-2 input-block floating-icon">
-                      <label for="end date" class="form-label">End Date</label>
+                      <label for="end date" class="form-label">Date fin</label>
                       <input type="text" class="form-control datetimepicker" bsDatepicker
                         placeholder="Choose">
                         <span><i class="feather icon-calendar"></i></span>
@@ -255,21 +304,21 @@
                         <div class="form-row align-items-center skill-cont"
                           >
                           <div class="input-block col-lg-3">
-                            <label for="degree-name" class="form-label">Degree Name</label>
+                            <label for="degree-name" class="form-label">Diplome</label>
                             <input type="text" class="form-control" value="BE CSE">
                           </div>
                           <div class="input-block col-lg-3">
-                            <label for="university-name" class="form-label">University Name</label>
+                            <label for="university-name" class="form-label">Université</label>
                             <input type="text" class="form-control" value="Brington">
                           </div>
                           <div class="col-md-3 input-block floating-icon">
-                            <label for="start" class="form-label">Start Date</label>
+                            <label for="start" class="form-label">Date debut</label>
                             <input type="text" class="form-control datetimepicker" bsDatepicker
                               placeholder="Choose">
                               <span><i class="feather icon-calendar"></i></span>
                             </div>
                             <div class="col-md-2 input-block floating-icon">
-                              <label for="end date" class="form-label">End Date</label>
+                              <label for="end date" class="form-label">Date fin</label>
                               <input type="text" class="form-control datetimepicker" bsDatepicker
                                 placeholder="Choose">
                                 <span><i class="feather icon-calendar"></i></span>
@@ -284,7 +333,7 @@
                           <div id="education_add_row" class="w-100"></div>
                           <a href="javascript:void(0)" (click)="addEducation()" (keydown.enter)="addEducation()" tabindex="0"
                             class="add-btn-form custom-add-btn-form add-edu w-100 d-block text-end"><i
-                          class="feather icon-plus-circle me-2"></i>Add New</a>
+                          class="feather icon-plus-circle me-2"></i>Ajouter</a>
                         </div>
                       </div>
                     </div>
@@ -292,20 +341,20 @@
                     <div class="col-lg-12 w-100">
                       <div class="card flex-fill mb-3">
                         <div class="pro-head">
-                          <h4 class="pro-titles without-border mb-0">Certification</h4>
+                          <h4 class="pro-titles without-border mb-0">Certifications</h4>
                         </div>
                         <div class="pro-body  ">
                           <div class="form-row align-items-center skill-cont" [ngClass]="{'d-none': datas[5]}">
                             <div class="input-block col-lg-4">
-                              <label for="certification" class="form-label">Certification or Award</label>
+                              <label for="certification" class="form-label">Nom de la Certification </label>
                               <input type="text" class="form-control" value="Feast of UI">
                             </div>
                             <div class="input-block col-lg-4">
-                              <label for="certified-from" class="form-label">Certified from</label>
+                              <label for="certified-from" class="form-label">Certifié de</label>
                               <input type="text" class="form-control" value="PSD Technologies">
                             </div>
                             <div class="col-lg-3 input-block floating-icon">
-                              <label for="year" class="form-label">Year</label>
+                              <label for="year" class="form-label">Année</label>
                               <input type="text" class="form-control datetimepicker" bsDatepicker
                                 placeholder="Choose">
                                 <span><i class="feather icon-calendar"></i></span>
@@ -320,15 +369,15 @@
                                 <div class="form-row align-items-center skill-cont"
                                   >
                                   <div class="input-block col-lg-4">
-                                    <label for="certification" class="form-label">Certification or Award</label>
+                                    <label for="certification" class="form-label">Nom de la Certification</label>
                                     <input type="text" class="form-control" value="Feast of UI">
                                   </div>
                                   <div class="input-block col-lg-4">
-                                    <label for="certified-from" class="form-label">Certified from</label>
+                                    <label for="certified-from" class="form-label">Certifié de</label>
                                     <input type="text" class="form-control" value="PSD Technologies">
                                   </div>
                                   <div class="col-lg-3 input-block floating-icon">
-                                    <label for="year" class="form-label">Year</label>
+                                    <label for="year" class="form-label">Année</label>
                                     <input type="text" class="form-control datetimepicker" bsDatepicker
                                       placeholder="Choose">
                                       <span><i class="feather icon-calendar"></i></span>
@@ -343,7 +392,7 @@
                                 <div id="certi_add_row" class=" w-100"></div>
                                 <a href="javascript:void(0)" (click)="addCertification()"  (keydown.enter)="addCertification()" tabindex="0"
                                   class="add-btn-form add-certi w-100 d-block text-end"><i
-                                class="feather icon-plus-circle me-2"></i>Add New</a>
+                                class="feather icon-plus-circle me-2"></i>Ajouter</a>
                               </div>
                             </div>
                           </div>
@@ -419,17 +468,17 @@
                                     <div class="col-lg-12 w-100">
                                       <div class="card flex-fill mb-3">
                                         <div class="pro-head">
-                                          <h4 class="pro-titles mb-0">Language</h4>
+                                          <h4 class="pro-titles mb-0">Langues</h4>
 
                                         </div>
                                         <div class="pro-body  ">
                                           <div class="form-row align-items-center skill-cont" [ngClass]="{'d-none': datas[7]}">
                                             <div class="input-block col-md-6">
-                                              <label for="language" class="form-label">Language</label>
+                                              <label for="language" class="form-label">Langue</label>
                                               <input type="text" class="form-control">
                                             </div>
                                             <div class="input-block col-md-5">
-                                              <label for="language-fluency" class="form-label">Language Fluency</label>
+                                              <label for="language-fluency" class="form-label"> Niveau</label>
                                               <mat-select [(ngModel)]="selectedValue5" [ngModelOptions]="{standalone: true}"
                                                 class="select mat-select arrow verify" placeholder="Select">
                                                 @for (data of selectedList5; track data) {
@@ -446,11 +495,11 @@
                                           </div>
                                           <div class="form-row align-items-center skill-cont" [ngClass]="{'d-none': datas[8]}">
                                             <div class="input-block col-md-6">
-                                              <label for="language" class="form-label">Language</label>
+                                              <label for="language" class="form-label">Langue</label>
                                               <input type="text" class="form-control">
                                             </div>
                                             <div class="input-block col-md-5">
-                                              <label for="language-fluency" class="form-label">Language Fluency</label>
+                                              <label for="language-fluency" class="form-label">Niveau</label>
                                               <mat-select [(ngModel)]="selectedValue6" [ngModelOptions]="{standalone: true}"
                                                 class="select mat-select arrow verify" placeholder="Select">
                                                 @for (data of selectedList6; track data) {
@@ -467,11 +516,11 @@
                                           </div>
                                           <div class="form-row align-items-center skill-cont" [ngClass]="{'d-none': datas[9]}">
                                             <div class="input-block col-md-6">
-                                              <label for="language" class="form-label">Language</label>
+                                              <label for="language" class="form-label">Langue</label>
                                               <input type="text" class="form-control">
                                             </div>
                                             <div class="input-block col-md-5">
-                                              <label for="language-fluency" class="form-label">Language Fluency</label>
+                                              <label for="language-fluency" class="form-label">Niveau</label>
                                               <mat-select [(ngModel)]="selectedValue7" [ngModelOptions]="{standalone: true}"
                                                 class="select mat-select arrow verify" placeholder="Select">
                                                 @for (data of selectedList7; track data) {
@@ -488,11 +537,11 @@
                                           </div>
                                           <div class="form-row align-items-center skill-cont">
                                             <div class="input-block col-md-6">
-                                              <label for="language" class="form-label">Language</label>
+                                              <label for="language" class="form-label">Langue</label>
                                               <input type="text" class="form-control">
                                             </div>
                                             <div class="input-block col-md-5">
-                                              <label for="language-fluency" class="form-label">Language Fluency</label>
+                                              <label for="language-fluency" class="form-label">Niveau</label>
                                               <mat-select [(ngModel)]="selectedValue8" [ngModelOptions]="{standalone: true}"
                                                 class="select mat-select arrow verify" placeholder="Select">
                                                 @for (data of selectedList8; track data) {
@@ -514,11 +563,11 @@
                                               <div class="form-row align-items-center skill-cont"
                                                 >
                                                 <div class="input-block col-md-6">
-                                                  <label for="language" class="form-label">Language</label>
+                                                  <label for="language" class="form-label">Langue</label>
                                                   <input type="text" class="form-control">
                                                 </div>
                                                 <div class="input-block col-md-5">
-                                                  <label for="language-fluency" class="form-label">Language Fluency</label>
+                                                  <label for="language-fluency" class="form-label">Niveau</label>
                                                   <mat-select placeholder="Select" class="select mat-select arrow verify">
                                                     <mat-option value="Basic">Basic</mat-option>
                                                     <mat-option value="Intermediate">Intermediate
