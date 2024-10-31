@@ -162,27 +162,27 @@
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
                   <label for="first-name" class="form-label">{{ 'LAST_NAME' | translate }}<span class="required text-danger">*</span></label>
-                  <input type="text" id="first-name" class="form-control" formControlName="last_name" />
-                  <div *ngIf="registerForm.controls['last_name']?.invalid && (registerForm.controls['last_name']?.dirty || registerForm.controls['last_name']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['last_name']?.errors?.['required']" class="p-error">Nom de famille obligatoire.</small>
+                  <input type="text" id="first-name" class="form-control" formControlName="nom" />
+                  <div *ngIf="registerForm.controls['nom']?.invalid && (registerForm.controls['nom']?.dirty || registerForm.controls['nom']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['nom']?.errors?.['required']" class="p-error">Nom de famille obligatoire.</small>
                   </div>
                 </div>
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
                   <label for="last-name" class="form-label">{{ 'FIRST_NAME' | translate }}</label>
-                  <input type="text" id="last-name" class="form-control" formControlName="first_name" />
-                  <div *ngIf="registerForm.controls['first_name']?.invalid && (registerForm.controls['first_name']?.dirty || registerForm.controls['first_name']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['first_name']?.errors?.['required']" class="p-error">Prénom obligatoire.</small>
+                  <input type="text" id="last-name" class="form-control" formControlName="prenom" />
+                  <div *ngIf="registerForm.controls['prenom']?.invalid && (registerForm.controls['prenom']?.dirty || registerForm.controls['prenom']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['prenom']?.errors?.['required']" class="p-error">Prénom obligatoire.</small>
                   </div>
                 </div>
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="input-block">
                   <label for="day_birth" class="form-label">{{ 'DATE_OF_BIRTH' | translate }}<span class="required text-danger">*</span></label>
-                  <input type="date" id="day_birth" formControlName="day_birth" class="form-control required" [attr.max]="maxDate">
-                  <div *ngIf="registerForm.controls['day_birth']?.invalid && (registerForm.controls['day_birth']?.dirty || registerForm.controls['day_birth']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['day_birth']?.errors?.['required']" class="p-error"> Date naissance obligatoire.</small>
+                  <input type="date" id="day_birth" formControlName="date_naissance" class="form-control required" [attr.max]="maxDate">
+                  <div *ngIf="registerForm.controls['date_naissance']?.invalid && (registerForm.controls['date_naissance']?.dirty || registerForm.controls['date_naissance']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['date_naissance']?.errors?.['required']" class="p-error"> La date de naissance est obligatoire.</small>
                   </div>
 
                 </div>
@@ -202,12 +202,12 @@
                   <label>{{ 'GENDER' | translate }}<span class="required text-danger">*</span></label>
 
 
-                    <select class="form-select" formControlName="gender">
+                    <select class="form-select" formControlName="sexe">
                       <option></option>
-                      <option *ngFor="let data of gender" [value]="data.name">{{ data.name }}</option>
+                      <option *ngFor="let data of gender" [value]="data.name">{{ data.display }}</option>
                     </select>
-                    <div *ngIf="registerForm.controls['gender']?.invalid && (registerForm.controls['gender']?.dirty || registerForm.controls['gender']?.touched)" class="mb-2">
-                      <small *ngIf="registerForm.controls['gender']?.errors?.['required']" class="p-error">Genre obligatoire.</small>
+                    <div *ngIf="registerForm.controls['sexe']?.invalid && (registerForm.controls['sexe']?.dirty || registerForm.controls['sexe']?.touched)" class="mb-2">
+                      <small *ngIf="registerForm.controls['sexe']?.errors?.['required']" class="p-error">Genre obligatoire.</small>
                     </div>
 
                 </div>
@@ -245,10 +245,10 @@
                 <div class="input-block">
                   <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
                   <span class="p-fluid">
-                       <p-inputMask     mask="(+999) 999 99 99 99 "  formControlName="phone_number" id="phone_number" placeholder="Ex (+237) 999 99 99 99"></p-inputMask>
+                       <p-inputMask     mask="(+999) 999 99 99 99 "  formControlName="telephone" id="phone_number" placeholder="Ex (+237) 999 99 99 99"></p-inputMask>
                     </span>
-                  <div *ngIf="registerForm.controls['phone_number']?.invalid && (registerForm.controls['phone_number']?.dirty || registerForm.controls['phone_number']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['phone_number']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
+                  <div *ngIf="registerForm.controls['telephone']?.invalid && (registerForm.controls['telephone']?.dirty || registerForm.controls['telephone']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['telephone']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
                   </div>
                 </div>
               </div>
@@ -262,6 +262,15 @@
                   </div>
                 </div>
               </div>-->
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="last-name" class="form-label">{{ 'Mot de passe' | translate }}</label>
+                  <input type="text" id="last-name" class="form-control" formControlName="password" />
+                  <div *ngIf="registerForm.controls['password']?.invalid && (registerForm.controls['password']?.dirty || registerForm.controls['password']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['password']?.errors?.['required']" class="p-error">password obligatoire.</small>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="text-center">
@@ -298,13 +307,13 @@
 
                       class="w-full md:w-20rem"
                       containerStyleClass="w-full"
-                      [options]="domainActivity" id="domain_activity" formControlName="domain_activity"
+                      [options]="domainActivity" id="domain_activity" formControlName="domaine"
                       optionLabel="name"  [showClear]="true" (onChange)="onDomainChange($event)"
                     >
                   </p-dropdown>
                   </span>
-                  <div *ngIf="registerForm.controls['domain_activity']?.invalid && (registerForm.controls['domain_activity']?.dirty || registerForm.controls['domain_activity']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['domain_activity']?.errors?.['required']" class="p-error"> Domaine d'activité obligatoire.</small>
+                  <div *ngIf="registerForm.controls['domaine']?.invalid && (registerForm.controls['domaine']?.dirty || registerForm.controls['domaine']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['domaine']?.errors?.['required']" class="p-error"> Domaine d'activité obligatoire.</small>
                   </div>
 
                 </div>
@@ -317,13 +326,13 @@
                     <p-dropdown
                       class="w-full md:w-20rem"
                       containerStyleClass="w-full"
-                      [options]="filteredSpecialism" id="specialism" formControlName="specialisms"
+                      [options]="filteredSpecialism" id="specialism" formControlName="specialite"
                       optionLabel="name" [filter]="true"  [showClear]="true" (onChange)="onspecialiteChange($event)"
                       (onFilter)="onFilterSpecialisms($event)">
                     ></p-dropdown>
                   </span>
-                  <div *ngIf="registerForm.controls['specialisms']?.invalid && (registerForm.controls['specialisms']?.dirty || registerForm.controls['specialisms']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['specialisms']?.errors?.['required']" class="p-error"> Specialité obligatoire.</small>
+                  <div *ngIf="registerForm.controls['specialite']?.invalid && (registerForm.controls['specialite']?.dirty || registerForm.controls['specialite']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['specialite']?.errors?.['required']" class="p-error"> Specialité obligatoire.</small>
                   </div>
 
                 </div>
@@ -356,7 +365,7 @@
                      <p-treeSelect
                        class="w-full md:w-20rem"
                        containerStyleClass="w-full"
-                       formControlName="competences"
+                       formControlName="competence"
                        [options]="competence"
                       [filter]=true
                        id="competence"
@@ -366,8 +375,8 @@
                        placeholder="Select Item">
                       </p-treeSelect>
                     </span>
-                  <div *ngIf="registerForm.controls['competences']?.invalid && (registerForm.controls['competences']?.dirty || registerForm.controls['competences']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['competences']?.errors?.['required']" class="p-error"> Competence obligatoire.</small>
+                  <div *ngIf="registerForm.controls['competence']?.invalid && (registerForm.controls['competence']?.dirty || registerForm.controls['competence']?.touched)" class="mb-2">
+                    <small *ngIf="registerForm.controls['competence']?.errors?.['required']" class="p-error"> Competence obligatoire.</small>
                   </div>
                 </div>
               </div>

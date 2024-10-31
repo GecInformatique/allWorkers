@@ -1,0 +1,13 @@
+export * from './auth.service';
+import { AuthService } from './auth.service';
+export * from './educations.service';
+import { EducationsService } from './educations.service';
+export * from './experiences.service';
+import { ExperiencesService } from './experiences.service';
+export * from './taches.service';
+import { TachesService } from './taches.service';
+export * from './user.service';
+import { UserService } from './user.service';
+export * from './users.service';
+import { UsersService } from './users.service';
+export const APIS = [AuthService, EducationsService, ExperiencesService, TachesService, UserService, UsersService];

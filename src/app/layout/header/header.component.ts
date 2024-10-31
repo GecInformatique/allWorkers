@@ -70,6 +70,7 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
 
     // Si nécessaire, récupère l'utilisateur actuel
     this.currentUser = this.authService.getCurrentUser();
+    console.log(this.currentUser,'connecte')
   }
 
   changeLanguage(event: any): void {
