@@ -5,11 +5,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import {AuthService} from "../../../core/libs/scripts/libs/all-workers-api";
 import {Router} from "@angular/router";
 import { routes } from 'src/app/core/helpers/routes/routes';
 import {LocalAuthService} from "../../../core/data/local/local.auth.service";
 import {LocalTokenService} from "../../../core/data/local/local.token.service";
+import {AuthService} from "../../../core/libs/scripts/allworker_api";
+
 
 
 @Component({
@@ -76,13 +77,45 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
 
-    this.authService.login(body).subscribe(
+    this.authService.authLogin(body).subscribe(
       (response: any) => {
+        console.log(response, 'userConnecte');
+        if (response && response.access) { // Assurez-vous que le nom du token est correct
+          this.localTokenService.setToken(response.access); // Utilisez 'access' au lieu de 'access_token' si c'est le bon nom
+          this.authService.authProfile().subscribe( // Appel à la méthode pour récupérer le profil de l'utilisateur
+            (userData: any) => {
+              console.log(userData, 'userConnecte');
+              this.localAuthService.setCurrentUser(userData); // Stocker l'utilisateur connecté
+              this.showProgressBar = false;
+              this.router.navigate(['/home']);
+            },
+            (error: any) => {
+              console.error('Erreur lors de la récupération des données utilisateur', error);
+              this.showProgressBar = false;
+              this.errorMessage = 'Erreur lors de la récupération des données utilisateur.';
+            }
+          );
+        } else {
+          this.showProgressBar = false;
+          this.errorMessage = 'Échec de la connexion. Veuillez vérifier vos informations.';
+        }
+      },
+      (error: any) => {
+        this.showProgressBar = false;
+        this.errorMessage = 'Erreur lors de la connexion. Veuillez réessayer.';
+        console.error('Erreur de connexion', error);
+      }
+    );
+
+/*    this.loginService.loginCreate(body).subscribe(
+      (response: any) => {
+        console.log(response,'userConnecte')
         if (response && response.access_token) {
           this.localTokenService.setToken(response.access_token);
           this.authService.user().subscribe(
             (userData: any) => {
-              this.localAuthService.setCurrentUser(userData);
+              console.log(userData,'userConnecte')
+             // this.localAuthService.setCurrentUser(userData);
               this.showProgressBar = false;
               this.router.navigate(['/home']);
             },
@@ -98,7 +131,7 @@ export class LoginComponent implements OnInit {
         this.showProgressBar = false;
         this.errorMessage = 'Email ou mot de passe incorrect. Veuillez réessayer.';
       }
-    );
+    );*/
   }
 
 

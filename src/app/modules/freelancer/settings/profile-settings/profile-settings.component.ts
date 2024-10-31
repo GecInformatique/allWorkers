@@ -1,9 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalAuthService } from 'src/app/core/data/local/local.auth.service';
 import { routes } from 'src/app/core/helpers/routes/routes';
+import {Education, Experience} from "../../../../core/libs/scripts/allworker_api";
+import {MenuItem} from "primeng/api";
 interface data {
   value: string;
 }
@@ -14,40 +16,125 @@ interface data {
 })
 export class ProfileSettingsComponent  implements OnInit{
   public routes = routes;
-  public selectedValue1 = '';
-  public selectedValue2 = '';
-  public selectedValue3 = '';
-  public selectedValue4 = '';
-  public selectedValue5 = '';
-  public selectedValue6 = '';
-  public selectedValue7 = '';
-  public selectedValue8 = '';
-  public selectedValue9 = '';
-  public customvalue1 = '';
+  public currentUser: any;
   candidatForm !: FormGroup;
-
-  public skills: number[] = [];
-  public education: number[] = [];
+  experienceForm !: FormGroup;
+  educationForm !: FormGroup;
+  mainForm !: FormGroup;
+  //public education: number[] = [];
   public certification: number[] = [];
-  public experience: number[] = [];
+
   public language: number[] = [];
 
+  items: MenuItem[] | undefined;
   public datas : boolean[] = [true]
   public isCheckboxChecked = true;
+  levels = ['Basic', 'Intermediate', 'Advanced'];
+  skills = [{ name: '', level: '' }];
 
-  educationForm !: FormGroup
-  addSkills() {
-    this.skills.push(1);
+
+  constructor(
+    private router: Router,private datePipe: DatePipe,
+    private fb: FormBuilder, public authService: LocalAuthService,
+  ) {
+
+
   }
-  removeSkills(index: number) {
+
+  ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
+    this.candidatForm = this.fb.group({
+      nom: [this.currentUser?.nom || ''],
+      prenom: [this.currentUser?.prenom || ''],
+      sexe: [this.currentUser?.sexe || ''],
+      email: [this.currentUser?.email || ''],
+      nationalite: [this.currentUser?.nationalite || ''],
+      telephone: [this.currentUser?.telephone || ''],
+      date_naissance: [this.currentUser?.date_naissance || ''],
+      lieu_naissance: [this.currentUser?.lieu_naissance || ''],
+      city: [this.currentUser?.city || ''],
+      country: [this.currentUser?.country || ''],
+      address: [this.currentUser?.address || ''],
+      region: [this.currentUser?.region || ''],
+      departement: [this.currentUser?.departement || ''],
+      cni: [this.currentUser?.cni || ''],
+      niu: [this.currentUser?.niu || ''],
+      date_delivrance: [this.currentUser?.date_delivrance || ''],
+      latitude: [this.currentUser?.latitude || ''],
+      longitude: [this.currentUser?.longitude || ''],
+      disponibilite: [this.currentUser?.disponibilite || ''],
+      zone_geographique: [this.currentUser?.zone_geographique || ''],
+      statut_matrimonial: [this.currentUser?.statut_matrimonial || ''],
+      nombre_enfant: [this.currentUser?.nombre_enfant || ''],
+      website: [this.currentUser?.website || ''],
+
+
+      link_google: [this.currentUser?.link_google || ''],
+      link_twitter: [this.currentUser?.link_twitter || ''],
+      link_facebook: [this.currentUser?.link_facebook || ''],
+      link_linkedin: [this.currentUser?.link_linkedin || ''],
+      link_instagram: [this.currentUser?.link_instagram || ''],
+
+      domaine: [this.currentUser?.domaine || ''],
+      specialite: [this.currentUser?.specialite || ''],
+      competence: [this.currentUser?.competence || ''],
+
+    });
+
+    this.experienceForm = this.fb.group({
+      experiences: this.fb.array([]),
+    });
+
+    // Initialize educationForm
+    this.educationForm = this.fb.group({
+      educations: this.fb.array([]),
+    });
+
+    // Add default experience and education entries if necessary
+    this.addExperience();
+    this.addEducation();
+
+
+
+  }
+
+  get experiences(): FormArray {
+    return this.experienceForm.get('experiences') as FormArray;
+  }
+
+  get educations(): FormArray {
+    return this.educationForm.get('educations') as FormArray;
+  }
+
+  addSkill() {
+    this.skills.push({ name: '', level: '' });
+  }
+
+  removeSkill(index: number) {
     this.skills.splice(index, 1);
   }
 
-  addEducation() {
-    this.education.push(1);
+ /*  addEducation(): void {
+    this.educations.push(this.fb.group({
+      institution: ['', Validators.required],
+      degree: ['', Validators.required],
+      startDate: ['', Validators.required],
+      date_end: ['', Validators.required],
+    }));
+  } */
+
+  addEducation(): void {
+    const educationGroup = this.fb.group({
+      institution: ['', Validators.required],
+      degree: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      // Ajoutez d'autres contrôles ici, comme degree, startDate, etc.
+    });
+    this.educations.push(educationGroup);
   }
-  removeEducation(index: number) {
-    this.education.splice(index, 1);
+  removeEducation(index: number): void {
+    this.educations.removeAt(index);
   }
 
   addCertification() {
@@ -57,11 +144,20 @@ export class ProfileSettingsComponent  implements OnInit{
     this.certification.splice(index, 1);
   }
 
-  addExperience() {
-    this.experience.push(1);
+  addExperience(): void {
+    const experienceDroup = this.fb.group({
+      companyName: ['', Validators.required],
+      position: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      // Ajoutez d'autres contrôles ici, comme degree, startDate, etc.
+    });
+    this.experiences.push(experienceDroup);
   }
+
+
   removeExperience(index: number) {
-    this.experience.splice(index, 1);
+    this.experiences.removeAt(index);
   }
 
   addLanguage() {
@@ -71,92 +167,12 @@ export class ProfileSettingsComponent  implements OnInit{
     this.language.splice(index, 1);
   }
 
-  selectedList1: data[] = [
-    { value: 'Basic' },
-    { value: 'Intermediate' },
-    { value: 'Expert' },
-  ];
-  selectedList2: data[] = [
-    { value: 'Advanced' },
-    { value: 'Intermediate' },
-    { value: 'Expert' },
-  ];
-  selectedList3: data[] = [
-    { value: 'Intermediate' },
-    { value: 'Basic' },
-    { value: 'Expert' },
-  ];
-  selectedList4: data[] = [
-    { value: 'Intermediate' },
-    { value: 'Basic' },
-    { value: 'Expert' },
-  ];
-  selectedList5: data[] = [
-    { value: 'Select' },
-    { value: 'Intermediate' },
-    { value: 'Expert' },
-  ];
-  selectedList6: data[] = [
-    { value: 'Select' },
-    { value: 'Intermediate' },
-    { value: 'Expert' },
-  ];
-  selectedList7: data[] = [
-    { value: 'Select' },
-    { value: 'Intermediate' },
-    { value: 'Expert' },
-  ];
-  selectedList8: data[] = [
-    { value: 'Select' },
-    { value: 'Intermediate' },
-    { value: 'Expert' },
-  ];
-  selectedList9: data[] = [
-    { value: 'Select' },
-    { value: 'USA' },
-    { value: 'UK' },
-  ];
-  custom1: data[] = [
-    { value: 'Basic' },
-    { value: 'Intermediate' },
-    { value: 'Expert' },
-  ];
-  public currentUser: any;
+
+
+
+
   removeDatas(index: number) {
     this.datas[index] = !this.datas[index];
-  }
-  constructor(
-    private router: Router,private datePipe: DatePipe,
-    private fb: FormBuilder, public authService: LocalAuthService,
-  ) {
-
-  }
-
-  ngOnInit(): void {
-    this.currentUser = this.authService.getCurrentUser().data;
-
-    console.log(this.currentUser,'info du candidat')
-    this.candidatForm = this.fb.group({
-      full_name: [this.currentUser?.full_name || ''],
-      email: [this.currentUser?.email || ''],
-      phone_number: [this.currentUser?.phone_number || ''],
-      date_of_birth: [this.currentUser?.date_of_birth || ''],
-      city: [this.currentUser?.city || ''],
-      complete_address: [this.currentUser?.complete_address || ''],
-      gender: [this.currentUser?.gender || ''],
-    });
-
-    this.educationForm = this.fb.group({
-      'name': new FormControl<number | null>(null, []),
-      'university_name': new FormControl<string>("", []),
-      'date_end': new FormControl<string>("", []),
-      'date_start': new FormControl<string>("", []),
-      'diploma': new FormControl<string>("", []),
-      'description': new FormControl<string>("", []),
-    })
-
-
-
   }
 
 
@@ -211,10 +227,19 @@ export class ProfileSettingsComponent  implements OnInit{
       date_start: this.educationForm.get('date_start')?.value || '',
       description: this.educationForm.get('description')?.value || '',
       candidates_id: this.educationForm.get('candidates_id')?.value || '',
-
-
-
-
     }
   }
+
+
+  onSubmit(): void {
+    if (this.experienceForm.valid && this.educationForm.valid) {
+      console.log('Experience Form:', this.experienceForm.value);
+      console.log('Education Form:', this.educationForm.value);
+    } else {
+      console.log('Forms are not valid');
+    }
+  }
+
+
+
 }
