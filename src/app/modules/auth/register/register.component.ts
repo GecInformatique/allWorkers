@@ -20,6 +20,7 @@ import domaines  from 'src/assets/json/domaines.json';
 import specialites from 'src/assets/json/specialites.json';
 import competences  from 'src/assets/json/competences.json';
 import professions  from 'src/assets/json/Professions.json';
+import categories from 'src/assets/json/categories.json';
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs";
 import {AuthService} from "../../../core/libs/scripts/allworker_api";
@@ -43,6 +44,7 @@ export interface Country {
 export class RegisterComponent  implements OnInit{
 public routes = routes;
   registerForm!: FormGroup;
+  registerForm_entreprise! : FormGroup;
   public accountsType = 5;
   cities: Array<City> = [];
   countries: any = [];
@@ -54,6 +56,7 @@ public routes = routes;
   filteredSpecialism: any[] = [];
   filteredCompetence: any[] = [];
   filteredCity: any[] = [];
+  categories: any[] = [];
   selectedDomain !: number;
   selectedProfession !: number;
   selectedCompetence !: any;
@@ -62,7 +65,7 @@ public displayBlock = false;
 public displayNone = false;
 public selectedFieldSet = [0];
   maxDate: string;
-
+  visible: boolean = false;
   stepIndex = 0; // Index de l'étape actuelle, commence à 0
 
 public selectedValue2 = '';
@@ -116,9 +119,10 @@ public togglePassword(index: number) {
     this.loadDomainData();
     this.getSpecialismList();
     this.getCompetenceList()
+    this.categories = categories.categorie
     this.registerForm = this.fb.group({
       'accountsType': new FormControl<number|null>(null, [Validators.required]),
-      'nom': new FormControl<string>("", [Validators.required]),
+      'nom': new FormControl<string>("", ),
       'prenom': new FormControl<string>(""),
       'date_naissance': new FormControl<string>("", [Validators.required]),
       'email': new FormControl<string>(""),
@@ -128,12 +132,14 @@ public togglePassword(index: number) {
       'password': new FormControl<string>("", [Validators.required]),
       'country': new FormControl<number|null>(null, [Validators.required]),
       'address': new FormControl<string>(""),
-      'domaine': new FormControl<number|null>(null, ),
-      'specialite': new FormControl<number|null>(null, ),
-      'competence': new FormControl<number[]>([], ),
-      'categorie': new FormControl<number[]>([], ),
-      'nui': new FormControl<number[]>([], ),
-      'raison': new FormControl<number[]>([], ),
+      'domaine': new FormControl<number|null>(null,[Validators.required] ),
+      'specialite': new FormControl<number|null>(null,[Validators.required] ),
+      'competence': new FormControl<number[]>([],[Validators.required]),
+      'categorie': new FormControl<number[]>([], [Validators.required]),
+      'nui': new FormControl<number[]>([], [Validators.required]),
+      'raison': new FormControl<number[]>([],[Validators.required] ),
+      'domaine_activite': new FormControl<number[]>([],[Validators.required] ),
+      'site': new FormControl<number[]>([], ),
 
     });
 
@@ -179,8 +185,12 @@ public togglePassword(index: number) {
       sexe: this.registerForm.get('sexe')?.value || '',
       city: this.registerForm.get('city')?.value || '',
       password: this.registerForm.get('password')?.value || '',
-
+      raison: this.registerForm.get('raison')?.value || '',
+      nui: this.registerForm.get('nui')?.value || '',
+      site: this.registerForm.get('site')?.value || '',
+      categorie: this.registerForm.get('categorie')?.value || '',
       address: this.registerForm.get('address')?.value || '',
+    
       domaine: domainName || null, // Assurez-vous que c'est un ID
       country : countryName || null,
       specialite: specialiteName || null, // Assurez-vous que c'est un ID
@@ -234,7 +244,8 @@ public togglePassword(index: number) {
   onSubmit(step: number) {
 
      // Vérifiez le format avant l'envoi
-    if (this.registerForm.valid) {
+    if (this.isStepValid(this.stepIndex)) {
+      console.log('try to save')
       const candidate = this.transformFormData();
       this.authService.authRegister(candidate).subscribe({
         next: (response: any) => {
@@ -245,6 +256,7 @@ public togglePassword(index: number) {
       this.selectedFieldSet[0] = step;
 
     }
+    console.log('unable to save')
   }
 
   backToHome() : void{
@@ -256,13 +268,32 @@ public togglePassword(index: number) {
       this.stepIndex = stepNumber;
       this.selectedFieldSet[0] = stepNumber;
     }
+    if(this.accountsType == 5){
+      this.visible = true
+    }
+  }
+  isValid(): boolean{
+    return (this.registerForm.get('raison')?.valid ?? false)&&(this.registerForm.get('nui')?.valid ?? false) 
+            && (this.registerForm.get('categorie')?.valid ?? false)&&(this.registerForm.get('domaine_activite')?.valid ?? false)
+            &&(this.registerForm.get('country')?.valid ?? false)&&(this.registerForm.get('city')?.valid ?? false)&&
+            (this.registerForm.get('password')?.valid ?? false)
+  }
+  save(){
+    if(this.isValid()){
+      console.log("enregistré")
+      console.log(this.registerForm)
+
+    }
   }
 
   // Méthode pour revenir à l'étape précédente
-  previousStep() {
+  previousStep(): void {
+    console.log("try to previous")
     if (this.stepIndex > 0) {
       this.stepIndex--; // Décrémenter l'index pour revenir à l'étape précédente
       this.selectedFieldSet[0] = this.stepIndex; // Mettre à jour la vue pour afficher l'étape précédente
+      //this.nextStep(this.stepIndex)
+      console.log("precedent")
     }
   }
 
@@ -270,6 +301,7 @@ public togglePassword(index: number) {
     this.accountsType = account;
     this.registerForm.controls['accountsType'].setValue(account);
     console.log("Type de compte", this.accountsType)
+    
   }
 
 
@@ -345,11 +377,12 @@ public togglePassword(index: number) {
         (this.registerForm.get('date_naissance')?.valid ?? false) &&
         (this.registerForm.get('email')?.valid ?? false) &&
         (this.registerForm.get('telephone')?.valid ?? false)&&
-        (this.registerForm.get('password')?.valid ?? false))||
-        ((this.registerForm.get('categorie')?.valid ?? false)&&
-        (this.registerForm.get('nui')?.valid ?? false)&&
-        (this.registerForm.get('raison')?.valid ?? false));
-
+        (this.registerForm.get('password')?.valid ?? false)&&
+        (this.registerForm.get('country')?.valid ?? false)&&
+        (this.registerForm.get('city')?.valid ?? false)&&
+        (this.registerForm.get('sexe')?.valid ?? false)
+      )
+        
       case 2:
         // Vérifier la validité des champs de l'étape 3
 
