@@ -26,7 +26,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class UserService {
 
-    protected basePath = 'http://127.0.0.1:8000/api';
+    protected basePath = 'http://127.0.0.1:8006/api';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -56,7 +56,7 @@ export class UserService {
 
 
     /**
-     * 
+     *
      * Liste tous les utilisateurs
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

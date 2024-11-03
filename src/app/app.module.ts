@@ -17,7 +17,7 @@ import { DomainActivityService } from './core/libs/scripts/libs/all-workers-api/
 import {
 
   CandidateService,
-  CompetenceService,
+  CompetenceService, EducationService,
   ProfessionService,
   SpecialismService,
   TestimonialService
@@ -63,6 +63,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DatePipe,
     MessageService,
     AuthService,
+    EducationService,
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

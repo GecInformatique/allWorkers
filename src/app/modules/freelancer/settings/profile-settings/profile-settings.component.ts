@@ -4,7 +4,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 import { Router } from '@angular/router';
 import { LocalAuthService } from 'src/app/core/data/local/local.auth.service';
 import { routes } from 'src/app/core/helpers/routes/routes';
-import {Education, Experience} from "../../../../core/libs/scripts/allworker_api";
+import {Education, EducationsService, Experience} from "../../../../core/libs/scripts/allworker_api";
 import {MenuItem} from "primeng/api";
 interface data {
   value: string;
@@ -35,6 +35,7 @@ export class ProfileSettingsComponent  implements OnInit{
 
   constructor(
     private router: Router,private datePipe: DatePipe,
+    private educationService : EducationsService,
     private fb: FormBuilder, public authService: LocalAuthService,
   ) {
 
@@ -232,6 +233,8 @@ export class ProfileSettingsComponent  implements OnInit{
 
 
   onSubmit(): void {
+    this.createEducation(this.educationForm.value)
+
     if (this.experienceForm.valid && this.educationForm.valid) {
       console.log('Experience Form:', this.experienceForm.value);
       console.log('Education Form:', this.educationForm.value);
@@ -241,5 +244,15 @@ export class ProfileSettingsComponent  implements OnInit{
   }
 
 
+  createEducation(education: Education) {
+    console.log(education)
+      this.educationService.educationsCreate(this.educationForm.value).subscribe({
+        next: (response: any) => {
+          console.log('Domain created:', response);
+        },
+        error: (error:any) => console.error('POST error:', error)
+      });
+
+  }
 
 }

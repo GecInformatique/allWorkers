@@ -26,7 +26,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class UsersService {
 
-    protected basePath = 'http://127.0.0.1:8000/api';
+    protected basePath = 'http://127.0.0.1:8006/api';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -56,9 +56,9 @@ export class UsersService {
 
 
     /**
-     * 
+     *
      * Crée un nouvel utilisateur
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -108,7 +108,7 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Supprime un utilisateur
      * @param id A unique integer value identifying this user.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -153,7 +153,7 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Liste tous les utilisateurs
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -194,9 +194,9 @@ export class UsersService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this user.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -251,7 +251,7 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Récupère les détails d&#x27;un utilisateur spécifique
      * @param id A unique integer value identifying this user.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -297,7 +297,7 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Recherche de CustomUser par compétence et domaine.
      * @param query Terme de recherche pour filtrer par compétence ou domaine
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -346,9 +346,9 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Met à jour les informations d&#x27;un utilisateur
-     * @param body 
+     * @param body
      * @param id A unique integer value identifying this user.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

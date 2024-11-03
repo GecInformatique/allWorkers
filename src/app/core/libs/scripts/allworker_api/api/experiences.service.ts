@@ -26,7 +26,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class ExperiencesService {
 
-    protected basePath = 'http://127.0.0.1:8000/api';
+    protected basePath = 'http://127.0.0.1:8006/api';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -56,9 +56,9 @@ export class ExperiencesService {
 
 
     /**
-     * 
+     *
      * Crée une nouvelle expérience professionnelle
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -108,7 +108,7 @@ export class ExperiencesService {
     }
 
     /**
-     * 
+     *
      * Supprime une expérience professionnelle spécifique
      * @param id A unique integer value identifying this experience.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -153,7 +153,7 @@ export class ExperiencesService {
     }
 
     /**
-     * 
+     *
      * Liste toutes les expériences professionnelles
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -194,9 +194,9 @@ export class ExperiencesService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this experience.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -251,7 +251,7 @@ export class ExperiencesService {
     }
 
     /**
-     * 
+     *
      * Récupère les détails d&#x27;une expérience professionnelle spécifique
      * @param id A unique integer value identifying this experience.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -297,9 +297,9 @@ export class ExperiencesService {
     }
 
     /**
-     * 
+     *
      * Met à jour une expérience professionnelle spécifique
-     * @param body 
+     * @param body
      * @param id A unique integer value identifying this experience.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

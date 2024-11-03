@@ -26,7 +26,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class EducationsService {
 
-    protected basePath = 'http://127.0.0.1:8000/api';
+    protected basePath = 'http://127.0.0.1:8006/api';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -56,9 +56,9 @@ export class EducationsService {
 
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -108,8 +108,8 @@ export class EducationsService {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -153,8 +153,8 @@ export class EducationsService {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -194,9 +194,9 @@ export class EducationsService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -251,8 +251,8 @@ export class EducationsService {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -297,9 +297,9 @@ export class EducationsService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
