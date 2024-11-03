@@ -150,6 +150,8 @@
   "PARTICULIER" : "Particulier",
   "RAISON_SOCIAL": "Raison social",
   "NUI": "Nui",
-  "CATEGORIE": "Categorie"
+  "CATEGORIE": "Categorie",
+  "SITE_WEB" : "site web",
+  "DOMAINE_ACTIVITE": "Domaine d'activité"
 
 }
