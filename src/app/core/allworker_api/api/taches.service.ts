@@ -17,14 +17,14 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
-import { Education } from '../model/education';
+import { Tache } from '../model/tache';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class EducationsService {
+export class TachesService {
 
     protected basePath = 'http://127.0.0.1:8006/api';
     public defaultHeaders = new HttpHeaders();
@@ -56,19 +56,19 @@ export class EducationsService {
 
 
     /**
-     *
-     *
-     * @param body
+     * 
+     * Crée une nouvelle tâche
+     * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public educationsCreate(body: Education, observe?: 'body', reportProgress?: boolean): Observable<Education>;
-    public educationsCreate(body: Education, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
-    public educationsCreate(body: Education, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
-    public educationsCreate(body: Education, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tachesCreate(body: Tache, observe?: 'body', reportProgress?: boolean): Observable<Tache>;
+    public tachesCreate(body: Tache, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Tache>>;
+    public tachesCreate(body: Tache, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Tache>>;
+    public tachesCreate(body: Tache, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling educationsCreate.');
+            throw new Error('Required parameter body was null or undefined when calling tachesCreate.');
         }
 
         let headers = this.defaultHeaders;
@@ -96,7 +96,7 @@ export class EducationsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<Education>('post',`${this.basePath}/educations/`,
+        return this.httpClient.request<Tache>('post',`${this.basePath}/taches/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -108,19 +108,19 @@ export class EducationsService {
     }
 
     /**
-     *
-     *
-     * @param id A unique integer value identifying this education.
+     * 
+     * Supprime une tâche spécifique
+     * @param id A unique integer value identifying this tache.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public educationsDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public educationsDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public educationsDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public educationsDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tachesDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public tachesDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public tachesDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public tachesDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling educationsDelete.');
+            throw new Error('Required parameter id was null or undefined when calling tachesDelete.');
         }
 
         let headers = this.defaultHeaders;
@@ -142,7 +142,7 @@ export class EducationsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<any>('delete',`${this.basePath}/taches/${encodeURIComponent(String(id))}/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -153,15 +153,15 @@ export class EducationsService {
     }
 
     /**
-     *
-     *
+     * 
+     * Liste toutes les tâches de l&#x27;utilisateur connecté
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public educationsList(observe?: 'body', reportProgress?: boolean): Observable<Array<Education>>;
-    public educationsList(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Education>>>;
-    public educationsList(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Education>>>;
-    public educationsList(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tachesList(observe?: 'body', reportProgress?: boolean): Observable<Array<Tache>>;
+    public tachesList(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Tache>>>;
+    public tachesList(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Tache>>>;
+    public tachesList(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -183,7 +183,7 @@ export class EducationsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<Education>>('get',`${this.basePath}/educations/`,
+        return this.httpClient.request<Array<Tache>>('get',`${this.basePath}/taches/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -194,24 +194,24 @@ export class EducationsService {
     }
 
     /**
-     *
-     *
-     * @param body
-     * @param id A unique integer value identifying this education.
+     * 
+     * 
+     * @param body 
+     * @param id A unique integer value identifying this tache.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public educationsPartialUpdate(body: Education, id: number, observe?: 'body', reportProgress?: boolean): Observable<Education>;
-    public educationsPartialUpdate(body: Education, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
-    public educationsPartialUpdate(body: Education, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
-    public educationsPartialUpdate(body: Education, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tachesPartialUpdate(body: Tache, id: number, observe?: 'body', reportProgress?: boolean): Observable<Tache>;
+    public tachesPartialUpdate(body: Tache, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Tache>>;
+    public tachesPartialUpdate(body: Tache, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Tache>>;
+    public tachesPartialUpdate(body: Tache, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling educationsPartialUpdate.');
+            throw new Error('Required parameter body was null or undefined when calling tachesPartialUpdate.');
         }
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling educationsPartialUpdate.');
+            throw new Error('Required parameter id was null or undefined when calling tachesPartialUpdate.');
         }
 
         let headers = this.defaultHeaders;
@@ -239,7 +239,7 @@ export class EducationsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<Education>('patch',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<Tache>('patch',`${this.basePath}/taches/${encodeURIComponent(String(id))}/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -251,19 +251,19 @@ export class EducationsService {
     }
 
     /**
-     *
-     *
-     * @param id A unique integer value identifying this education.
+     * 
+     * Récupère les détails d&#x27;une tâche spécifique
+     * @param id A unique integer value identifying this tache.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public educationsRead(id: number, observe?: 'body', reportProgress?: boolean): Observable<Education>;
-    public educationsRead(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
-    public educationsRead(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
-    public educationsRead(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tachesRead(id: number, observe?: 'body', reportProgress?: boolean): Observable<Tache>;
+    public tachesRead(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Tache>>;
+    public tachesRead(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Tache>>;
+    public tachesRead(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling educationsRead.');
+            throw new Error('Required parameter id was null or undefined when calling tachesRead.');
         }
 
         let headers = this.defaultHeaders;
@@ -286,7 +286,7 @@ export class EducationsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Education>('get',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<Tache>('get',`${this.basePath}/taches/${encodeURIComponent(String(id))}/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -297,24 +297,24 @@ export class EducationsService {
     }
 
     /**
-     *
-     *
-     * @param body
-     * @param id A unique integer value identifying this education.
+     * 
+     * Met à jour une tâche spécifique
+     * @param body 
+     * @param id A unique integer value identifying this tache.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public educationsUpdate(body: Education, id: number, observe?: 'body', reportProgress?: boolean): Observable<Education>;
-    public educationsUpdate(body: Education, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
-    public educationsUpdate(body: Education, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
-    public educationsUpdate(body: Education, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public tachesUpdate(body: Tache, id: number, observe?: 'body', reportProgress?: boolean): Observable<Tache>;
+    public tachesUpdate(body: Tache, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Tache>>;
+    public tachesUpdate(body: Tache, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Tache>>;
+    public tachesUpdate(body: Tache, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling educationsUpdate.');
+            throw new Error('Required parameter body was null or undefined when calling tachesUpdate.');
         }
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling educationsUpdate.');
+            throw new Error('Required parameter id was null or undefined when calling tachesUpdate.');
         }
 
         let headers = this.defaultHeaders;
@@ -342,7 +342,7 @@ export class EducationsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<Education>('put',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<Tache>('put',`${this.basePath}/taches/${encodeURIComponent(String(id))}/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -4,8 +4,8 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 import { Router } from '@angular/router';
 import { LocalAuthService } from 'src/app/core/data/local/local.auth.service';
 import { routes } from 'src/app/core/helpers/routes/routes';
-import {Education, EducationsService, Experience} from "../../../../core/libs/scripts/allworker_api";
 import {MenuItem} from "primeng/api";
+import {Education, EducationsService} from "../../../../core/allworker_api";
 interface data {
   value: string;
 }

@@ -17,14 +17,14 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
-import { CustomUser } from '../model/customUser';
+import { Education } from '../model/education';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class UsersService {
+export class EducationsService {
 
     protected basePath = 'http://127.0.0.1:8006/api';
     public defaultHeaders = new HttpHeaders();
@@ -56,19 +56,19 @@ export class UsersService {
 
 
     /**
-     *
-     * Crée un nouvel utilisateur
-     * @param body
+     * 
+     * 
+     * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersCreate(body: CustomUser, observe?: 'body', reportProgress?: boolean): Observable<CustomUser>;
-    public usersCreate(body: CustomUser, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomUser>>;
-    public usersCreate(body: CustomUser, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomUser>>;
-    public usersCreate(body: CustomUser, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public educationsCreate(body: Education, observe?: 'body', reportProgress?: boolean): Observable<Education>;
+    public educationsCreate(body: Education, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
+    public educationsCreate(body: Education, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
+    public educationsCreate(body: Education, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling usersCreate.');
+            throw new Error('Required parameter body was null or undefined when calling educationsCreate.');
         }
 
         let headers = this.defaultHeaders;
@@ -96,7 +96,7 @@ export class UsersService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<CustomUser>('post',`${this.basePath}/users/`,
+        return this.httpClient.request<Education>('post',`${this.basePath}/educations/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -108,19 +108,19 @@ export class UsersService {
     }
 
     /**
-     *
-     * Supprime un utilisateur
-     * @param id A unique integer value identifying this user.
+     * 
+     * 
+     * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public usersDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public usersDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public usersDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public educationsDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public educationsDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public educationsDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public educationsDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling usersDelete.');
+            throw new Error('Required parameter id was null or undefined when calling educationsDelete.');
         }
 
         let headers = this.defaultHeaders;
@@ -142,7 +142,7 @@ export class UsersService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<any>('delete',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<any>('delete',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -153,15 +153,15 @@ export class UsersService {
     }
 
     /**
-     *
-     * Liste tous les utilisateurs
+     * 
+     * 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersList(observe?: 'body', reportProgress?: boolean): Observable<Array<CustomUser>>;
-    public usersList(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CustomUser>>>;
-    public usersList(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CustomUser>>>;
-    public usersList(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public educationsList(observe?: 'body', reportProgress?: boolean): Observable<Array<Education>>;
+    public educationsList(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Education>>>;
+    public educationsList(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Education>>>;
+    public educationsList(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -183,7 +183,7 @@ export class UsersService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<CustomUser>>('get',`${this.basePath}/users/`,
+        return this.httpClient.request<Array<Education>>('get',`${this.basePath}/educations/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -194,24 +194,24 @@ export class UsersService {
     }
 
     /**
-     *
-     *
-     * @param body
-     * @param id A unique integer value identifying this user.
+     * 
+     * 
+     * @param body 
+     * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersPartialUpdate(body: CustomUser, id: number, observe?: 'body', reportProgress?: boolean): Observable<CustomUser>;
-    public usersPartialUpdate(body: CustomUser, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomUser>>;
-    public usersPartialUpdate(body: CustomUser, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomUser>>;
-    public usersPartialUpdate(body: CustomUser, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public educationsPartialUpdate(body: Education, id: number, observe?: 'body', reportProgress?: boolean): Observable<Education>;
+    public educationsPartialUpdate(body: Education, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
+    public educationsPartialUpdate(body: Education, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
+    public educationsPartialUpdate(body: Education, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling usersPartialUpdate.');
+            throw new Error('Required parameter body was null or undefined when calling educationsPartialUpdate.');
         }
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling usersPartialUpdate.');
+            throw new Error('Required parameter id was null or undefined when calling educationsPartialUpdate.');
         }
 
         let headers = this.defaultHeaders;
@@ -239,7 +239,7 @@ export class UsersService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<CustomUser>('patch',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<Education>('patch',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -251,19 +251,19 @@ export class UsersService {
     }
 
     /**
-     *
-     * Récupère les détails d&#x27;un utilisateur spécifique
-     * @param id A unique integer value identifying this user.
+     * 
+     * 
+     * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersRead(id: number, observe?: 'body', reportProgress?: boolean): Observable<CustomUser>;
-    public usersRead(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomUser>>;
-    public usersRead(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomUser>>;
-    public usersRead(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public educationsRead(id: number, observe?: 'body', reportProgress?: boolean): Observable<Education>;
+    public educationsRead(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
+    public educationsRead(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
+    public educationsRead(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling usersRead.');
+            throw new Error('Required parameter id was null or undefined when calling educationsRead.');
         }
 
         let headers = this.defaultHeaders;
@@ -286,7 +286,7 @@ export class UsersService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<CustomUser>('get',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<Education>('get',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -297,73 +297,24 @@ export class UsersService {
     }
 
     /**
-     *
-     * Recherche de CustomUser par compétence et domaine.
-     * @param query Terme de recherche pour filtrer par compétence ou domaine
+     * 
+     * 
+     * @param body 
+     * @param id A unique integer value identifying this education.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public usersSearch(query?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<CustomUser>>;
-    public usersSearch(query?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CustomUser>>>;
-    public usersSearch(query?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CustomUser>>>;
-    public usersSearch(query?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (query !== undefined && query !== null) {
-            queryParameters = queryParameters.set('query', <any>query);
-        }
-
-        let headers = this.defaultHeaders;
-
-        // authentication (Basic) required
-        if (this.configuration.username || this.configuration.password) {
-            headers = headers.set('Authorization', 'Basic ' + btoa(this.configuration.username + ':' + this.configuration.password));
-        }
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<Array<CustomUser>>('get',`${this.basePath}/users/search/`,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     *
-     * Met à jour les informations d&#x27;un utilisateur
-     * @param body
-     * @param id A unique integer value identifying this user.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public usersUpdate(body: CustomUser, id: number, observe?: 'body', reportProgress?: boolean): Observable<CustomUser>;
-    public usersUpdate(body: CustomUser, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomUser>>;
-    public usersUpdate(body: CustomUser, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomUser>>;
-    public usersUpdate(body: CustomUser, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public educationsUpdate(body: Education, id: number, observe?: 'body', reportProgress?: boolean): Observable<Education>;
+    public educationsUpdate(body: Education, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Education>>;
+    public educationsUpdate(body: Education, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Education>>;
+    public educationsUpdate(body: Education, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling usersUpdate.');
+            throw new Error('Required parameter body was null or undefined when calling educationsUpdate.');
         }
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling usersUpdate.');
+            throw new Error('Required parameter id was null or undefined when calling educationsUpdate.');
         }
 
         let headers = this.defaultHeaders;
@@ -391,7 +342,7 @@ export class UsersService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<CustomUser>('put',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
+        return this.httpClient.request<Education>('put',`${this.basePath}/educations/${encodeURIComponent(String(id))}/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

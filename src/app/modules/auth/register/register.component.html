@@ -1,428 +1,544 @@
 <div class="row row-height" >
-  <div class="col-xl-4 col-lg-4 content-left">
-
-    <div class="content-left-wrapper">
-
-      <div>
-        <figure><img src="assets/img/new/all-worker.png" alt="" class="img-fluid" width="270" height="270"></figure>
-        <h2>Devenez Membre Chez Nous</h2>
-        <p> Bienvenue sur All-Workers, le site web dédié à toute personne à la recherche d'une tâche ou d'une mission à accomplir.</p>
-        <a href="https://all-worker.com" class="btn_1 rounded yellow">Savoir plus</a>
-
+      <div class="col-xl-4 col-lg-4 content-left">
+          <div class="content-left-wrapper">
+            <div>
+                <figure><img src="assets/img/new/all-worker.png" alt="" class="img-fluid" width="270" height="270"></figure>
+                <h2>Devenez Membre Chez Nous</h2>
+                <p> Bienvenue sur All-Workers, le site web dédié à toute personne à la recherche d'une tâche ou d'une mission à accomplir.</p>
+                <a href="https://all-worker.com" class="btn_1 rounded yellow">Savoir plus</a>
+            </div>
+            <div class="copy">© 2024 All-workers</div>
+          </div>
       </div>
-      <div class="copy">© 2024 All-workers</div>
-    </div>
-  </div>
-  <div class="col-lg-8">
-    <form [formGroup]="registerForm" >
-      <div class="multistep-form">
-        <!-- Freelancer Multistep -->
-        <div class="multistep-progress" id="freelance_step">
-          <div class="container">
-            <div class="first-progress">
-              <div class="row align-items-center">
+      <div class="col-lg-8">
 
-                <div class="col-md-12">
-                  <ul id="progressbar" class="progressbar">
-                    <li
-                      [ngClass]="{
-                            'progress-active': selectedFieldSet[0] === 0,
-                            'progress-activated': selectedFieldSet[0] > 0
-                          }"
-                    >
-                      <div class="multi-step">
-                        <img
-                          src="assets/img/icon/wizard-icon-01.svg"
-                          alt="Img"
-                        />
-                      </div>
-                      <div class="steps-count">
-                        <span>{{'Step'|translate}} 1/4</span>
-                        <h5>{{'Account_Type'|translate}}</h5>
-                      </div>
-                    </li>
-                    <li
-                      [ngClass]="{
-                            'progress-active': selectedFieldSet[0] === 1,
-                            'progress-activated': selectedFieldSet[0] > 1
-                          }"
-                    >
-                      <div class="multi-step">
-                        <img
-                          src="assets/img/icon/wizard-icon-02.svg"
-                          alt="Img"
-                        />
-                      </div>
-                      <div class="steps-count">
-                        <span>{{'Step'|translate}} 2/4</span>
-                        <h5>{{'Personal_info'|translate}}</h5>
-                      </div>
-                    </li>
-                    <li
-                      [ngClass]="{
-                            'progress-active': selectedFieldSet[0] === 2,
-                            'progress-activated': selectedFieldSet[0] > 2
-                          }"
-                    >
-                      <div class="multi-step">
-                        <img
-                          src="assets/img/icon/wizard-icon-03.svg"
-                          alt="Img"
-                        />
-                      </div>
-                      <div class="steps-count">
-                        <span>{{'Step'|translate}} 3/4</span>
-                        <h5>{{'PROFESSIONAL_INFO'|translate}}</h5>
-                      </div>
-                    </li>
-                    <li
-                      [ngClass]="{
-                            'progress-active': selectedFieldSet[0] === 3,
-                            'progress-activated': selectedFieldSet[0] > 3
-                          }"
-                    >
-                      <div class="multi-step">
-                        <img
-                          src="assets/img/icon/wizard-icon-05.svg"
-                          alt="Img"
-                        />
-                      </div>
-                      <div class="steps-count">
-                        <span>{{'Step'|translate}} 4/4</span>
-                        <h5>Email Verification</h5>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Freelancer Multistep -->
+          <div class="multistep-form">
+            <!-- Freelancer Multistep -->
+            <div class="multistep-progress" id="freelance_step">
+              <div class="container">
+                <div class="first-progress">
+                  <div class="row align-items-center">
+                    <div class="col-md-12">
+                      <ul id="progressbar" class="progressbar">
+                        <li [ngClass]="{ 'progress-active': selectedFieldSet[0] === 0,
+                                'progress-activated': selectedFieldSet[0] > 0 }" >
+                            <div class="multi-step">
+                              <img src="assets/img/icon/wizard-icon-01.svg" alt="Img" />
+                            </div>
+                            <div class="steps-count">
+                                <span>{{'Step'|translate}} 1/4</span>
+                                <h5>{{'Account_Type'|translate}}</h5>
+                            </div>
+                        </li>
+                        <li  [ngClass]="{ 'progress-active': selectedFieldSet[0] === 1,
+                                'progress-activated': selectedFieldSet[0] > 1 }">
+                            <div class="multi-step">
+                                <img src="assets/img/icon/wizard-icon-02.svg" alt="Img" />
+                            </div>
+                            <div class="steps-count">
+                                <span>{{'Step'|translate}} 2/4</span>
+                                <h5>{{'Personal_info'|translate}}</h5>
+                            </div>
+                        </li>
+                        <li [ngClass]="{   'progress-active': selectedFieldSet[0] === 2,
+                                'progress-activated': selectedFieldSet[0] > 2  }" >
+                            <div class="multi-step">
+                              <img  src="assets/img/icon/wizard-icon-03.svg" alt="Img" />
+                            </div>
+                            <div class="steps-count">
+                              <span>{{'Step'|translate}} 3/4</span>
+                              <h5>{{'PROFESSIONAL_INFO'|translate}}</h5>
+                            </div>
+                        </li>
+                        <li [ngClass]="{ 'progress-active': selectedFieldSet[0] === 3, 'progress-activated': selectedFieldSet[0] > 3 }" >
 
-        <!-- Accounting Onboard -->
-        <div
-          class="text-center on-board select-account group-select"
-          [ngClass]="{ 'd-block': selectedFieldSet[0] === 0, 'd-none': selectedFieldSet[0] !== 0 }"
-        >
-          <div class="select-type">
-            <div class="account-onborad onboard-head">
-              <h2>{{ 'Select_Account_Type' | translate }}</h2>
-              <!--<p>Don’t worry, this can be changed later.</p>-->
-              <div class="select-box d-flex justify-content-center">
-                <label
-                  class="employee-level free-lance-img accounts_type"
-                  [class.selected]="accountsType == 5 "
-                  (click)="selectAccount(5)"
-                >
-                  <a href="javascript:void(0);">
-                    <img src="assets/img/select-04.svg" alt="Img" class="img-fluid" />
-                    <input type="radio" formControlName="accountsType" value="employee" />
-                    {{ 'PARTICULIER' | translate }}
-                    <img *ngIf="accountsType == 5" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
-                  </a>
-                </label>
-
-                <label
-                  class="employee-level employee-img accounts_type"
-                  [class.selected]="accountsType == 6"
-                  (click)="selectAccount(6)"
-                >
-                  <a href="javascript:void(0);">
-                    <img src="assets/img/select-05.svg" alt="Img" class="img-fluid" />
-                    <input type="radio" formControlName="accountsType" value="employee" />
-                     {{ 'ENTREPRISE' | translate }}
-                    <img *ngIf="accountsType ==6" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
-                  </a>
-                </label>
-              </div>
-            </div>
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back"
-            (click)="backToHome()" />
-            <input
-              class="btn next_btn btn-primary btn-get btn-next"
-              name="next"
-              type="button"
-              value="Suivant"
-              (click)="nextStep(stepIndex + 1)"
-             [disabled]="!isStepValid(stepIndex)"
-            />
-          </div>
-        </div>
-        <!-- /Accounting Onboard -->
-
-        <!-- Personal Info -->
-        <div class="on-board field-card select-account select-btn" [class.d-block]="selectedFieldSet[0] === 1">
-          <div class="text-center onboard-head">
-            <h2>{{ 'PERSONAL_INFO' | translate }}</h2>
-            <p>{{ 'ABOUT_YOURSELF' | translate }}</p>
-          </div>
-          <div class="field-item personal-info space-info">
-            <div class="row">
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="first-name" class="form-label">{{ 'LAST_NAME' | translate }}<span class="required text-danger">*</span></label>
-                  <input type="text" id="first-name" class="form-control" formControlName="nom" />
-                  <div *ngIf="registerForm.controls['nom']?.invalid && (registerForm.controls['nom']?.dirty || registerForm.controls['nom']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['nom']?.errors?.['required']" class="p-error">Nom de famille obligatoire.</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="last-name" class="form-label">{{ 'FIRST_NAME' | translate }}</label>
-                  <input type="text" id="last-name" class="form-control" formControlName="prenom" />
-                  <div *ngIf="registerForm.controls['prenom']?.invalid && (registerForm.controls['prenom']?.dirty || registerForm.controls['prenom']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['prenom']?.errors?.['required']" class="p-error">Prénom obligatoire.</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="day_birth" class="form-label">{{ 'DATE_OF_BIRTH' | translate }}<span class="required text-danger">*</span></label>
-                  <input type="date" id="day_birth" formControlName="date_naissance" class="form-control required" [attr.max]="maxDate">
-                  <div *ngIf="registerForm.controls['date_naissance']?.invalid && (registerForm.controls['date_naissance']?.dirty || registerForm.controls['date_naissance']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['date_naissance']?.errors?.['required']" class="p-error"> La date de naissance est obligatoire.</small>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="email-address" class="form-label">{{ 'EMAIL_ADDRESS' | translate }}</label>
-                  <input type="email" id="email-address" formControlName="email" class="form-control" />
-                  <div *ngIf="registerForm.controls['email']?.invalid && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['email']?.errors?.['required']" class="p-error"> Email obligatoire.</small>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12 col-xl-6 col-lg-6">
-                <div class="input-block">
-                  <label>{{ 'GENDER' | translate }}<span class="required text-danger">*</span></label>
-
-
-                    <select class="form-select" formControlName="sexe">
-                      <option></option>
-                      <option *ngFor="let data of gender" [value]="data.name">{{ data.display }}</option>
-                    </select>
-                    <div *ngIf="registerForm.controls['sexe']?.invalid && (registerForm.controls['sexe']?.dirty || registerForm.controls['sexe']?.touched)" class="mb-2">
-                      <small *ngIf="registerForm.controls['sexe']?.errors?.['required']" class="p-error">Genre obligatoire.</small>
+                            <div class="multi-step">
+                              <img  src="assets/img/icon/wizard-icon-05.svg"  alt="Img" />
+                            </div>
+                            <div class="steps-count">
+                                <span>{{'Step'|translate}} 4/4</span>
+                                <h5>Email Verification</h5>
+                            </div>
+                        </li>
+                      </ul>
                     </div>
-
-                </div>
-              </div>
-
-
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label class="form-label">{{ 'COUNTRY' | translate }}<span class="required text-danger">*</span></label>
-                  <select class="form-select" id="countries" formControlName="country" (change)="onCountryChange($event)">
-                    <option></option>
-                    <option *ngFor="let data of countries" [value]="data.id">{{ data.name }}</option>
-                  </select>
-
-                  <div *ngIf="registerForm.controls['country']?.invalid && (registerForm.controls['country']?.dirty || registerForm.controls['country']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['country']?.errors?.['required']" class="p-error">Pays de résidence obligatoire.</small>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label class="form-label">{{ 'CITY' | translate }}<span class="required text-danger">*</span></label>
-                  <select class="form-select" formControlName="city">
-                    <option></option>
-                    <option *ngFor="let data of filteredCity" [value]="data.name">{{ data.name }}</option>
-                  </select>
-
-                  <div *ngIf="registerForm.controls['city']?.invalid && (registerForm.controls['city']?.dirty || registerForm.controls['city']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['city']?.errors?.['required']" class="p-error">Ville de résidence obligatoire.</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
-                  <span class="p-fluid">
-                       <p-inputMask     mask="(+999) 999 99 99 99 "  formControlName="telephone" id="phone_number" placeholder="Ex (+237) 999 99 99 99"></p-inputMask>
-                    </span>
-                  <div *ngIf="registerForm.controls['telephone']?.invalid && (registerForm.controls['telephone']?.dirty || registerForm.controls['telephone']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['telephone']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
-                  </div>
-                </div>
-              </div>
-
-              <!--<div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="address" class="form-label">{{ 'COMPLETE_ADDRESS' | translate }}<span class="required text-danger">*</span></label>
-                  <input type="text" id="address" class="form-control" formControlName="complete_address" />
-                  <div *ngIf="registerForm.controls['complete_address']?.invalid && (registerForm.controls['complete_address']?.dirty || registerForm.controls['complete_address']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['complete_address']?.errors?.['required']" class="p-error">Adresse compléte obligatoire.</small>
-                  </div>
-                </div>
-              </div>-->
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label for="last-name" class="form-label">{{ 'Mot de passe' | translate }}</label>
-                  <input type="text" id="last-name" class="form-control" formControlName="password" />
-                  <div *ngIf="registerForm.controls['password']?.invalid && (registerForm.controls['password']?.dirty || registerForm.controls['password']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['password']?.errors?.['required']" class="p-error">password obligatoire.</small>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="text-center">
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Precedent" (click)="selectedFieldSet[0] = 0; block()" />
-            <input
-              class="btn next_btn btn-primary btn-get btn-next"
-              name="next"
-              type="button"
-              value="Suivant"
-              [disabled]="!registerForm.valid"
-              (click)="nextStep(stepIndex + 1)"
-              [disabled]="!isStepValid(stepIndex)"
-            />
-          </div>
-        </div>
-        <!-- /Personal Info               [disabled]="!registerForm.valid"
+            <!-- /Freelancer Multistep -->
+
+            <!-- Accounting Onboard -->
+            <div class="text-center on-board select-account group-select"
+              [ngClass]="{ 'd-block': selectedFieldSet[0] === 0, 'd-none': selectedFieldSet[0] !== 0 }" >
+              <div class="select-type">
+                <div class="account-onborad onboard-head">
+                  <h2>{{ 'Select_Account_Type' | translate }}</h2>
+                  <!--<p>Don’t worry, this can be changed later.</p>-->
+                  <div class="select-box d-flex justify-content-center">
+                      <label class="employee-level free-lance-img accounts_type" [class.selected]="user_type == 'candidat' "
+                            (click)="selectAccount('candidat')">
+                            <a href="javascript:void(0);">
+                                  <img src="assets/img/select-04.svg" alt="Img" class="img-fluid" />
+                                  <input type="radio" formControlName="user_type" value="employee" />
+                                  {{ 'PARTICULIER' | translate }}
+                                  <img *ngIf="user_type == 'candidat'" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
+                            </a>
+                      </label>
+
+                      <label class="employee-level employee-img accounts_type" [class.selected]="user_type == 'entreprise'"
+                          (click)="selectAccount('entreprise')">
+                          <a href="javascript:void(0);">
+                              <img src="assets/img/select-05.svg" alt="Img" class="img-fluid" />
+                              <input type="radio" formControlName="user_type" value="employee" />
+                               {{ 'ENTREPRISE' | translate }}
+                              <img *ngIf="user_type =='entreprise'" src="assets/img/icon/checks.svg" alt="Checked" class="checks-set" />
+                          </a>
+                      </label>
+                  </div>
+                </div>
+                  <input  class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back" (click)="backToHome()" />
+                  <input class="btn next_btn btn-primary btn-get btn-next"  name="next"  type="button"
+                           value="Suivant" (click)="nextStep(stepIndex + 1)" [disabled]="!isStepValid(stepIndex)" />
+              </div>
+            </div>
+            <!-- /Accounting Onboard -->
+
+            <!-- Personal Info -->
+            <div class="on-board field-card select-account select-btn" [class.d-block]="selectedFieldSet[0] === 1">
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div *ngIf="user_type === 'candidat'" >
+              <form *ngIf="(user_type == 'candidat')" [formGroup]="registerForm" >
+              <div class="on-board field-card select-account select-btn" [class.d-block]="selectedFieldSet[0] === 1">
+                  <div class="text-center onboard-head">
+                    <h2>{{ 'PERSONAL_INFO' | translate }}</h2>
+                    <p>{{ 'ABOUT_YOURSELF' | translate }}</p>
+                  </div>
+                  <div class="field-item personal-info space-info">
+
+                      <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label for="first-name" class="form-label">{{ 'LAST_NAME' | translate }}<span class="required text-danger">*</span></label>
+                            <input type="text" id="first-name" class="form-control" formControlName="nom" />
+                            <div *ngIf="registerForm.controls['nom']?.invalid && (registerForm.controls['nom']?.dirty || registerForm.controls['nom']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['nom']?.errors?.['required']" class="p-error">Nom de famille obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label for="last-name" class="form-label">{{ 'FIRST_NAME' | translate }}</label>
+                            <input type="text" id="last-name" class="form-control" formControlName="prenom" />
+                            <div *ngIf="registerForm.controls['prenom']?.invalid && (registerForm.controls['prenom']?.dirty || registerForm.controls['prenom']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['prenom']?.errors?.['required']" class="p-error">Prénom obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label for="day_birth" class="form-label">{{ 'DATE_OF_BIRTH' | translate }}<span class="required text-danger">*</span></label>
+                            <input type="date" id="day_birth" formControlName="date_naissance" class="form-control required" [attr.max]="maxDate">
+                            <div *ngIf="registerForm.controls['date_naissance']?.invalid && (registerForm.controls['date_naissance']?.dirty || registerForm.controls['date_naissance']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['date_naissance']?.errors?.['required']" class="p-error"> La date de naissance est obligatoire.</small>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label for="email-address" class="form-label">{{ 'EMAIL_ADDRESS' | translate }}</label>
+                            <input type="email" id="email-address" formControlName="email" class="form-control" />
+                            <div *ngIf="registerForm.controls['email']?.invalid && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['email']?.errors?.['required']" class="p-error"> Email obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-xl-6 col-lg-6">
+                          <div class="input-block">
+                            <label>{{ 'GENDER' | translate }}<span class="required text-danger">*</span></label>
+                            <select class="form-select" formControlName="sexe">
+                              <option></option>
+                              <option *ngFor="let data of gender" [value]="data.name">{{ data.display }}</option>
+                            </select>
+                            <div *ngIf="registerForm.controls['sexe']?.invalid && (registerForm.controls['sexe']?.dirty || registerForm.controls['sexe']?.touched)" class="mb-2">
+                              <small *ngIf=" registerForm.controls['sexe']?.errors?.['required']" class="p-error">Genre obligatoire.</small>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label class="form-label">{{ 'COUNTRY' | translate }}<span class="required text-danger">*</span></label>
+                            <select class="form-select" id="countries" formControlName="country" (change)="onCountryChange($event)">
+                              <option></option>
+                              <option *ngFor="let data of countries" [value]="data.id">{{ data.name }}</option>
+                            </select>
+
+                            <div *ngIf="registerForm.controls['country']?.invalid && (registerForm.controls['country']?.dirty || registerForm.controls['country']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['country']?.errors?.['required']" class="p-error">Pays de résidence obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label class="form-label">{{ 'CITY' | translate }}<span class="required text-danger">*</span></label>
+                            <select class="form-select" formControlName="city">
+                              <option></option>
+                              <option *ngFor="let data of filteredCity" [value]="data.name">{{ data.name }}</option>
+                            </select>
+
+                            <div *ngIf="registerForm.controls['city']?.invalid && (registerForm.controls['city']?.dirty || registerForm.controls['city']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['city']?.errors?.['required']" class="p-error">Ville de résidence obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
+                            <span class="p-fluid">
+                                   <p-inputMask     mask="(+999) 999 99 99 99 "  formControlName="telephone" id="phone_number" placeholder="Ex (+237) 999 99 99 99"></p-inputMask>
+                                </span>
+                            <div *ngIf="registerForm.controls['telephone']?.invalid && (registerForm.controls['telephone']?.dirty || registerForm.controls['telephone']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['telephone']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label for="last-name" class="form-label">{{ 'Mot de passe' | translate }}</label>
+                            <p-password formControlName="password" [toggleMask]="true"></p-password>
+                            <div *ngIf="registerForm.controls['password']?.invalid && (registerForm.controls['password']?.dirty || registerForm.controls['password']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['password']?.errors?.['required']" class="p-error">password obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                          <div class="input-block">
+                            <label for="last-name" class="form-label">{{ 'Confirme le Mot de passe' | translate }}</label>
+                            <p-password formControlName="password" [toggleMask]="true"></p-password>
+                            <div *ngIf="registerForm.controls['password']?.invalid && (registerForm.controls['password']?.dirty || registerForm.controls['password']?.touched)" class="mb-2">
+                              <small *ngIf="registerForm.controls['password']?.errors?.['required']" class="p-error">password obligatoire.</small>
+                            </div>
+                          </div>
+                        </div>
+
+                      <div class="text-center">
+                        <input class="btn btn-prev prev_btn btn-back" name="previous" type="button" value="Precedent" (click)="previousStep()" />
+<!--
+                        <input [disabled]="!isValid()" *ngIf="visible== false" class="btn btn-primary " name="save" type="button" value="Enregistrer" (click)="save()" />
 -->
 
-        <!-- Skills & Experience -->
-        <div class="on-board field-card select-account select-btn" [class.d-block]="selectedFieldSet[0] === 2">
-          <div class="text-center onboard-head">
-            <h2>{{ 'PROFESSIONAL_INFO' | translate }}</h2>
-            <p>C'est le moment de briller. Faites savoir aux clients potentiels ce que vous faites de mieux et comment vous avez acquis vos compétences, votre domaine  d'activité.</p>
+                        <input *ngIf="visible== true"  class="btn next_btn btn-primary btn-get btn-next"
+                               name="next" type="button" value="Suivant" [disabled]="!registerForm.valid"
+                               (click)="nextStep(stepIndex + 1)"  [disabled]="!isStepValid(stepIndex)" />
+                      </div>
 
-          </div>
-          <div class="field-item personal-info space-info">
-            <div class="row">
-              <div class="col-md-6 col-lg-6">
-                <div class="input-block">
-                  <label class="form-label">{{ 'DOMAINS' | translate }}<span class="required text-danger">*</span></label>
 
-                  <span class="p-fluid">
-                    <p-dropdown
 
-                      class="w-full md:w-20rem"
-                      containerStyleClass="w-full"
-                      [options]="domainActivity" id="domain_activity" formControlName="domaine"
-                      optionLabel="name"  [showClear]="true" (onChange)="onDomainChange($event)"
-                    >
-                  </p-dropdown>
-                  </span>
-                  <div *ngIf="registerForm.controls['domaine']?.invalid && (registerForm.controls['domaine']?.dirty || registerForm.controls['domaine']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['domaine']?.errors?.['required']" class="p-error"> Domaine d'activité obligatoire.</small>
+
                   </div>
+              </div>
+              </div>
+              <!-- Skills & Experience -->
+              <div class="on-board field-card select-account select-btn" [class.d-block]="selectedFieldSet[0] === 2">
+                <div class="text-center onboard-head">
+                  <h2>{{ 'PROFESSIONAL_INFO' | translate }}</h2>
+                  <p>C'est le moment de briller. Faites savoir aux clients potentiels ce que vous faites de mieux et comment vous avez acquis vos compétences, votre domaine  d'activité.</p>
 
+                </div>
+                <div class="field-item personal-info space-info">
+                  <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                      <div class="input-block">
+                        <label class="form-label">{{ 'DOMAINS' | translate }}<span class="required text-danger">*</span></label>
+                        <span class="p-fluid">
+                            <p-dropdown class="w-full md:w-20rem" containerStyleClass="w-full"
+                                        [options]="domainActivity" id="domain_activity" formControlName="domaine"
+                                        optionLabel="name"  [showClear]="true" (onChange)="onDomainChange($event)">
+                          </p-dropdown>
+                          </span>
+                        <div *ngIf="registerForm.controls['domaine']?.invalid && (registerForm.controls['domaine']?.dirty || registerForm.controls['domaine']?.touched)" class="mb-2">
+                          <small *ngIf="registerForm.controls['domaine']?.errors?.['required']" class="p-error"> Domaine d'activité obligatoire.</small>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="input-block">
+                        <label for="specialism" class="focus-label">{{ 'SPECIALITY' | translate }}<span class="required text-danger">*</span></label>
+                        <span class="p-fluid">
+                            <p-dropdown
+                              class="w-full md:w-20rem" containerStyleClass="w-full"
+                              [options]="filteredSpecialism" id="specialism" formControlName="specialite"
+                              optionLabel="name" [filter]="true"  [showClear]="true" (onChange)="onspecialiteChange($event)"
+                              (onFilter)="onFilterSpecialisms($event)">
+                            </p-dropdown>
+                          </span>
+                        <div *ngIf="registerForm.controls['specialite']?.invalid && (registerForm.controls['specialite']?.dirty || registerForm.controls['specialite']?.touched)" class="mb-2">
+                          <small *ngIf="registerForm.controls['specialite']?.errors?.['required']" class="p-error"> Specialité obligatoire.</small>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <!---<div  class="col-md-6">
+                      <div class="input-block">
+                        <label for="profession" class="focus-label">{{ 'PROFESSION' | translate }}<span class="required text-danger">*</span></label>
+
+                        <span class="p-fluid">
+                          <p-dropdown
+
+                            class="w-full md:w-20rem"
+                            containerStyleClass="w-full"
+                            [options]="professionList" id="profession" formControlName="profession"
+                            optionLabel="name"  [showClear]="true"
+                          ></p-dropdown>
+                        </span>
+                        <div *ngIf="registerForm.controls['profession']?.invalid && (registerForm.controls['profession']?.dirty || registerForm.controls['profession']?.touched)" class="mb-2">
+                          <small *ngIf="registerForm.controls['profession']?.errors?.['required']" class="p-error"> Profession obligatoire.</small>
+                        </div>
+                      </div>
+                    </div>--->
+
+                    <div class="col-md-6">
+                      <div class="input-block">
+                        <label for="competence" class="focus-label">{{ 'SKILLS' | translate }}<span class="required text-danger">*</span></label>
+                        <span class="p-fluid">
+
+                             <p-treeSelect  class="w-full md:w-20rem" containerStyleClass="w-full"
+                                            formControlName="competence" [options]="competence" [filter]=true id="competence"
+                                            display="chip" [metaKeySelection]="false"  selectionMode="checkbox" placeholder="Select Item">
+                              </p-treeSelect>
+                            </span>
+                        <div *ngIf="registerForm.controls['competence']?.invalid && (registerForm.controls['competence']?.dirty || registerForm.controls['competence']?.touched)" class="mb-2">
+                          <small *ngIf="registerForm.controls['competence']?.errors?.['required']" class="p-error"> Competence obligatoire.</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Precedent"
+                         (click)="previousStep()" />
+                  <input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Suivant"
+                         (click)="onSubmit(3)"
+                         [disabled]="!isStepValid(stepIndex)"
+                  />
                 </div>
               </div>
 
-              <div class="col-md-6">
-                <div class="input-block">
-                  <label for="specialism" class="focus-label">{{ 'SPECIALITY' | translate }}<span class="required text-danger">*</span></label>
-                   <span class="p-fluid">
-                    <p-dropdown
-                      class="w-full md:w-20rem"
-                      containerStyleClass="w-full"
-                      [options]="filteredSpecialism" id="specialism" formControlName="specialite"
-                      optionLabel="name" [filter]="true"  [showClear]="true" (onChange)="onspecialiteChange($event)"
-                      (onFilter)="onFilterSpecialisms($event)">
-                    ></p-dropdown>
-                  </span>
-                  <div *ngIf="registerForm.controls['specialite']?.invalid && (registerForm.controls['specialite']?.dirty || registerForm.controls['specialite']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['specialite']?.errors?.['required']" class="p-error"> Specialité obligatoire.</small>
-                  </div>
 
-                </div>
+              <!-- //Skills & Experience -->
+                </form>
+            </div>
+
+
+
+
+
+
+            <!-- Section pour Entreprise -->
+            <div *ngIf="user_type === 'entreprise'" class="on-board field-card select-account select-btn" [class.d-block]="selectedFieldSet[0] === 1">
+              <div class="text-center onboard-head">
+                <h2>{{ 'COMPANY_INFO' | translate }}</h2>
+                <p>{{ 'ABOUT_YOUR_COMPANY' | translate }}</p>
               </div>
+              <div class="field-item personal-info space-info">
+                <form [formGroup]="entrepriseForm" *ngIf="(user_type == 'entreprise')">
+                <div class="row">
+                  <div  class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="raison-social" class="form-label">{{ 'RAISON_SOCIAL' | translate }}<span class="required text-danger">*</span></label>
+                      <input type="text" id="raison-social" class="form-control" formControlName="nom" />
+                      <div *ngIf="entrepriseForm.controls['nom']?.invalid && (entrepriseForm.controls['nom']?.dirty || entrepriseForm.controls['nom']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['nom']?.errors?.['required']" class="p-error">Raison Social obligatoire</small>
+                      </div>
+                    </div>
+                  </div>
 
-              <div class="col-md-6">
-                <div class="input-block">
-                  <label for="profession" class="focus-label">{{ 'PROFESSION' | translate }}<span class="required text-danger">*</span></label>
 
-                  <span class="p-fluid">
-                    <p-dropdown
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="nui" class="form-label">{{ 'NUI' | translate }}<span class="required text-danger">*</span></label>
+                      <input type="text" id="nui" class="form-control" formControlName="nui" />
+                      <div *ngIf="entrepriseForm.controls['nui']?.invalid && (entrepriseForm.controls['nui']?.dirty || entrepriseForm.controls['nui']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['nui']?.errors?.['required']" class="p-error">Nui obligatoire</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div  class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="categorie" class="form-label">{{ 'CATEGORIE' | translate }}<span class="required text-danger">*</span></label>
+                      <select class="form-select" formControlName="type_entreprise" id="categorie">
+                        <option></option>
+                        <option *ngFor="let data of categories" [value]="data.name">{{ data.name }}</option>
+                      </select>
 
-                      class="w-full md:w-20rem"
-                      containerStyleClass="w-full"
-                      [options]="professionList" id="profession" formControlName="profession"
-                      optionLabel="name"  [showClear]="true"
-                    ></p-dropdown>
-                  </span>
-                  <div *ngIf="registerForm.controls['profession']?.invalid && (registerForm.controls['profession']?.dirty || registerForm.controls['profession']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['profession']?.errors?.['required']" class="p-error"> Profession obligatoire.</small>
+                      <div *ngIf="entrepriseForm.controls['type_entreprise']?.invalid && (entrepriseForm.controls['type_entreprise']?.dirty || entrepriseForm.controls['type_entreprise']?.touched)" class="mb-2">
+                        <small *ngIf=" entrepriseForm.controls['type_entreprise']?.errors?.['required']" class="p-error">Categorie obligatoire</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div  class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="secteur_activite" class="form-label">{{ 'DOMAINE_ACTIVITE' | translate }}<span class="required text-danger">*</span></label>
+                      <select class="form-select" formControlName="secteur_activite" id="secteur_activite">
+                        <option></option>
+                        <option *ngFor="let data of domainActivity" [value]="data.name">{{ data.name }}</option>
+                      </select>
+
+                      <div *ngIf="entrepriseForm.controls['secteur_activite']?.invalid && (entrepriseForm.controls['secteur_activite']?.dirty || entrepriseForm.controls['secteur_activite']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['secteur_activite']?.errors?.['required']" class="p-error">Domaine Activite</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div  class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="raison-social" class="form-label">{{ 'Email' | translate }}<span class="required text-danger">*</span></label>
+                      <input type="text" id="address-email" class="form-control" formControlName="email" />
+                      <div *ngIf="entrepriseForm.controls['email']?.invalid && (entrepriseForm.controls['email']?.dirty || entrepriseForm.controls['email']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['email']?.errors?.['required']" class="p-error">Email obligatoire</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="phone_number" class="form-label">{{ 'PHONE_NUMBER' | translate }}</label>
+                      <span class="p-fluid">
+                           <p-inputMask     mask="(+999) 999 99 99 99 "  formControlName="telephone" id="phone_number" placeholder="Ex (+237) 999 99 99 99"></p-inputMask>
+                        </span>
+                      <div *ngIf="entrepriseForm.controls['telephone']?.invalid && (entrepriseForm.controls['telephone']?.dirty || entrepriseForm.controls['telephone']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['telephone']?.errors?.['required']" class="p-error"> Téléphone obligatoire.</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label class="form-label">{{ 'COUNTRY' | translate }}<span class="required text-danger">*</span></label>
+                      <select class="form-select" id="countries" formControlName="country" (change)="onCountryChange($event)">
+                        <option></option>
+                        <option *ngFor="let data of countries" [value]="data.id">{{ data.name }}</option>
+                      </select>
+
+                      <div *ngIf="entrepriseForm.controls['country']?.invalid && (entrepriseForm.controls['country']?.dirty || entrepriseForm.controls['country']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['country']?.errors?.['required']" class="p-error">Pays de résidence obligatoire.</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label class="form-label">{{ 'CITY' | translate }}<span class="required text-danger">*</span></label>
+                      <select class="form-select" formControlName="city">
+                        <option></option>
+                        <option *ngFor="let data of filteredCity" [value]="data.name">{{ data.name }}</option>
+                      </select>
+
+                      <div *ngIf="entrepriseForm.controls['city']?.invalid && (entrepriseForm.controls['city']?.dirty || entrepriseForm.controls['city']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['city']?.errors?.['required']" class="p-error">Ville de résidence obligatoire.</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="nui" class="form-label">{{ 'ADDRESS' | translate }}<span class="required text-danger">*</span></label>
+                      <input type="text" id="address" class="form-control" formControlName="adresse" />
+                      <div *ngIf="entrepriseForm.controls['adresse']?.invalid && (entrepriseForm.controls['adresse']?.dirty || entrepriseForm.controls['adresse']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['adresse']?.errors?.['required']" class="p-error">Address obligatoire</small>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="site" class="form-label">{{ 'SITE_WEB' | translate }}</label>
+                      <input type="text" id="site" class="form-control" formControlName="site_web" />
+                      <div *ngIf="entrepriseForm.controls['site_web']?.invalid && (entrepriseForm.controls['site_web']?.dirty || entrepriseForm.controls['site_web']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['site_web']?.errors?.['required']" class="p-error">Site web.</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="last-name" class="form-label">{{ 'Mot de passe' | translate }}</label>
+                      <p-password formControlName="password" [toggleMask]="true"></p-password>
+                      <div *ngIf="entrepriseForm.controls['password']?.invalid && (entrepriseForm.controls['password']?.dirty || entrepriseForm.controls['password']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['password']?.errors?.['required']" class="p-error">password obligatoire.</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="input-block">
+                      <label for="last-name" class="form-label">{{ 'Confirme le Mot de passe' | translate }}</label>
+                      <p-password formControlName="password" [toggleMask]="true"></p-password>
+                      <div *ngIf="entrepriseForm.controls['password']?.invalid && (entrepriseForm.controls['password']?.dirty || entrepriseForm.controls['password']?.touched)" class="mb-2">
+                        <small *ngIf="entrepriseForm.controls['password']?.errors?.['required']" class="p-error">password obligatoire.</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-12">
+                    <div class="input-block">
+                      <label for="description" class="form-label">{{ 'Description' | translate }}</label>
+                      <textarea class="form-control" rows="5" id="description" formControlName="description" ></textarea>
+
+                    </div>
                   </div>
                 </div>
+                  <div class="text-center">
+                    <input class="btn btn-prev prev_btn btn-back" name="previous" type="button" value="Precedent" (click)="previousStep()" />
+                    <input [disabled]="!entrepriseForm.valid" class="btn btn-primary "
+                           name="save" type="button" value="Enregistrer" (click)="saveEntreprise(3)" />
+<!--
+                    <input *ngIf="visible== true"  class="btn next_btn btn-primary btn-get btn-next" style="background-image: none;"
+                           name="next" type="button" value="Enregistrer"
+                           (click)="saveEntreprise()" />-->
+                  </div>
+              </form>
               </div>
+            </div>
 
-              <div class="col-md-6">
-                <div class="input-block">
-                  <label for="competence" class="focus-label">{{ 'SKILLS' | translate }}<span class="required text-danger">*</span></label>
-                  <span class="p-fluid">
 
-                     <p-treeSelect
-                       class="w-full md:w-20rem"
-                       containerStyleClass="w-full"
-                       formControlName="competence"
-                       [options]="competence"
-                      [filter]=true
-                       id="competence"
-                       display="chip"
-                       [metaKeySelection]="false"
-                       selectionMode="checkbox"
-                       placeholder="Select Item">
-                      </p-treeSelect>
-                    </span>
-                  <div *ngIf="registerForm.controls['competence']?.invalid && (registerForm.controls['competence']?.dirty || registerForm.controls['competence']?.touched)" class="mb-2">
-                    <small *ngIf="registerForm.controls['competence']?.errors?.['required']" class="p-error"> Competence obligatoire.</small>
-                  </div>
-                </div>
+            <div class="on-board field-card"  [class.d-block]="selectedFieldSet[0] === 3" >
+              <div class="account-onborad complte-board back-home pb-0">
+                  <img src="assets/img/icon/mail.png" class="img-fluid" alt="icon" />
+                  <h2>Votre compte a été crée avec success</h2>
+                 <!-- <h3>Nous avons envoyé votre mot de passe de connexion à {{registerForm.value.email!.toString()}} </h3>
+                  <p>Cliquez sur le lien pour compléter le processus de vérification</p>
+                  <p>Il se peut que vous deviez vérifier votre Spam</p>
+                  <a href="javascript:void(0);" class="link-danger" >
+                    <i class="feather icon-refresh-cw me-2"></i> Resend Email</a>-->
+              </div>
+              <div class="text-center">
+                <a class="btn btn-prev prev_btn btn-back" [routerLink]="routes.login">Terminer</a>
               </div>
             </div>
           </div>
-          <div class="text-center">
-            <input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Precedent"
-                   (click)="selectedFieldSet[0] = 1" />
-            <input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Suivant"
-                   (click)="onSubmit(3)"
-                   [disabled]="!isStepValid(stepIndex)"
-            />
-          </div>
-        </div>
-        <!-- //Skills & Experience -->
 
-        <!-- Completeing Register -->
-        <div
-          class="on-board field-card"
-          [class.d-block]="selectedFieldSet[0] === 3"
-        >
-          <div class="account-onborad complte-board back-home pb-0">
-            <img
-              src="assets/img/icon/mail.png"
-              class="img-fluid"
-              alt="icon"
-            />
-            <h2>Votre compte a été crée avec success</h2>
-            <h3>Nous avons envoyé votre mot de passe de connexion à {{registerForm.value.email!.toString()}} </h3>
-            <p>Cliquez sur le lien pour compléter le processus de vérification</p>
-            <p>Il se peut que vous deviez vérifier votre Spam</p>
-            <a href="javascript:void(0);" class="link-danger"
-            ><i class="feather icon-refresh-cw me-2"></i> Resend Email</a
-            >
-          </div>
-          <div class="text-center">
-            <a class="btn btn-prev prev_btn btn-back" href="auth/login">Terminer</a>
 
-          </div>
-        </div>
-        <!-- /Completeing Register -->
 
 
       </div>
-
-
-    </form>
-  </div>
 </div>

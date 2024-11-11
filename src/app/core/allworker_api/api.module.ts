@@ -1,13 +1,12 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
-
-
 import { AuthService } from './api/auth.service';
+import { CandidatsService } from './api/candidats.service';
 import { EducationsService } from './api/educations.service';
+import { EntreprisesService } from './api/entreprises.service';
 import { ExperiencesService } from './api/experiences.service';
 import { TachesService } from './api/taches.service';
-import { UserService } from './api/user.service';
 import { UsersService } from './api/users.service';
 
 @NgModule({
@@ -16,10 +15,11 @@ import { UsersService } from './api/users.service';
   exports:      [],
   providers: [
     AuthService,
+    CandidatsService,
     EducationsService,
+    EntreprisesService,
     ExperiencesService,
     TachesService,
-    UserService,
     UsersService ]
 })
 export class ApiModule {

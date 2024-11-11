@@ -141,7 +141,12 @@
   "ADD_TESTIMONIAL" : "Add testimonial",
   "COUNTRY": "Country",
   "ENTREPRISE" :"Entrprise",
-  "PARTICULIER" : "Particulier"
+  "PARTICULIER" : "Particulier",
+  "RAISON_SOCIAL": "Raison social",
+  "NUI": "Nui",
+  "CATEGORIE": "Categorie",
+  "SITE_WEB" : "web site",
+  "DOMAINE_ACTIVITE": "Domaine d'activité"
 
 
 

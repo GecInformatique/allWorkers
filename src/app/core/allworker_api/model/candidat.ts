@@ -13,12 +13,14 @@ import { Education } from './education';
 import { Experience } from './experience';
 import { Tache } from './tache';
 
-export interface CustomUser { 
+export interface Candidat { 
     readonly id?: number;
     nom: string;
     prenom: string;
     email: string;
-    sexe: CustomUser.SexeEnum;
+    userType: string;
+    password: string;
+    sexe: Candidat.SexeEnum;
     dateNaissance?: string;
     lieuNaissance?: string;
     telephone?: string;
@@ -27,13 +29,12 @@ export interface CustomUser {
     city?: string;
     region?: string;
     departement?: string;
-    statutMatrimonial?: CustomUser.StatutMatrimonialEnum;
+    statutMatrimonial?: Candidat.StatutMatrimonialEnum;
     nombreEnfant?: number;
     cni?: string;
     dateDelivrance?: string;
     niu?: string;
     contact?: string;
-    password?: string;
     disponibilite?: boolean;
     zoneGeographique?: string;
     statut?: string;
@@ -43,7 +44,7 @@ export interface CustomUser {
     typeDisponibility?: string;
     longitude?: number;
     latitude?: number;
-    statusUser?: CustomUser.StatusUserEnum;
+    statusUser?: Candidat.StatusUserEnum;
     statusReceiverNotificationJob?: boolean;
     website?: string;
     overview?: string;
@@ -63,14 +64,6 @@ export interface CustomUser {
     readonly picture?: string;
     profileUpdate?: Date;
     profileVerifyByAdmin?: boolean;
-    /**
-     * Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
-     */
-    isActive?: boolean;
-    /**
-     * Designates whether the user can log into this admin site.
-     */
-    isStaff?: boolean;
     readonly profileCertificate?: string;
     domaine?: string;
     profession?: string;
@@ -79,10 +72,8 @@ export interface CustomUser {
     readonly educations?: Array<Education>;
     readonly taches?: Array<Tache>;
     readonly experiences?: Array<Experience>;
-    readonly createdAt?: Date;
-    readonly updatedAt?: Date;
 }
-export namespace CustomUser {
+export namespace Candidat {
     export type SexeEnum = 'M' | 'F';
     export const SexeEnum = {
         M: 'M' as SexeEnum,

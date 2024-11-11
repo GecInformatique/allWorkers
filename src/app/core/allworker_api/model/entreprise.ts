@@ -10,12 +10,16 @@
  * Do not edit the class manually.
  */
 
-export interface Experience { 
-    readonly id?: number;
-    companyName: string;
-    jobTitle: string;
-    startDate: string;
-    endDate?: string;
+export interface Entreprise { 
+    nom: string;
+    adresse: string;
+    telephone?: string;
+    email: string;
+    userType: string;
+    password: string;
+    siteWeb?: string;
     description?: string;
-    user: number;
+    typeEntreprise: string;
+    secteurActivite: string;
+    nui?: string;
 }

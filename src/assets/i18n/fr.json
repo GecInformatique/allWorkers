@@ -147,6 +147,11 @@
   "ADD_TESTIMONIAL" : "Ajouter un témoignage",
   "COUNTRY": "Pays",
   "ENTREPRISE" :"Entreprise",
-  "PARTICULIER" : "Particulier"
+  "PARTICULIER" : "Particulier",
+  "RAISON_SOCIAL": "Raison social",
+  "NUI": "Nui",
+  "CATEGORIE": "Categorie",
+  "SITE_WEB" : "site web",
+  "DOMAINE_ACTIVITE": "Domaine d'activité"
 
 }

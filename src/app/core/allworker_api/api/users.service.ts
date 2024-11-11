@@ -17,17 +17,14 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
-import { Body } from '../model/body';
-import { Body1 } from '../model/body1';
-import { CustomUser } from '../model/customUser';
-import { InlineResponse200 } from '../model/inlineResponse200';
+import { Utilisateur } from '../model/utilisateur';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class AuthService {
+export class UsersService {
 
     protected basePath = 'http://127.0.0.1:8006/api';
     public defaultHeaders = new HttpHeaders();
@@ -59,19 +56,19 @@ export class AuthService {
 
 
     /**
-     *
-     * Connexion d&#x27;un utilisateur
-     * @param body
+     * 
+     * Crée un nouvel utilisateur
+     * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public authLogin(body: Body, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse200>;
-    public authLogin(body: Body, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
-    public authLogin(body: Body, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
-    public authLogin(body: Body, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public usersCreate(body: Utilisateur, observe?: 'body', reportProgress?: boolean): Observable<Utilisateur>;
+    public usersCreate(body: Utilisateur, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Utilisateur>>;
+    public usersCreate(body: Utilisateur, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Utilisateur>>;
+    public usersCreate(body: Utilisateur, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling authLogin.');
+            throw new Error('Required parameter body was null or undefined when calling usersCreate.');
         }
 
         let headers = this.defaultHeaders;
@@ -99,7 +96,7 @@ export class AuthService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<InlineResponse200>('post',`${this.basePath}/auth/login/`,
+        return this.httpClient.request<Utilisateur>('post',`${this.basePath}/users/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -111,19 +108,19 @@ export class AuthService {
     }
 
     /**
-     *
-     * Déconnexion d&#x27;un utilisateur
-     * @param body
+     * 
+     * Supprime un utilisateur
+     * @param id A unique integer value identifying this utilisateur.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public authLogout(body: Body1, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public authLogout(body: Body1, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public authLogout(body: Body1, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public authLogout(body: Body1, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public usersDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public usersDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public usersDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public usersDelete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
-        if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling authLogout.');
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling usersDelete.');
         }
 
         let headers = this.defaultHeaders;
@@ -143,6 +140,98 @@ export class AuthService {
 
         // to determine the Content-Type header
         const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<any>('delete',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Liste tous les utilisateurs
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public usersList(observe?: 'body', reportProgress?: boolean): Observable<Array<Utilisateur>>;
+    public usersList(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Utilisateur>>>;
+    public usersList(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Utilisateur>>>;
+    public usersList(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // authentication (Basic) required
+        if (this.configuration.username || this.configuration.password) {
+            headers = headers.set('Authorization', 'Basic ' + btoa(this.configuration.username + ':' + this.configuration.password));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Array<Utilisateur>>('get',`${this.basePath}/users/`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param body 
+     * @param id A unique integer value identifying this utilisateur.
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public usersPartialUpdate(body: Utilisateur, id: number, observe?: 'body', reportProgress?: boolean): Observable<Utilisateur>;
+    public usersPartialUpdate(body: Utilisateur, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Utilisateur>>;
+    public usersPartialUpdate(body: Utilisateur, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Utilisateur>>;
+    public usersPartialUpdate(body: Utilisateur, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling usersPartialUpdate.');
+        }
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling usersPartialUpdate.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (Basic) required
+        if (this.configuration.username || this.configuration.password) {
+            headers = headers.set('Authorization', 'Basic ' + btoa(this.configuration.username + ':' + this.configuration.password));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
             'application/json'
         ];
         const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
@@ -150,7 +239,7 @@ export class AuthService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/auth/logout/`,
+        return this.httpClient.request<Utilisateur>('patch',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
@@ -162,15 +251,20 @@ export class AuthService {
     }
 
     /**
-     *
-     * Récupérer le profil de l&#x27;utilisateur connecté
+     * 
+     * Récupère les détails d&#x27;un utilisateur spécifique
+     * @param id A unique integer value identifying this utilisateur.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public authProfile(observe?: 'body', reportProgress?: boolean): Observable<CustomUser>;
-    public authProfile(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomUser>>;
-    public authProfile(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomUser>>;
-    public authProfile(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public usersRead(id: number, observe?: 'body', reportProgress?: boolean): Observable<Utilisateur>;
+    public usersRead(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Utilisateur>>;
+    public usersRead(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Utilisateur>>;
+    public usersRead(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling usersRead.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -192,7 +286,7 @@ export class AuthService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<CustomUser>('get',`${this.basePath}/auth/profile/`,
+        return this.httpClient.request<Utilisateur>('get',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -203,19 +297,24 @@ export class AuthService {
     }
 
     /**
-     *
-     * Inscription d&#x27;un nouvel utilisateur
-     * @param body
+     * 
+     * Met à jour les informations d&#x27;un utilisateur
+     * @param body 
+     * @param id A unique integer value identifying this utilisateur.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public authRegister(body: CustomUser, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public authRegister(body: CustomUser, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public authRegister(body: CustomUser, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public authRegister(body: CustomUser, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public usersUpdate(body: Utilisateur, id: number, observe?: 'body', reportProgress?: boolean): Observable<Utilisateur>;
+    public usersUpdate(body: Utilisateur, id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Utilisateur>>;
+    public usersUpdate(body: Utilisateur, id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Utilisateur>>;
+    public usersUpdate(body: Utilisateur, id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling authRegister.');
+            throw new Error('Required parameter body was null or undefined when calling usersUpdate.');
+        }
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling usersUpdate.');
         }
 
         let headers = this.defaultHeaders;
@@ -227,6 +326,7 @@ export class AuthService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
+            'application/json'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -242,7 +342,7 @@ export class AuthService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<any>('post',`${this.basePath}/auth/register/`,
+        return this.httpClient.request<Utilisateur>('put',`${this.basePath}/users/${encodeURIComponent(String(id))}/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

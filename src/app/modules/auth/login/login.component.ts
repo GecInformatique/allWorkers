@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 import { routes } from 'src/app/core/helpers/routes/routes';
 import {LocalAuthService} from "../../../core/data/local/local.auth.service";
 import {LocalTokenService} from "../../../core/data/local/local.token.service";
-import {AuthService} from "../../../core/libs/scripts/allworker_api";
+import {AuthService} from "../../../core/allworker_api";
 
 
 

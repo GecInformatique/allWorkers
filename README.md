@@ -26,4 +26,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-java -jar swagger-codegen-cli-3.0.20.jar generate -i http://127.0.0.1:8000/swagger/ -l typescript-angular -o ../allworker_api/
+java -jar swagger-codegen-cli-3.0.20.jar generate -i http://127.0.0.1:8006/swagger/ -l typescript-angular -o ../allworker_api/

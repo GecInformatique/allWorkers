@@ -20,9 +20,10 @@ import domaines  from 'src/assets/json/domaines.json';
 import specialites from 'src/assets/json/specialites.json';
 import competences  from 'src/assets/json/competences.json';
 import professions  from 'src/assets/json/Professions.json';
+import categories from 'src/assets/json/categories.json';
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs";
-import {AuthService} from "../../../core/libs/scripts/allworker_api";
+import {AuthService, CandidatsService, EntreprisesService} from "../../../core/allworker_api";
 
 export interface City {
   id: string;
@@ -43,7 +44,9 @@ export interface Country {
 export class RegisterComponent  implements OnInit{
 public routes = routes;
   registerForm!: FormGroup;
-  public accountsType = 5;
+  entrepriseForm !: FormGroup;
+  registerForm_entreprise! : FormGroup;
+  public user_type : string = 'candidat';
   cities: Array<City> = [];
   countries: any = [];
   domainActivity : any[] =[];
@@ -54,6 +57,7 @@ public routes = routes;
   filteredSpecialism: any[] = [];
   filteredCompetence: any[] = [];
   filteredCity: any[] = [];
+  categories: any[] = [];
   selectedDomain !: number;
   selectedProfession !: number;
   selectedCompetence !: any;
@@ -62,7 +66,7 @@ public displayBlock = false;
 public displayNone = false;
 public selectedFieldSet = [0];
   maxDate: string;
-
+  visible: boolean = false;
   stepIndex = 0; // Index de l'étape actuelle, commence à 0
 
 public selectedValue2 = '';
@@ -82,6 +86,8 @@ public password: boolean[] = [true];
     private competenceService: CompetenceService,
     private http: HttpClient,
     private authService: AuthService,
+    private candidatsService: CandidatsService,
+    private entreprisesService: EntreprisesService,
     private fb: FormBuilder,
     private dataservice: ShareDataService) {
     this.maxDate = this.getMaxDateFor18YearsOld();
@@ -109,6 +115,8 @@ public togglePassword(index: number) {
   }
 
   ngOnInit(): void {
+    this.initializeData();
+    this.initializeForm();
     this.countries = countries.pays;
     this.cities= cities.cities;
    this.competence = competences.competences;
@@ -116,9 +124,11 @@ public togglePassword(index: number) {
     this.loadDomainData();
     this.getSpecialismList();
     this.getCompetenceList()
+    this.entrepriseRegistration()
+/*    this.categories = categories.categorie
     this.registerForm = this.fb.group({
-      'accountsType': new FormControl<number|null>(null, [Validators.required]),
-      'nom': new FormControl<string>("", [Validators.required]),
+      'user_type': new FormControl<string|null>(null, [Validators.required]),
+      'nom': new FormControl<string>("", ),
       'prenom': new FormControl<string>(""),
       'date_naissance': new FormControl<string>("", [Validators.required]),
       'email': new FormControl<string>(""),
@@ -128,10 +138,16 @@ public togglePassword(index: number) {
       'password': new FormControl<string>("", [Validators.required]),
       'country': new FormControl<number|null>(null, [Validators.required]),
       'address': new FormControl<string>(""),
-      'domaine': new FormControl<number|null>(null, ),
-      'specialite': new FormControl<number|null>(null, ),
-      'competence': new FormControl<number[]>([], ),
-    });
+      'domaine': new FormControl<number|null>(null,[Validators.required] ),
+      'specialite': new FormControl<number|null>(null,[Validators.required] ),
+      'competence': new FormControl<number[]>([],[Validators.required]),
+      'categorie': new FormControl<number[]>([], [Validators.required]),
+      'nui': new FormControl<number[]>([], [Validators.required]),
+      'raison': new FormControl<number[]>([],[Validators.required] ),
+      'domaine_activite': new FormControl<number[]>([],[Validators.required] ),
+      'site_web': new FormControl<number[]>([], ),
+
+    });*/
 
     this.gender= [
       { name: "M", display: "Masculin" },
@@ -144,7 +160,7 @@ public togglePassword(index: number) {
 
 
 
-  protected transformFormData(): any {
+  /*protected transformFormData(): any {
     // Récupérer les valeurs du formulaire
     const professionValue = this.registerForm.get('profession')?.value;
     const competencesValue = this.registerForm.get('competence')?.value;
@@ -152,7 +168,7 @@ public togglePassword(index: number) {
     const country =  this.registerForm.get('country')?.value;
     //const profession = this.registerForm.get('profession')?.value;
     const specialism = this.registerForm.get('specialite')?.value;
-    const accountsTypeValue = this.registerForm.get('accountsType')?.value;
+    const accountsTypeValue = this.registerForm.get('user_type')?.value;
 
 
     // Vérifier si domainActivity, country, specialism sont des objets et extraire les IDs
@@ -175,14 +191,19 @@ public togglePassword(index: number) {
       sexe: this.registerForm.get('sexe')?.value || '',
       city: this.registerForm.get('city')?.value || '',
       password: this.registerForm.get('password')?.value || '',
-
+      raison: this.registerForm.get('raison')?.value || '',
+      nui: this.registerForm.get('nui')?.value || '',
+      site_web: this.registerForm.get('site_web')?.value || '',
+      categorie: this.registerForm.get('categorie')?.value || '',
       address: this.registerForm.get('address')?.value || '',
+
       domaine: domainName || null, // Assurez-vous que c'est un ID
       country : countryName || null,
       specialite: specialiteName || null, // Assurez-vous que c'est un ID
       competence: competenceName, // Extraction des IDs des compétences
+      user_type : "candidat"
     };
-  }
+  }*/
 
 
 
@@ -227,21 +248,7 @@ public togglePassword(index: number) {
   } */
 
 
-  onSubmit(step: number) {
 
-     // Vérifiez le format avant l'envoi
-    if (this.registerForm.valid) {
-      const candidate = this.transformFormData();
-      this.authService.authRegister(candidate).subscribe({
-        next: (response: any) => {
-          console.log('Domain created:', response);
-        },
-        error: (error:any) => console.error('POST error:', error)
-      });
-      this.selectedFieldSet[0] = step;
-
-    }
-  }
 
   backToHome() : void{
     this.Router.navigate([routes.home])
@@ -252,19 +259,40 @@ public togglePassword(index: number) {
       this.stepIndex = stepNumber;
       this.selectedFieldSet[0] = stepNumber;
     }
+    if(this.user_type == 'candidat'){
+      this.visible = true
+    }
   }
+ /* isValid(): boolean{
+    return (this.registerForm.get('raison')?.valid ?? false)&&(this.registerForm.get('nui')?.valid ?? false)
+            && (this.registerForm.get('categorie')?.valid ?? false)&&(this.registerForm.get('domaine_activite')?.valid ?? false)
+            &&(this.registerForm.get('country')?.valid ?? false)&&(this.registerForm.get('city')?.valid ?? false)&&
+            (this.registerForm.get('password')?.valid ?? false)
+  }*/
+  /*save(){
+    if(this.isValid()){
+      console.log("enregistré")
+      console.log(this.registerForm)
+
+    }
+  }*/
 
   // Méthode pour revenir à l'étape précédente
-  previousStep() {
+  previousStep(): void {
+    console.log("try to previous")
     if (this.stepIndex > 0) {
       this.stepIndex--; // Décrémenter l'index pour revenir à l'étape précédente
       this.selectedFieldSet[0] = this.stepIndex; // Mettre à jour la vue pour afficher l'étape précédente
+      //this.nextStep(this.stepIndex)
+      console.log("precedent")
     }
   }
 
-  selectAccount(account: number) {
-    this.accountsType = account;
-    this.registerForm.controls['accountsType'].setValue(account);
+  selectAccount(userType: string) {
+    this.user_type = userType;
+    this.registerForm.controls['user_type'].setValue(userType);
+    console.log("Type de compte", this.user_type)
+
   }
 
 
@@ -284,13 +312,17 @@ public togglePassword(index: number) {
 
   onCountryChange(event: any): void {
     const selectedCountryId = event.target.value;
-    if (selectedCountryId) {
-      this.filteredCity = this.cities.filter(
-        city => city.pays_id === selectedCountryId
-      );
+    const selectedCountry = this.countries.find((country:any) => country.id === selectedCountryId);
 
+    if (selectedCountry) {
+      // Utilisez l'ID pour filtrer les villes
+      this.filteredCity = this.cities.filter(city => city.pays_id === selectedCountryId);
+
+      // Enregistrez le nom du pays pour la sauvegarde
+      this.registerForm.get('countryName')?.setValue(selectedCountry.name);
     } else {
       this.filteredCity = [];
+      this.registerForm.get('countryName')?.setValue(null);
     }
   }
 
@@ -325,22 +357,131 @@ public togglePassword(index: number) {
   }
 
 
+
+
+  entrepriseRegistration(){
+    this.entrepriseForm = this.fb.group({
+      nom: ['', Validators.required],
+      email: ['', Validators.required],
+      nui: ['', Validators.required],
+      type_entreprise: ['', Validators.required],
+      secteur_activite: ['', Validators.required],
+      adresse: ['', Validators.required],
+      country: ['', Validators.required],
+      city: ['', Validators.required],
+      telephone: ['', Validators.required],
+      site_web: [''],
+      password: ['', Validators.required],
+      description: ['', Validators.required],
+      user_type : "entreprise"
+
+    });
+  }
+
+  saveEntreprise(step: number) {
+    if (this.entrepriseForm.valid) {
+      const formData = this.entrepriseForm.value;
+      console.log('Form submitted successfully', formData);
+      this.entreprisesService.entreprisesRegister(formData).subscribe({
+        next: (response: any) => {
+          this.selectedFieldSet[0] = step;
+        },
+        error: (error:any) => console.error('POST error:', error)
+      });
+
+      // Process form data
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+
+
+
+
+
+  private initializeData(): void {
+    this.countries = countries.pays;
+    this.cities = cities.cities;
+    this.competence = competences.competences;
+    this.professionList = professions.professions;
+    this.categories = categories.categorie;
+
+    this.loadDomainData();
+    this.getSpecialismList();
+    this.getCompetenceList();
+    this.entrepriseRegistration();
+  }
+
+  private initializeForm(): void {
+    this.registerForm = this.fb.group({
+      user_type: new FormControl<string | null>(null, [Validators.required]),
+      nom: new FormControl<string>(""),
+      prenom: new FormControl<string>(""),
+      date_naissance: new FormControl<string>("", [Validators.required]),
+      email: new FormControl<string>(""),
+      telephone: new FormControl<string>(""),
+      sexe: new FormControl<string>("", [Validators.required]),
+      city: new FormControl<string>("", [Validators.required]),
+      password: new FormControl<string>("", [Validators.required]),
+      country: new FormControl<number | null>(null, [Validators.required]), // ID du pays
+      countryName: new FormControl<string>(""),
+      address: new FormControl<string>(""),
+      domaine: new FormControl<number | null>(null, [Validators.required]),
+      specialite: new FormControl<number | null>(null, [Validators.required]),
+      competence: new FormControl<number[]>([], [Validators.required]),
+    });
+  }
+
+  protected transformFormData(): any {
+    const formValues = this.registerForm.value;
+
+    const getFieldValue = (field: string) => formValues[field] || '';
+    const extractName = (field: string) => {
+      const value = formValues[field];
+      return value && typeof value === 'object' ? value.name : value;
+    };
+
+    const competenceName = Array.isArray(formValues.competence)
+      ? formValues.competence.map((item: any) => item.value).join(', ')
+      : '';
+
+    return {
+      nom: getFieldValue('nom'),
+      prenom: getFieldValue('prenom'),
+      date_naissance: getFieldValue('date_naissance'),
+      email: getFieldValue('email'),
+      telephone: getFieldValue('telephone'),
+      sexe: getFieldValue('sexe'),
+      city: getFieldValue('city'),
+      password: getFieldValue('password'),
+      address: getFieldValue('address'),
+      domaine: extractName('domaine'),
+      country: formValues.countryName || null,      specialite: extractName('specialite'),
+      competence: competenceName,
+      user_type: "candidat"
+    };
+  }
+
   // Vérifier si l'étape actuelle est valide
   isStepValid(stepIndex: number): boolean {
     switch(stepIndex) {
       case 0:
         // Vérifier la validité des champs de l'étape 0
-        return (this.registerForm.get('accountsType')?.valid ?? false);
+        return (this.registerForm.get('user_type')?.valid ?? false);
 
       case 1:
         // Vérifier la validité des champs de l'étape 1
 
-        return (this.registerForm.get('nom')?.valid ?? false) &&
-        (this.registerForm.get('prenom')?.valid ?? false) &&
-        (this.registerForm.get('date_naissance')?.valid ?? false) &&
-        (this.registerForm.get('email')?.valid ?? false) &&
-        (this.registerForm.get('telephone')?.valid ?? false)&&
-        (this.registerForm.get('password')?.valid ?? false);
+        return ((this.registerForm.get('nom')?.valid ?? false) &&
+          (this.registerForm.get('prenom')?.valid ?? false) &&
+          (this.registerForm.get('date_naissance')?.valid ?? false) &&
+          (this.registerForm.get('email')?.valid ?? false) &&
+          (this.registerForm.get('telephone')?.valid ?? false)&&
+          (this.registerForm.get('password')?.valid ?? false)&&
+          (this.registerForm.get('country')?.valid ?? false)&&
+          (this.registerForm.get('city')?.valid ?? false)&&
+          (this.registerForm.get('sexe')?.valid ?? false)
+        )
 
       case 2:
         // Vérifier la validité des champs de l'étape 3
@@ -353,5 +494,26 @@ public togglePassword(index: number) {
       default:
         return true; // Par défaut, considérer l'étape comme valide
     }
+  }
+
+
+  onSubmit(step: number) {
+
+    // Vérifiez le format avant l'envoi
+    if (this.isStepValid(this.stepIndex)) {
+
+      const candidate = this.transformFormData();
+      console.log('try to save',candidate)
+      this.candidatsService.candidatsCreate(candidate).subscribe({
+        next: (response: any) => {
+          console.log('Domain created:', response);
+          this.selectedFieldSet[0] = step;
+        },
+        error: (error:any) => console.error('POST error:', error)
+      });
+
+
+    }
+    console.log('unable to save')
   }
 }

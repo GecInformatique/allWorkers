@@ -10,13 +10,12 @@
  * Do not edit the class manually.
  */
 
-export interface Body { 
-    /**
-     * Email de l'utilisateur
-     */
-    email?: string;
-    /**
-     * Mot de passe de l'utilisateur
-     */
-    password?: string;
+export interface Experience { 
+    readonly id?: number;
+    companyName: string;
+    jobTitle: string;
+    startDate: string;
+    endDate?: string;
+    description?: string;
+    candidat: number;
 }

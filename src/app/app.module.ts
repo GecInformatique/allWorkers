@@ -17,14 +17,14 @@ import { DomainActivityService } from './core/libs/scripts/libs/all-workers-api/
 import {
 
   CandidateService,
-  CompetenceService, EducationService,
+  CompetenceService,
   ProfessionService,
   SpecialismService,
   TestimonialService
 } from "./core/libs/scripts/libs/all-workers-api";
 import {SharedModule} from "./layout/shared/shared.module";
 import {MessageService} from "primeng/api";
-import {AuthService} from "./core/libs/scripts/allworker_api";
+import {AuthService, CandidatsService, EducationsService, EntreprisesService} from "./core/allworker_api";
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -63,7 +63,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DatePipe,
     MessageService,
     AuthService,
-    EducationService,
+    EducationsService,
+    EntreprisesService,
+    CandidatsService,
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
