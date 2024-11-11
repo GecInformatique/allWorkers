@@ -21,12 +21,13 @@ import { Entreprise } from '../model/entreprise';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import {environment} from "../../../../environments/environment";
 
 
 @Injectable()
 export class EntreprisesService {
 
-    protected basePath = 'http://127.0.0.1:8006/api';
+    protected basePath = environment.baseURL;
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -56,9 +57,9 @@ export class EntreprisesService {
 
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -108,7 +109,7 @@ export class EntreprisesService {
     }
 
     /**
-     * 
+     *
      * Supprimer une entreprise par ID
      * @param id A unique integer value identifying this entreprise.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -153,7 +154,7 @@ export class EntreprisesService {
     }
 
     /**
-     * 
+     *
      * Récupérer la liste des entreprises
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -194,9 +195,9 @@ export class EntreprisesService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this entreprise.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -251,7 +252,7 @@ export class EntreprisesService {
     }
 
     /**
-     * 
+     *
      * Récupérer une entreprise par ID
      * @param id A unique integer value identifying this entreprise.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -297,9 +298,9 @@ export class EntreprisesService {
     }
 
     /**
-     * 
+     *
      * Inscription d&#x27;une nouvelle entreprise
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -348,9 +349,9 @@ export class EntreprisesService {
     }
 
     /**
-     * 
+     *
      * Mettre à jour une entreprise par ID
-     * @param body 
+     * @param body
      * @param id A unique integer value identifying this entreprise.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

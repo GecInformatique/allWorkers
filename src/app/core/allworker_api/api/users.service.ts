@@ -21,12 +21,13 @@ import { Utilisateur } from '../model/utilisateur';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import {environment} from "../../../../environments/environment";
 
 
 @Injectable()
 export class UsersService {
 
-    protected basePath = 'http://127.0.0.1:8006/api';
+    protected basePath = environment.baseURL;
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -56,9 +57,9 @@ export class UsersService {
 
 
     /**
-     * 
+     *
      * Crée un nouvel utilisateur
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -108,7 +109,7 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Supprime un utilisateur
      * @param id A unique integer value identifying this utilisateur.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -153,7 +154,7 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Liste tous les utilisateurs
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -194,9 +195,9 @@ export class UsersService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this utilisateur.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -251,7 +252,7 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Récupère les détails d&#x27;un utilisateur spécifique
      * @param id A unique integer value identifying this utilisateur.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -297,9 +298,9 @@ export class UsersService {
     }
 
     /**
-     * 
+     *
      * Met à jour les informations d&#x27;un utilisateur
-     * @param body 
+     * @param body
      * @param id A unique integer value identifying this utilisateur.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

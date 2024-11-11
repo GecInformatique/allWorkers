@@ -21,12 +21,13 @@ import { Candidat } from '../model/candidat';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import {environment} from "../../../../environments/environment";
 
 
 @Injectable()
 export class CandidatsService {
 
-    protected basePath = 'http://127.0.0.1:8006/api';
+    protected basePath = environment.baseURL;
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -56,9 +57,9 @@ export class CandidatsService {
 
 
     /**
-     * 
+     *
      * Créer un nouveau candidat
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -108,8 +109,8 @@ export class CandidatsService {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param id A unique integer value identifying this candidat.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -153,8 +154,8 @@ export class CandidatsService {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -194,9 +195,9 @@ export class CandidatsService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this candidat.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -251,8 +252,8 @@ export class CandidatsService {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param id A unique integer value identifying this candidat.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -297,7 +298,7 @@ export class CandidatsService {
     }
 
     /**
-     * 
+     *
      * Recherche de Candidat par compétence et domaine.
      * @param query Terme de recherche pour filtrer par compétence ou domaine
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -346,9 +347,9 @@ export class CandidatsService {
     }
 
     /**
-     * 
-     * 
-     * @param body 
+     *
+     *
+     * @param body
      * @param id A unique integer value identifying this candidat.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

@@ -24,12 +24,13 @@ import { InlineResponse200 } from '../model/inlineResponse200';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import {environment} from "../../../../environments/environment";
 
 
 @Injectable()
 export class AuthService {
 
-    protected basePath = 'http://127.0.0.1:8006/api';
+    protected basePath = environment.baseURL;
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -59,9 +60,9 @@ export class AuthService {
 
 
     /**
-     * 
+     *
      * Connexion d&#x27;un utilisateur ou d&#x27;une entreprise
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -111,9 +112,9 @@ export class AuthService {
     }
 
     /**
-     * 
+     *
      * Déconnexion d&#x27;un utilisateur
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -162,7 +163,7 @@ export class AuthService {
     }
 
     /**
-     * 
+     *
      * Récupérer le profil de l&#x27;utilisateur connecté
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -203,9 +204,9 @@ export class AuthService {
     }
 
     /**
-     * 
+     *
      * Inscription d&#x27;un nouvel utilisateur
-     * @param body 
+     * @param body
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
