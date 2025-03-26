@@ -12,6 +12,9 @@ export class routes {
   public static get employer(): string {
     return this.baseUrl + '/employer';
   }
+  public static get company(): string {
+    return this.baseUrl + '/company';
+  }
   public static get pages(): string {
     return this.baseUrl + '/pages';
   }
@@ -129,6 +132,9 @@ export class routes {
   }
   public static get freelancer_profiles_settings(): string {
     return this.freelance + '/profile-settings';
+  }
+  public static get freelancer_tasks(): string {
+    return this.freelance + '/reviews';
   }
   public static get page_about(): string {
     return this.pages + '/about';
@@ -413,7 +419,7 @@ export class routes {
     return this.pages + '/privacy-policy';
   }
   public static get faq(): string {
-    return this.pages + '/faq';
+    return '/pages/faq';
   }
   public static get milestonefiles(): string {
     return this.employer + '/milestones/files';
@@ -442,6 +448,22 @@ export class routes {
 
   public static get formationDetail(): string {
     return '/pages/formation-detail';
+  }
+
+
+
+        /*for company*/
+
+  public static get company_dashboard(): string {
+    return this.company + '/company_dashboards';
+  }
+
+  public static get company_profiles(): string {
+    return this.company + '/company_profile';
+  }
+
+  public static get companyProjects(): string {
+    return this.company + '/company-projects';
   }
 
 

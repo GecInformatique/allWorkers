@@ -13,6 +13,16 @@ export class AppComponent {
   constructor(
     private translate: TranslateService,
   ) {
+
+    // Vérifie s'il y a une langue stockée dans le localStorage
+    const savedLanguage = localStorage.getItem('langue');
+
+    // Si une langue est trouvée, l'utiliser, sinon utiliser la langue par défaut (par exemple 'en')
+    if (savedLanguage && this.languages.includes(savedLanguage)) {
+      this.translate.use(savedLanguage);
+    } else {
+      this.translate.use('fr');  // Langue par défaut
+    }
   }
 
   switchLanguage(language: string) {

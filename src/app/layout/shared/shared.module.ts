@@ -49,6 +49,11 @@ import {TreeSelectModule} from "primeng/treeselect";
 import {DropdownModule} from "primeng/dropdown";
 import {RatingComponent} from "../component/app-rating/app-rating.component";
 import {PaginationComponent} from "../component/app-pagination/app-pagination.component";
+import {PasswordModule} from "primeng/password";
+import {DialogModule} from "primeng/dialog";
+import {ButtonModule} from "primeng/button";
+import {InputTextModule} from "primeng/inputtext";
+import {ToastModule} from "primeng/toast";
 
 
 
@@ -141,7 +146,10 @@ import {PaginationComponent} from "../component/app-pagination/app-pagination.co
     TreeSelectModule,
     DropdownModule,
     RatingComponent,
-    PaginationComponent
+    PaginationComponent,
+    PasswordModule,
+    ToastModule,
+    DialogModule, ButtonModule, InputTextModule
 
   ],
   providers: [

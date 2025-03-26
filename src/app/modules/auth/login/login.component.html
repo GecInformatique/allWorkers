@@ -13,6 +13,9 @@
 
             </div>
             <form (ngSubmit)="login()">
+              <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
               <div class="input-block">
                 <label for="email" class="focus-label">{{'EMAIL'|translate}}<span class="label-star"> *</span></label>
                 <input type="text" id="email" class="form-control floating" [(ngModel)]="email" name="email" >
@@ -45,10 +48,10 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-8 dont-have d-flex  align-items-center">Candidate <a [routerLink] = "routes.register" class="ms-2">{{'Signup'|translate}}</a></div>
-                <div class="col-sm-4 text-sm-end">
+                <div class="col-sm-6 dont-have d-flex  align-items-center">Candidate <a [routerLink] = "routes.register" class="ms-2">{{'Signup'|translate}}</a></div>
+                <div class="col-sm-6 text-sm-end">
 
-                  <a class="forgot-link" [routerLink] = "routes.forgot_password">{{'Lost_Password'|translate}}?</a>
+                  <a class="forgot-link" [routerLink] = "routes.forgot_password">{{'Lost_Password'|translate}}</a>
 
                   <i class="feather icon-arrow-right ms-2"></i>
                 </div>

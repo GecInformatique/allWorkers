@@ -1341,17 +1341,17 @@ export class ShareDataService {
     {
       title: 'Dashboard',
       icon: 'assets/img/icon/sidebar-icon-01.svg',
-      routes: routes.admin_dashboard,
+      routes: routes.freelancer_dashboard,
       page: 'dashboards',
       hasSubRoute: false,
     },
-   /* {
+  {
       title: 'Domain',
       icon: 'assets/img/icon/sidebar-icon-01.svg',
       routes: routes.admin_domain,
       page: 'domain',
       hasSubRoute: false,
-    },*/
+    },
     {
       title: 'Projects',
       icon: 'assets/img/icon/sidebar-icon-02.svg',
@@ -1384,7 +1384,7 @@ export class ShareDataService {
         },
       ],
     },
-    {
+  /*  {
       title: 'Favourites',
       icon: 'assets/img/icon/sidebar-icon-03.svg',
       hasSubRoute: true,
@@ -1403,19 +1403,26 @@ export class ShareDataService {
         },
       ],
     },
-    {
+  {
       title: 'Reviews',
       hasSubRoute: false,
       icon: 'assets/img/icon/sidebar-icon-04.svg',
       routes: routes.freelancer_review,
       page: 'reviews',
-    },
+    },*/
     {
-      title: 'Portfolio',
+      title: 'Profile',
       hasSubRoute: false,
       icon: 'assets/img/icon/sidebar-icon-05.svg',
-      routes: routes.freelancer_portfolio,
+      routes: routes.freelancer_profiles_settings,
       page: 'portfolio',
+    },
+    {
+      title: 'Mes taches',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-05.svg',
+      routes: routes.freelancer_tasks,
+      page: 'taches',
     },
     /*{
       title: 'Chat',
@@ -1437,7 +1444,7 @@ export class ShareDataService {
       icon: 'assets/img/icon/sidebar-icon-08.svg',
       routes: routes.freelancer_payout,
       page: 'payout',
-    },*/
+    },
 
     {
       title: 'Statement',
@@ -1476,15 +1483,177 @@ export class ShareDataService {
           routes: routes.freelancer_change_passwords,
           page: 'change-password',
         },
-       /* {
+        {
           title: 'Delete Account',
           routes: routes.freelancer_delete_account,
           page: 'delete-account',
-        },*/
+        },
       ],
+    },*/
+    {
+      title: 'Se déconnecter',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-11.svg',
+      routes: routes.home,
+    },
+  ];
+  public company_sidebar : FreelancerSidebarItem[] = [
+    {
+      title: 'Dashboard',
+      icon: 'assets/img/icon/sidebar-icon-01.svg',
+      routes: routes.company_dashboard,
+      page: 'dashboards',
+      hasSubRoute: false,
     },
     {
-      title: 'Logout',
+      title: 'Mes projet',
+      icon: 'assets/img/icon/sidebar-icon-02.svg',
+      routes: 'javascript:void(0);',
+      hasSubRoute: true,
+      page1: 'project-proposals',
+      page2: 'company-projects',
+      page3: 'completed-projects',
+      page4: 'cancelled-projects',
+      submenu: [
+
+        {
+          title: 'Mes projets',
+          routes: routes.companyProjects,
+          page: 'company-projects',
+        },
+        {
+          title: 'My Proposal',
+          routes: routes.freelancer_projects_proposals,
+          page: 'project-proposals',
+        },
+        {
+          title: 'Completed Projects',
+          routes: routes.completedProjects,
+          page: 'completed-projects',
+        },
+        {
+          title: 'Cancelled Projects',
+          routes: routes.cancelledProjects,
+          page: 'cancelled-projects',
+        },
+      ],
+    },
+   /* {
+      title: 'Domain',
+      icon: 'assets/img/icon/sidebar-icon-01.svg',
+      routes: routes.admin_domain,
+      page: 'domain',
+      hasSubRoute: false,
+    },
+
+  /*  {
+      title: 'Favourites',
+      icon: 'assets/img/icon/sidebar-icon-03.svg',
+      hasSubRoute: true,
+      page1: 'favourites',
+      page2: 'invitations',
+      submenu: [
+        {
+          title: 'Bookmarked Projects',
+          routes: routes.freelancer_favourite,
+          page: 'favourites',
+        },
+        {
+          title: 'Invitations',
+          routes: routes.freelancer_invitations,
+          page: 'invitations',
+        },
+      ],
+    },
+  {
+      title: 'Reviews',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-04.svg',
+      routes: routes.freelancer_review,
+      page: 'reviews',
+    },*/
+    {
+      title: 'Profile',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-05.svg',
+      routes: routes.company_profiles,
+      page: 'portfolio',
+    },
+    {
+      title: 'Mes taches',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-05.svg',
+      routes: routes.freelancer_tasks,
+      page: 'taches',
+    },
+    /*{
+      title: 'Chat',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-06.svg',
+      routes: routes.freelancer_message,
+      page: 'chats',
+    },
+    {
+      title: 'Payments',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-07.svg',
+      routes: routes.freelancer_withdraw_money,
+      page: 'withdraw-money',
+    },
+    {
+      title: 'Payout',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-08.svg',
+      routes: routes.freelancer_payout,
+      page: 'payout',
+    },
+
+    {
+      title: 'Statement',
+      hasSubRoute: false,
+      icon: 'assets/img/icon/sidebar-icon-09.svg',
+      routes: routes.freelancer_statement,
+      page: 'statement',
+    },
+    {
+      title: 'Settings',
+      hasSubRoute: true,
+      icon: 'assets/img/icon/sidebar-icon-10.svg',
+      page1: 'profile-settings',
+      page2: 'membership',
+      page3: 'verify-identity',
+      page4: 'change-password',
+     // page5: 'delete-account',
+      submenu: [
+        {
+          title: 'My Profile ',
+          routes: routes.freelancer_profiles_settings,
+          page: 'profile-settings',
+        },
+        {
+          title: 'Plan & Billing',
+          routes: routes.freelancer_membership,
+          page: 'membership',
+        },
+        {
+          title: 'Verify Identity',
+          routes: routes.freelancer_verify_identity,
+          page: 'verify-identity',
+        },
+        {
+          title: 'Changes Password',
+          routes: routes.freelancer_change_passwords,
+          page: 'change-password',
+        },
+        {
+          title: 'Delete Account',
+          routes: routes.freelancer_delete_account,
+          page: 'delete-account',
+        },
+      ],
+    },*/
+    {
+      title: 'Se déconnecter',
       hasSubRoute: false,
       icon: 'assets/img/icon/sidebar-icon-11.svg',
       routes: routes.home,

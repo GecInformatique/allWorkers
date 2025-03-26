@@ -10,7 +10,11 @@ import {
   QuestionService, Testimonial, TestimonialService
 } from "../../../core/libs/scripts/libs/all-workers-api";
 import { routes } from 'src/app/core/helpers/routes/routes';
-
+import cities from "../../../../assets/json/cities.json";
+import testimonial from 'src/assets/json/testimonial.json';
+ import faq from 'src/assets/json/faq.json';
+ import domaine from 'src/assets/json/domaines.json';
+ import formations from 'src/assets/json/formations.json';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +23,9 @@ import { routes } from 'src/app/core/helpers/routes/routes';
 })
 export class HomeComponent implements OnInit {
   public routes = routes;
-  domainActivity : DomainActivity[] =[];
+  public isModalOpen: boolean = false;
+  public currentUser: any;
+  domainActivity : any[] =[];
   candidates : any[] =[];
   userConnected : Candidate | any;
   questions : Question[] =[];
@@ -181,13 +187,14 @@ export class HomeComponent implements OnInit {
       duration: 1200,
       once: true,
     });
-    this.getAllDomainActivity();
-    this.getQuestionList()
+    //this.getAllDomainActivity();
+    //this.getQuestionList()
     this.getFormationList()
     this.getAllCandidate()
-    this.getAllTestimonial()
-
-
+    //this.getAllTestimonial()
+    this.testimonials=(testimonial.temoignages);
+    this.questions = faq.Questions;
+    this.domainActivity= domaine.domaines;
   }
   search() {
     if (this.selected === 'projects') {
@@ -297,13 +304,14 @@ export class HomeComponent implements OnInit {
     )
   }
   getFormationList() {
-    this.formationService.getFormationList().subscribe(
+   this.formations = formations.formation;
+    /* this.formationService.getFormationList().subscribe(
       (response: any )=> {
         this.formations = response.data;
         console.log(this.formations)
       },
       error => console.error('GET error:', error)
-    )
+    ) */
   }
 
   getQuestionList() {
@@ -335,4 +343,18 @@ export class HomeComponent implements OnInit {
       error => console.error('GET error:', error)
     )
   }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
+
+  openModal(): void {
+    if(this.currentUser){
+      this.isModalOpen = true;
+    }
+    this.router.navigate(['/auth/login']);
+    
+  }
+
+  
 }

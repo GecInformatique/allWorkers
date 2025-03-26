@@ -6,11 +6,15 @@
 
 export const environment = {
   production: false,
+  baseURL: "http://127.0.0.1:8000/api",
 
-  baseURL: "http://192.168.1.175:8000/api/v1",
+  //baseURL: "http://192.168.1.167:8000/api/",
+ ///// baseURL: "https://ealesroger.pythonanywhere.com/api/",
+
  // baseURL: "https://api.all-worker.com/api/v1",
 
-  apiURL: "https://api.all-worker.com/api",
+
+  apiURL: "http://api.all-worker.com/api",
 
   appUrl: "https://all-worker.com/",
 

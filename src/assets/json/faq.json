@@ -1,0 +1,34 @@
+{
+  "Questions": [
+    {
+      "id": 1,
+      "title": "Comment m'inscrire sur All-Workers ?",
+      "answers": "Pour vous inscrire, rendez-vous sur la page d'accueil de All-Workers et cliquez sur le bouton \"S'inscrire\". Vous pouvez vous inscrire en utilisant votre adresse e-mail ou via un compte de réseau social. Suivez les instructions pour compléter votre profil et commencer à explorer les offres d'emploi ou à proposer vos services."
+
+    },
+    {
+      "id": 2,
+      "title": "Comment puis-je trouver un freelance ou un employeur ?",
+      "answers": "Utilisez la barre de recherche ou naviguez dans les catégories pour trouver des freelances ou des employeurs qui correspondent à vos besoins. Vous pouvez filtrer les résultats par compétence, expérience, budget, et plus encore. Une fois que vous avez trouvé un profil qui vous intéresse, vous pouvez le contacter directement via la plateforme"
+
+    },
+    {
+      "id": 3,
+      "title": "Comment fonctionne le paiement sur la plateforme ?",
+      "answers": "Les paiements sur All-Workers sont sécurisés et peuvent être effectués via diverses méthodes, y compris les cartes de crédit, PayPal, ou des virements bancaires. Les fonds sont retenus par la plateforme jusqu'à ce que le travail soit terminé et approuvé par l'employeur, garantissant ainsi la sécurité des deux parties."
+
+    },
+    {
+      "id": 4,
+      "title": "Comment puis-je évaluer un freelance ou un employeur après un projet ?",
+      "answers": "Après la fin d'un projet, vous serez invité à laisser une évaluation et un commentaire. Cette évaluation aidera les autres utilisateurs à mieux comprendre la qualité des services ou de la collaboration. Les évaluations sont basées sur plusieurs critères tels que la communication, la qualité du travail, et le respect des délais."
+
+    },
+    {
+      "id": 5,
+      "title": "Que faire si j'ai un problème avec un projet ou un paiement ?",
+      "answers": "Si vous rencontrez un problème avec un projet ou un paiement, vous pouvez contacter notre support client via la section \"Aide\" de la plateforme. Nous avons une équipe dédiée qui vous aidera à résoudre les litiges ou à répondre à vos questions. Vous pouvez également consulter nos termes et conditions pour plus de détails sur les résolutions de conflits."
+
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+
+"specialites": [
+  {
+    "id": 1,
+    "name": "Agriculture Biologique",
+    "description": "Pratiques agricoles respectueuses de l'environnement.",
+     "domaine_id": "1"
+  },
+  {
+    "id": 2,
+    "name": "Agroécologie",
+    "description": "Étude des interactions entre les organismes vivants et leur environnement agricole.",
+     "domaine_id": "1"
+  },
+  {
+    "id": 3,
+    "name": "Gestion des ressources naturelles",
+    "description": "Gestion durable des ressources naturelles dans les systèmes agricoles.",
+     "domaine_id": "1"
+  },
+  {
+    "id": 4,
+    "name": "Zootechnie",
+    "description": "Étude de l'élevage et de la gestion des animaux de ferme.",
+     "domaine_id": "1"
+  },
+  {
+    "id": 5,
+    "name": "Agroforesterie",
+    "description": "Intégration des arbres dans les systèmes agricoles pour améliorer la productivité.",
+     "domaine_id": "1"
+  },
+  {
+    "id": 6,
+    "name": "Production végétale",
+    "description": "Optimisation de la culture des plantes pour l'alimentation et autres usages.",
+     "domaine_id": "1"
+  },
+
+  {
+    "id": 7,
+    "name": "Commerce International",
+    "description": "Étude des échanges commerciaux entre différents pays et régions.",
+     "domaine_id": "2"
+  },
+  {
+    "id": 8,
+    "name": "Marketing",
+    "description": "Stratégies de promotion, de distribution et de vente des produits ou services.",
+     "domaine_id": "2"
+  },
+  {
+    "id": 9,
+    "name": "Gestion des Entreprises",
+    "description": "Management et administration des entreprises pour optimiser leur performance.",
+     "domaine_id": "2"
+  },
+  {
+    "id": 10,
+    "name": "E-commerce",
+    "description": "Vente et achat de biens et services en ligne via des plateformes numériques.",
+     "domaine_id": "2"
+  },
+  {
+    "id": 11,
+    "name": "Logistique et Supply Chain Management",
+    "description": "Gestion de l'ensemble des processus logistiques, de l'approvisionnement à la distribution.",
+     "domaine_id": "2"
+  },
+  {
+    "id": 12,
+    "name": "Entrepreneuriat",
+    "description": "Création et gestion de nouvelles entreprises et projets innovants.",
+     "domaine_id": "2"
+  },
+
+  {
+    "id": 13,
+    "name": "Patrimoine Culturel",
+    "description": "Étude et préservation des monuments, traditions et objets culturels.",
+     "domaine_id": "3"
+  },
+  {
+    "id": 14,
+    "name": "Médiation Culturelle",
+    "description": "Facilitation de l'accès à la culture par divers moyens de communication et d'éducation.",
+     "domaine_id": "3"
+  },
+  {
+    "id": 15,
+    "name": "Gestion des Institutions Culturelles",
+    "description": "Management et administration des musées, théâtres, et autres institutions culturelles.",
+     "domaine_id": "3"
+  },
+  {
+    "id": 16,
+    "name": "Production Artistique",
+    "description": "Création et organisation de projets artistiques tels que les spectacles et expositions.",
+     "domaine_id": "3"
+  },
+  {
+    "id": 17,
+    "name": "Industries Créatives",
+    "description": "Développement d'activités liées à la création et à l'innovation, comme la mode, le design ou l'audiovisuel.",
+     "domaine_id": "3"
+  },
+  {
+    "id": 18  ,
+    "name": "Études Cinématographiques",
+    "description": "Analyse et production des films et de l'industrie du cinéma.",
+     "domaine_id": "3"
+  },
+  {
+    "id": 19,
+    "name": "Énergies Renouvelables",
+    "description": "Étude et exploitation des sources d'énergie renouvelables telles que l'éolien, le solaire, et l'hydroélectricité.",
+     "domaine_id": "4"
+  },
+  {
+    "id": 20,
+    "name": "Ingénierie Énergétique",
+    "description": "Conception et optimisation des systèmes de production et de distribution d'énergie.",
+     "domaine_id": "4"
+  },
+  {
+    "id": 21,
+    "name": "Efficacité Énergétique",
+    "description": "Techniques et stratégies pour réduire la consommation énergétique tout en maximisant la production.",
+     "domaine_id": "4"
+  },
+  {
+    "id": 22,
+    "name": "Gestion de l'Énergie",
+    "description": "Gestion optimale des ressources énergétiques dans les secteurs résidentiel, industriel et commercial.",
+     "domaine_id": "4"
+  },
+  {
+    "id": 23,
+    "name": "Énergie Nucléaire",
+    "description": "Étude de la production d'énergie à partir des réactions nucléaires et gestion des centrales nucléaires.",
+     "domaine_id": "4"
+  },
+  {
+    "id": 24,
+    "name": "Stockage d'Énergie",
+    "description": "Développement de solutions pour stocker efficacement l'énergie, telles que les batteries et le stockage thermique.",
+     "domaine_id": "4"
+  }
+
+
+
+  
+]
+}

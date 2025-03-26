@@ -13,9 +13,8 @@ import {AuthInterceptor} from "./core/data/network/config/auth-interceptor";
 import {AppRoutingModule} from "./router/app-routing.module";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import { DomainActivityService } from './core/libs/scripts/libs/all-workers-api/api/domainActivity.service';
 import {
-  AuthService,
+
   CandidateService,
   CompetenceService,
   ProfessionService,
@@ -23,9 +22,15 @@ import {
   TestimonialService
 } from "./core/libs/scripts/libs/all-workers-api";
 import {SharedModule} from "./layout/shared/shared.module";
-import {RatingComponent} from "./layout/component/app-rating/app-rating.component";
-import {PaginationComponent} from "./layout/component/app-pagination/app-pagination.component";
 import {MessageService} from "primeng/api";
+import {
+  AuthService,
+  CandidatsService,
+  EducationsService,
+  EntreprisesService,
+  ExperiencesService, ProjetsService
+} from "./core/allworker_api";
+
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -53,15 +58,20 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     LocalTokenService,
     AuthGuardService,
     NonAuthGuardService,
-    DomainActivityService,
     CandidateService,
     CompetenceService,
     SpecialismService,
     ProfessionService,
     TestimonialService,
-    AuthService,
+   // AuthService,
     DatePipe,
     MessageService,
+    AuthService,
+    EducationsService,
+    EntreprisesService,
+    CandidatsService,
+    ExperiencesService,
+    ProjetsService,
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

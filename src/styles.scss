@@ -814,3 +814,15 @@ app-chats .avatar > img {
 .right-sidebar {
   width: 279px;
 }
+.p-fluid .p-inputtext {
+  width: 100%;
+  height: 40px !important;
+}
+.p-password {
+  height: 40px !important;
+  width: 100%;
+}
+.p-input-icon-right > .p-inputtext {
+  padding-right: 2.5rem;
+  width: 100% !important;
+}

@@ -1,0 +1,150 @@
+<div class="pro-pos">
+  <div class="setting-content">
+
+      <div class="card">
+        <div class="pro-head">
+          <h3>{{'Myprofil'|translate}}</h3>
+        </div>
+        <div class="pro-body">
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-row pro-pad pt-0 ps-0">
+                <div class="input-block col-md-6 pro-pic">
+                  <label class="form-label">{{'Profile_Picture'|translate}}</label>
+                  <div class="d-flex align-items-center">
+                    <div class="upload-images freelancer-pic-box">
+                      <img alt="{{'Profile_Picture'|translate}}" [src]="currentUser?.photo"  class="avatar-lg " style="width:100%;height:100%">
+                    </div>
+                    <div class="ms-3 freelancer-pic-upload">
+                      <label class="file-upload image-upbtn"> {{'Upload_Image'|translate}} <input type="file" id="imgInp"> </label>
+                      <p>{{'Max_Image_size_300*300'|translate}}</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+                <ng-template pTemplate="header" class="tab" >
+                  <i class="pi pi-plus-circle m-2"></i>
+                  <span >{{'Personal_information'|translate}}</span>
+                </ng-template>
+                <form [formGroup]="companyForm">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="mb-3">
+                        <label for="nom" class="form-label">{{'NAME'|translate}}</label>
+                        <input type="text" id="nom" class="form-control" formControlName="nom">
+                      </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <label for="telephone" class="form-label">{{'PHONE_NUMBER'|translate}}</label>
+                        <input type="text" id="telephone" class="form-control" formControlName="telephone" name="telephone">
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <label for="email" class="form-label">{{'EMAIL'|translate}}</label>
+                        <input type="text" id="email" class="form-control" formControlName="email" name="email">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <label for="country" class="form-label">{{'COUNTRY'|translate}}</label>
+                        <input type="text" id="country" class="form-control" formControlName="country">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <label for="city" class="form-label">{{'CITY'|translate}}</label>
+                        <input type="text" id="city" class="form-control" formControlName="city">
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <label for="address" class="form-label">{{'COMPLETE_ADDRESS'|translate}}</label>
+                        <input type="text" id="address" class="form-control" formControlName="adresse">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <label for="niu" class="form-label">NIU</label>
+                        <input type="text" id="niu" class="form-control" formControlName="nui">
+                      </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <label for="website" class="form-label">{{'SITE_WEB'|translate}}</label>
+                        <input type="text" id="website" class="form-control" formControlName="site_web">
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <div class="input-block">
+                          <label class="form-label">{{'Secteur activite'|translate}}<span class="required text-danger">*</span></label>
+                          <span class="p-fluid">
+                            <p-dropdown class="w-full md:w-20rem" containerStyleClass="w-full"
+                                        [options]="domainActivity" id="secteur_activite" formControlName="secteur_activite"
+                                        optionLabel="name"  [showClear]="true">
+                          </p-dropdown>
+                          </span>
+                          <div *ngIf="companyForm.controls['secteur_activite']?.invalid && (companyForm.controls['secteur_activite']?.dirty || companyForm.controls['secteur_activite']?.touched)" class="mb-2">
+                            <small *ngIf="companyForm.controls['secteur_activite']?.errors?.['required']" class="p-error"> Secteur d'activité obligatoire.</small>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                      <div class="mb-3">
+                        <div class="input-block">
+                          <label for="typeEntreprise" class="form-label">{{ 'type_entreprise' | translate }}<span class="required text-danger">*</span></label>
+                          <select class="form-select" formControlName="type_entreprise" id="typeEntreprise">
+                            <option></option>
+                            <option *ngFor="let data of categories" [value]="data.name">{{ data.name }}</option>
+                          </select>
+
+                          <div *ngIf="companyForm.controls['type_entreprise']?.invalid && (companyForm.controls['type_entreprise']?.dirty || companyForm.controls['type_entreprise']?.touched)" class="mb-2">
+                            <small *ngIf=" companyForm.controls['type_entreprise']?.errors?.['required']" class="p-error">Categorie obligatoire</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="pro-head">
+                        <h4 class="pro-titles mb-0">{{'Presentation'|translate}}</h4>
+                      </div>
+                      <div class="pro-body">
+                        <div class="row">
+                          <div class="input-block col-md-12">
+                            <textarea class="form-control" rows="5" formControlName="description"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="card text-end border-0">
+                      <div class="pro-body">
+                        <button class="btn btn-primary click-btn btn-plan" type="button"
+                                (click)="updateCompanyProfile()" (keydown.enter)="updateCompanyProfile()" tabindex="0">{{'Update'|translate}}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

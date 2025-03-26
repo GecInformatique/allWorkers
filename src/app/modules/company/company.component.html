@@ -1,0 +1,29 @@
+
+@if (company === true) {
+  <!-- Page Content -->
+  <div class="content content-page"
+    [ngClass]="{'portfolio-page': page === 'portfolio', 'bookmark': last === 'withdraw-money' }">
+    <div class="container">
+      <div class="row">
+        <!-- sidebar -->
+        <div class="col-xl-3 col-lg-4 theiaStickySidebar">
+          <div class="stickybar">
+            <app-sidemenuCompany></app-sidemenuCompany>
+          </div>
+        </div>
+        <!-- /sidebar -->
+        <!-- <div class="col-xl-9 col-md-8"
+        *ngIf="page !== 'reviews' && page !== 'portfolio' && page !== 'statement'">
+        <router-outlet></router-outlet>
+      </div> -->
+      <div class="col-xl-9 col-lg-8">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Page Content -->
+}
+@if (company === false) {
+  <router-outlet></router-outlet>
+}

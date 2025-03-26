@@ -7,6 +7,7 @@ import {HeaderComponent} from "../layout/header/header.component";
 import {FooterComponent} from "../layout/footer/footer.component";
 import {LoaderComponent} from "../layout/loader/loader.component";
 import {TranslateModule} from "@ngx-translate/core";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import {TranslateModule} from "@ngx-translate/core";
         CommonModule,
         FeaturesModulesRoutingModule,
         TranslateModule,
+      FormsModule,  // Importer FormsModule ici
+
     ],
 
     exports: [

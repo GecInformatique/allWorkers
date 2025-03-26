@@ -1,0 +1,12 @@
+{
+  "domaines":[
+  { "id": "1", "name": "Agriculture", "icon": "assets/icons/icons/agriculture.png" },
+  { "id": "2", "name": "Commerce", "icon": "assets/icons/icons/commerce.png" },
+  { "id": "3", "name": "Culture", "icon": "assets/icons/icons/culture.png" },
+  { "id": "4", "name": "Energy", "icon": "assets/icons/icons/energy.png" },
+  { "id": "5", "name": "Information & Technologie", "icon": "assets/icons/icons/information-technology.png" },
+  { "id": "6", "name": "Infrastructure", "icon": "assets/icons/icons/infrastructure.png" },
+  { "id": "7", "name": "Medecine", "icon": "assets/icons/icons/medicine.png" },
+  { "id": "8", "name": "Transports & logistique", "icon": "assets/icons/icons/transport_logistic.png" }
+]
+}

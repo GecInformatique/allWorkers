@@ -11,8 +11,6 @@ import {RegisterComponent} from "./register/register.component";
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import {
   CompetenceService,
-  DomainActivityService,
-  EducationService,
   ProfessionService,
   SpecialismService
 } from "../../core/libs/scripts/libs/all-workers-api";

@@ -81,7 +81,7 @@
         <span class="user-img">
           <img [src]="currentUser?.data?.picture" alt="Img">
         </span>
-              <span>{{ currentUser?.data?.full_name }}</span>
+              <span>{{ currentUser?.prenom }}</span>
             </a>
             <div class="dropdown-menu emp">
               <div class="drop-head">
@@ -110,10 +110,11 @@
 
         <li>
           <div class="language-selector">
-            <img style="width:20px; height: 20px" [src]="flagImage" alt="Flag">
-            <select (change)="changeLanguage($event)" style="border: none;">
-              <option value="fr">Fr</option>
-              <option value="en">En</option>
+            <img style="width: 20px; height: 20px;" [src]="flagImage" alt="Flag">
+            <select (change)="changeLanguage($event)" [(ngModel)]="langCode" style="border: none;">
+              <option *ngFor="let language of languageList" [value]="language.code">
+                {{ language.label }}
+              </option>
             </select>
           </div>
         </li>

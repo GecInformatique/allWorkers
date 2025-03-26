@@ -19,26 +19,22 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-})
- export class HeaderComponent {
+})export class HeaderComponent {
   public routes = routes;
   public searchIcon = false;
-  flagImage = 'assets/img/flags/fr.png';
-  menuElement!: ElementRef;
-  navbar: Array<header> = [];
-  sticky = false;
-  elementPosition!: string;
-  base = '';
-  page = '';
-  last = '';
-  langCode!: any;
-  siteLanguage = 'English';
-  languageList = [
-    { code: 'en', label: 'English' },
-    { code: 'fr', label: 'French' },
+  public flagImage = 'assets/img/flags/fr.png';
+  public navbar: Array<header> = [];
+  public sticky = false;
+  public base = '';
+  public page = '';
+  public last = '';
+  public langCode!: string;
+  public siteLanguage = 'En';
+  public languageList = [
+    { code: 'en', label: 'En' },
+    { code: 'fr', label: 'Fr' },
   ];
   public isModalOpen: boolean = false;
-
   public currentUser: any;
 
   constructor(
@@ -47,33 +43,57 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
     private common: CommonService,
     private router: Router,
     private translate: TranslateService,
-     public authService: LocalAuthService,
+    public authService: LocalAuthService,
     private tokenService: LocalTokenService,
   ) {
-    this.common.base.subscribe((res: string) => {
-      this.base = res;
-    });
-    this.common.page.subscribe((res: string) => {
-      this.page = res;
-    });
-    this.common.last.subscribe((res: string) => {
-      this.last = res;
-    });
+    this.common.base.subscribe((res: string) => this.base = res);
+    this.common.page.subscribe((res: string) => this.page = res);
+    this.common.last.subscribe((res: string) => this.last = res);
     this.navbar = this.data.sideBar;
 
     this.translate.addLangs(['en', 'fr']);
+
+    // Récupérer la langue stockée ou définir 'fr' par défaut
     const storedLanguage = localStorage.getItem('user-language') || 'fr';
     this.translate.setDefaultLang(storedLanguage);
     this.changeSiteLanguage(storedLanguage);
+    this.updateFlagImage(storedLanguage);
   }
 
-  public toggleSidebar(): void {
-    this.navservices.openSidebar();
-  }
-  public hideSidebar(): void {
-    this.navservices.closeSidebar();
+  ngOnInit(): void {
+    // Récupérer la langue stockée ou définir 'fr' par défaut
+    const storedLanguage = localStorage.getItem('user-language') || 'fr';
+    this.langCode = storedLanguage;
+    this.translate.setDefaultLang(storedLanguage);
+    this.translate.use(storedLanguage);
+    this.updateFlagImage(storedLanguage);
+
+    // Si nécessaire, récupère l'utilisateur actuel
+    this.currentUser = this.authService.getCurrentUser();
+    console.log(this.currentUser,'connecte')
   }
 
+  changeLanguage(event: any): void {
+    const selectedValue = event.target.value;
+    this.langCode = selectedValue;
+    this.translate.use(selectedValue);
+    localStorage.setItem('user-language', selectedValue);
+
+    // Mise à jour de l'image du drapeau après le changement de langue
+    this.updateFlagImage(selectedValue);
+  }
+
+  changeSiteLanguage(localeCode: string): void {
+    const selectedLanguage = this.languageList.find(language => language.code === localeCode);
+    if (selectedLanguage) {
+      this.siteLanguage = selectedLanguage.label;
+    }
+  }
+
+  updateFlagImage(languageCode: string): void {
+    // Change l'image du drapeau en fonction de la langue sélectionnée
+    this.flagImage = languageCode === 'fr' ? 'assets/img/flags/fr.png' : 'assets/img/flags/en.png';
+  }
   @HostListener('window:scroll', ['$event'])
   handleScroll() {
     const windowScroll = window.pageYOffset;
@@ -84,41 +104,12 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
     this.searchIcon = !this.searchIcon;
   }
 
-  ngOnInit(): void {
-
-    const storedLanguage = localStorage.getItem('user-language');
-    const initialLanguage = storedLanguage ? storedLanguage : 'fr';
-    this.langCode = initialLanguage;
-
-    this.changeSiteLanguage(initialLanguage);
-    this.currentUser = this.authService.getCurrentUser();
-    this.flagImage = storedLanguage === 'fr' ? 'assets/img/flags/fr.png' : 'assets/img/flags/en.png';
-    console.log(this.currentUser,'this.currentUser');
-     }
-
-  changeLanguage(event: any): void {
-    const selectedValue = event.target.value;
-
-    const selectedLanguage = this.languageList.find(language => language.code === selectedValue);
-
-    if (selectedLanguage) {
-      this.siteLanguage = selectedLanguage.label.toString();
-      this.translate.use(selectedValue);
-    }
-    localStorage.setItem('user-language', selectedValue);
-    console.log(localStorage, 'valeur en memoire ')
-    console.log(selectedValue, 'valeur')
-    this.flagImage = selectedValue === 'fr' ? 'assets/img/flags/fr.png' : 'assets/img/flags/en.png';
-    this.changeSiteLanguage(selectedValue);
+  toggleSidebar(): void {
+    this.navservices.openSidebar();
   }
 
-  changeSiteLanguage(localeCode: string): void {
-    const selectedLanguage = this.languageList.find(language => language.code === localeCode);
-
-    if (selectedLanguage) {
-      this.siteLanguage = selectedLanguage.label.toString();
-      this.translate.use(localeCode)
-      }
+  hideSidebar(): void {
+    this.navservices.closeSidebar();
   }
 
   trackByFn(index: number, item: any): number {
@@ -131,16 +122,19 @@ import {LocalAuthService} from "../../core/data/local/local.auth.service";
     this.router.navigate(['/home']);
   }
 
-  public closeModal(): void {
+  closeModal(): void {
     this.isModalOpen = false;
   }
 
-  public openModal(): void {
-    if(this.currentUser == null){
+  openModal(): void {
+    console.log(this.currentUser,'user connectec ')
+    if(this.currentUser !== null){
+      this.isModalOpen = true;
+    }else {
       this.router.navigate(['/auth/login']);
-    }
-    this.isModalOpen = true;
-  }
 
+    }
+
+  }
 }
 
