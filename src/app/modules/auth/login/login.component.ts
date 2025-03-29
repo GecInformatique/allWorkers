@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   public Toggledata = true;
   email !: string  ;
   password !: string  ;
+  isPasswordVisible: boolean = false;
   errorMessage !: string  ;
 
   public showProgressBar = false;
@@ -47,8 +48,8 @@ export class LoginComponent implements OnInit {
 
 
 
-  public togglePassword(index: number) {
-    // this.password[index] = !this.password[index];
+  public togglePassword() {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
   /*login() {

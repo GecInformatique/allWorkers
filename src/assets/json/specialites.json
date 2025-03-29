@@ -146,10 +146,239 @@
     "name": "Stockage d'Énergie",
     "description": "Développement de solutions pour stocker efficacement l'énergie, telles que les batteries et le stockage thermique.",
      "domaine_id": "4"
+  },
+
+  {
+    "id": 25,
+    "name": "Programmation",
+    "description": "",
+     "domaine_id": "5"
+  },
+  {
+    "id": 26,
+    "name": "Reseau et telecommunication",
+    "description": "",
+     "domaine_id": "5"
+  },
+  {
+    "id": 26,
+    "name": "Maintenance Informatique",
+    "description": "",
+     "domaine_id": "5"
+  },
+  {
+    "id": 27,
+    "name": "Marketing Digital" ,
+    "description": "",
+     "domaine_id": "5"
+  },
+  {
+    "id": 28,
+    "name": "Ingenieur en infrastructure",
+    "description": "",
+     "domaine_id": "6"
+  },
+  {
+    "id": 29,
+    "name": "Architecte",
+    "description": "",
+     "domaine_id": "6"
+  },
+  
+  {
+    "id": 30,
+    "name": "Maçon",
+    "description": "",
+     "domaine_id": "6"
+  },
+  
+  {
+    "id": 31,
+    "name": "Charpentier",
+    "description": "",
+     "domaine_id": "6"
+  },
+  
+  
+  {
+    "id": 32,
+    "name": "Plombier",
+    "description": "",
+     "domaine_id": "6"
+  },
+  {
+    "id": 33,
+    "name": "Electricien",
+    "description": "",
+     "domaine_id": "6"
+  },
+  {
+    "id": 34,
+    "name": "Peintre",
+    "description": "",
+     "domaine_id": "6"
+  },
+  {
+    "id": 35,
+    "name": "Journalisme",
+    "description": "",
+     "domaine_id": "6"
+  },
+  {
+    "id": 36,
+    "name": "Transport",
+    "description": "",
+     "domaine_id": "8"
+  },
+  {
+    "id": 37,
+    "name": "Logistique",
+    "description": "",
+     "domaine_id": "8"
+  },
+  {
+    "id": 38,
+    "name": "Technique",
+    "description": "",
+     "domaine_id": "8"
+  },
+  {
+    "id": 39,
+    "name": "Vente",
+    "description": "",
+     "domaine_id": "8"
+  },
+  {
+    "id": 40,
+    "name": "Anesthésie-Reanimation ",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 41,
+    "name": "Biologie Médicale",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 42,
+    "name": "Chirugie Pédiatrique",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 43,
+    "name": "Dermatologie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  
+  {
+    "id": 44,
+    "name": "Gynécologie Médicale",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 45,
+    "name": "Gynécologie Obstétrique",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 46,
+    "name": "Médecine cardiovasculaire",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 47,
+    "name": "Médecine d'urgence",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 48,
+    "name": "Médecine Générale",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 49,
+    "name": "Néphrologie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 50,
+    "name": "Neurochirugie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 51,
+    "name": "Neurologie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 52,
+    "name": "Oncologie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  
+  {
+    "id": 53,
+    "name": "Ophtalmologie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 54,
+    "name": "ORL",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 55,
+    "name": "Pédiatrie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 56,
+    "name": "Pneumologie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 57,
+    "name": "Psychiatrie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 58,
+    "name": "Radiologie et Imagérie Medicale",
+    "description": "",
+     "domaine_id": "7"
+  },
+  {
+    "id": 59,
+    "name": "Rhumatologie",
+    "description": "",
+     "domaine_id": "7"
+  },
+  
+  {
+    "id": 60,
+    "name": "Urologie",
+    "description": "",
+     "domaine_id": "7"
   }
-
-
-
+  
+  
   
 ]
 }

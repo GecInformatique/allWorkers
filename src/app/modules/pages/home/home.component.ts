@@ -187,7 +187,7 @@ export class HomeComponent implements OnInit {
       duration: 1200,
       once: true,
     });
-    //this.getAllDomainActivity();
+    this.getAllDomainActivity();
     //this.getQuestionList()
     this.getFormationList()
     this.getAllCandidate()

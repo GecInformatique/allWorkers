@@ -6,9 +6,9 @@
 
 export const environment = {
   production: false,
-  baseURL: "http://127.0.0.1:8000/api",
+  baseURL: "http://192.168.1.169:8000/api",
 
-  //baseURL: "http://192.168.1.167:8000/api/",
+  //baseURL: "http://localhost:8000/api/v1",
  ///// baseURL: "https://ealesroger.pythonanywhere.com/api/",
 
  // baseURL: "https://api.all-worker.com/api/v1",

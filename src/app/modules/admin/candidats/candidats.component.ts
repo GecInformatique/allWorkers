@@ -59,7 +59,7 @@ export class CandidatsComponent implements OnInit {
   constructor(
     private data: ShareDataService,
     private candidateService : CandidateService,
-    private domainActivityService: DomainActivityService,
+   // private domainActivityService: DomainActivityService,
     private specialismService: SpecialismService,
     private professionService: ProfessionService,
     private competenceService: CompetenceService,
@@ -266,13 +266,13 @@ export class CandidatsComponent implements OnInit {
 
 
   getAllDomainActivity() {
-    this.domainActivityService.getDomainActivityList().subscribe(
+   /* this.domainActivityService.getDomainActivityList().subscribe(
       (response: any )=> {
         this.domainActivity = response.data;
         console.log(this.domainActivity)
       },
       error => console.error('GET error:', error)
-    )
+    )*/
   }
 
   getProfessionList() {

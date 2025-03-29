@@ -323,8 +323,8 @@
                         <span class="p-fluid">
 
                              <p-treeSelect  class="w-full md:w-20rem" containerStyleClass="w-full"
-                                            formControlName="competence" [options]="filteredCompetence" [filter]=true id="competence"
-                                            display="chip" [metaKeySelection]="false"   selectionMode="checkbox" placeholder="Select Item">
+                                            formControlName="competence" [options]="competence" [filter]=true id="competence"
+                                            display="chip" [metaKeySelection]="false"  selectionMode="checkbox" placeholder="Select Item">
                               </p-treeSelect>
                             </span>
                         <div *ngIf="registerForm.controls['competence']?.invalid && (registerForm.controls['competence']?.dirty || registerForm.controls['competence']?.touched)" class="mb-2">

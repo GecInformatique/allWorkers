@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CandidatListRoutingModule } from './candidat-list-routing.module';
 import {CandidatListComponent} from "./candidat-list.component";
 import {
+  DomainActivityService,
   SpecialismService
 } from "../../../core/libs/scripts/libs/all-workers-api";
 import {SharedModule} from "../../../layout/shared/shared.module";
@@ -18,6 +19,6 @@ import {SharedModule} from "../../../layout/shared/shared.module";
     CandidatListRoutingModule,
     SharedModule
   ],
-  providers: [SpecialismService]
+  providers: [SpecialismService,DomainActivityService]
 })
 export class CandidatListModule { }

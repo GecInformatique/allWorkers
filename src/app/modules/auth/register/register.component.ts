@@ -112,9 +112,9 @@ public togglePassword(index: number) {
     this.initializeData();
     this.initializeForm();
     this.countries = countries.pays;
-    /* this.cities= cities.cities;
+    this.cities= cities.cities;
    this.competence = competences.competences;
-   this.professionList = professions.professions */
+   this.professionList = professions.professions
     this.loadDomainData();
     this.getSpecialismList();
     this.getCompetenceList()
@@ -328,7 +328,6 @@ public togglePassword(index: number) {
       this.filteredCompetence = this.competence.filter(
         comp=>comp.specialite_id === selectSpecialiteId
         )
-       
     }else{
       this.filteredCompetence;
     }
@@ -423,7 +422,7 @@ public togglePassword(index: number) {
       address: new FormControl<string>(""),
       domaine: new FormControl<number | null>(null, [Validators.required]),
       specialite: new FormControl<number | null>(null, [Validators.required]),
-      competence: new FormControl<number[] | null>([], [Validators.required]),
+      competence: new FormControl<number[]>([], [Validators.required]),
     });
   }
 
@@ -437,7 +436,7 @@ public togglePassword(index: number) {
     };
 
     const competenceName = Array.isArray(formValues.competence)
-      ? formValues.competence.map((item: any) => item.name).join(', ')
+      ? formValues.competence.map((item: any) => item.value).join(', ')
       : '';
 
     return {
@@ -451,8 +450,7 @@ public togglePassword(index: number) {
       password: getFieldValue('password'),
       address: getFieldValue('address'),
       domaine: extractName('domaine'),
-      country: formValues.countryName || null,
-      specialite: extractName('specialite'),
+      country: formValues.countryName || null,      specialite: extractName('specialite'),
       competence: competenceName,
       user_type: "candidat"
     };
@@ -497,6 +495,7 @@ public togglePassword(index: number) {
 
     // Vérifiez le format avant l'envoi
     if (this.isStepValid(this.stepIndex)) {
+
       const candidate = this.transformFormData();
       console.log('try to save',candidate)
       this.candidatsService.candidatsCreate(candidate).subscribe({

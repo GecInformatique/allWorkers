@@ -7,6 +7,7 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {TranslateModule} from "@ngx-translate/core";
 import {ToastModule} from "primeng/toast";
+import { AuthService } from 'src/app/core/libs/scripts/libs/all-workers-api';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {ToastModule} from "primeng/toast";
     TranslateModule,
     ToastModule,
   ],
+  providers: [AuthService]
 
 })
 export class AdminModule { }
